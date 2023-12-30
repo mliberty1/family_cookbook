@@ -40,7 +40,7 @@ TIMESTAMP = 1029198468
   1 package active dry yeast
   1 cup flour
   2 eggs
-  2/3 cups warm water (105° - 115°)
+  2/3 cups warm water (105Â° - 115Â°)
 [Ingredients.Cheese Filling]
   16 ounces cream cheese, softened (2 packages)
   2 eggs
@@ -55,7 +55,7 @@ TIMESTAMP = 1029198468
   1 Tablespoon corn syrup
   1 Tablespoon water
 [Instructions.00000000]
-  Grease a 9" x 13" baking pan.  Preheat to 350°.
+  Grease a 9" x 13" baking pan.  Preheat to 350Â°.
   In a large mixing bowl, combine 1 1/2 cups yellow cake mix with yeast, flour, eggs, and water.  Beat 2 minutes at medium speed.  Spread thick batter in greased baking pan.
   Blend together the ingredients for the cheese filling:  cream cheese, eggs, sugar, flour, and lemon juice.  Drop spoonfuls of cheese filling on top of the batter in the pan and spread to cover.
   Make topping by adding the 6 Tablespoons of margarine or butter to remaining yellow cake mix.  Mix until crumbly and sprinkle over cheese filling.
@@ -91,7 +91,7 @@ TIMESTAMP = 1029198468
 [Instructions.00000000]
   In mixing bowl, beat together eggs, milk, and 1/4 teaspoon salt with rotary beater.  Pour into attractive bowl.
   Cut French bread into about 50 bite-sized pieces, each with one crust.  Put into napkin-lined bread basket.
-  Pour salad oil into fondue pot to no more than 1/2 capacity or to depth of 2 inches.  Heat oil to 375°.  Add 1 teaspoon of salt to prevent spattering.
+  Pour salad oil into fondue pot to no more than 1/2 capacity or to depth of 2 inches.  Heat oil to 375Â°.  Add 1 teaspoon of salt to prevent spattering.
   Each guest follows this procedure: spear bread through crust with fondue fork; dip in egg mixture, letting excess drip off; fry in hot oil until golden brown.  Transfer to dinner fork.
   To make sauce, beat 1 egg white until stiff with electric beater.  Using unwashed beater, cream butter, sugar, syrup, and egg yolk.  Fold egg white into creamed mixture.  Pour into pretty serving dish, makes 2 cups.  Fluffy maple sauce may be stored in the refrigerator for up to 2 weeks.
 
@@ -115,7 +115,7 @@ TIMESTAMP = 1029198468
   12 slices bacon cooked and crumbled
   1 cup shredded cheddar cheese
 [Instructions.00000000]
-  In medium bowl, beat eggs.  Stir in milk, salt, and sugar.  In large skillet over medium heat, melt butter and pour in egg mixture.  Cook stirring occasionally until eggs are set but still moist.  Remove from heat to cool.  Stir in sour cream.  Spread evenly into buttered 2 quart shallow baking dish 12" x 7".  Top with bacon and cheese.  Cover with aluminum foil and refrigerate overnight.  Preheat oven to 300°.  Uncover and bake for 15-20 minutes or until hot and cheese has melted.  Refrigerate leftovers.
+  In medium bowl, beat eggs.  Stir in milk, salt, and sugar.  In large skillet over medium heat, melt butter and pour in egg mixture.  Cook stirring occasionally until eggs are set but still moist.  Remove from heat to cool.  Stir in sour cream.  Spread evenly into buttered 2 quart shallow baking dish 12" x 7".  Top with bacon and cheese.  Cover with aluminum foil and refrigerate overnight.  Preheat oven to 300Â°.  Uncover and bake for 15-20 minutes or until hot and cheese has melted.  Refrigerate leftovers.
 
 @
 NAME = Yum Yum Cake
@@ -143,7 +143,7 @@ TIMESTAMP = 1029198468
   1 teaspoon cinnamon
   1 cup walnuts
 [Instructions.00000000]
-  Cream butter until soft.  Mix in sugar and cream.  Add eggs and beat well.  Mix together flour, soda, baking powder, salt.  Add dry ingredients alternately with sour cream beginning and ending with flour mixture.  Stir in vanilla.  Pour half of batter into lightly greased tube pan.  Mix together ingredients for cinnamon-nut topping, and sprinkle half on top of batter.  Pour remaining batter into pan and sprinkle on remaining nut mixture.  Bake 325° for 40 minutes.
+  Cream butter until soft.  Mix in sugar and cream.  Add eggs and beat well.  Mix together flour, soda, baking powder, salt.  Add dry ingredients alternately with sour cream beginning and ending with flour mixture.  Stir in vanilla.  Pour half of batter into lightly greased tube pan.  Mix together ingredients for cinnamon-nut topping, and sprinkle half on top of batter.  Pour remaining batter into pan and sprinkle on remaining nut mixture.  Bake 325Â° for 40 minutes.
 [Comments.00000000]
   What would Christmas morning be without this coffee cake?  Sher started us on this recipe about 25 years ago.
   -1
@@ -173,7 +173,7 @@ TIMESTAMP = 1029198468
   1/2 cup sugar
   2 Tablespoon apple jelly
 [Instructions.00000000]
-  Spray tortillas with butter flavored cooking spray.  Sprinkle with cinnamon sugar mix.  Cut each tortilla into wedges and bake 5-7 min at 475°.
+  Spray tortillas with butter flavored cooking spray.  Sprinkle with cinnamon sugar mix.  Cut each tortilla into wedges and bake 5-7 min at 475Â°.
   Peel, core and chop apples.  Hull strawberries, hull and peel kiwi.  Slice strawberries and chop kiwis.  Combine prepared fruit with brown sugar, 1/2 cup sugar or to taste, and jelly.  Add additional orange juice if necessary.  You can save a great deal of time by putting everything in a food processor.  You want a nice chunky salsa, not fruit juice.  Serve with cinnamon chips.
 [Comments.00000000]
   Gma, Gpa, Sher, and Sue were out visiting Gary and Gretchen last April, and we picked this recipe up at the Omaha Home Show.
@@ -245,7 +245,7 @@ TIMESTAMP = 1029198468
   1 bunch of green onions, chopped
   0 To taste, Cheddar cheese, shredded (or Co-jack)
 [Instructions.00000000]
-  Spread the softened cream cheese in a 9" round pie plate or similar dish.  Then spread chili over this layer.  Next sprinkle on chopped onions, then shredded cheddar.  Bake at 350° for 20 minutes.  Serve with tortilla chips.
+  Spread the softened cream cheese in a 9" round pie plate or similar dish.  Then spread chili over this layer.  Next sprinkle on chopped onions, then shredded cheddar.  Bake at 350Â° for 20 minutes.  Serve with tortilla chips.
 
 @
 NAME = Reuben Appetizers
@@ -264,7 +264,7 @@ TIMESTAMP = 1029198468
   2 cups sharp cheddar, grated
   4 slices Swiss cheese
 [Instructions.00000000]
-  Mix all except Swiss cheese in bowl and then place in 8" square pan.  Top with sliced Swiss.  Bake at 350° for 20-23 minutes.  Serve with mini rye bread.
+  Mix all except Swiss cheese in bowl and then place in 8" square pan.  Top with sliced Swiss.  Bake at 350Â° for 20-23 minutes.  Serve with mini rye bread.
 
 @
 NAME = Spinach Bites with Lemon Mayonnaise
@@ -293,7 +293,7 @@ TIMESTAMP = 1029198468
   1 Dash of ground nutmeg
 [Instructions.00000000]
   Lightly grease baking sheets.  In a small bowl, mix spinach, stuffing mix, cheese, eggs, butter, or margarine, onion, and nutmeg until well blended.  Shape into balls using 1 teaspoon of the mixture for each ball; place on baking sheets.  Cover and refrigerate at least 4 hours or freeze until ready to bake.
-  Preheat oven to 350°.  Bake spinach bites for 10 to 15 minutes on greased sheet, or until bottoms are starting to brown.  In a small bowl, mix mayonnaise, lemon juice, sugar, mustard, and hot pepper sauce; blend until smooth.  Stir in sour cream.
+  Preheat oven to 350Â°.  Bake spinach bites for 10 to 15 minutes on greased sheet, or until bottoms are starting to brown.  In a small bowl, mix mayonnaise, lemon juice, sugar, mustard, and hot pepper sauce; blend until smooth.  Stir in sour cream.
   To serve, spear warm spinach bites with wooden picks and dip in lemon mayonnaise.
 [Comments.00000000]
   These freeze well.  I have always frozen them before baking.
@@ -323,7 +323,7 @@ TIMESTAMP = 1029198468
   1 teaspoon salt
   1 cup chopped nuts, if desired
 [Instructions.00000000]
-  Place over rack in lowest position.  Heat oven to 350°.  Grease bottoms only of 2 loaf pans: 8 1/2" x 4 1/2" x 2 1/2", or one loaf pan 9" x 5" x 3".  Mix sugar and margarine in large bowl. Stir in eggs until well blended.  Add bananas, buttermilk, and vanilla.  Beat until smooth.  Stir in remaining ingredients except nuts just until moistened.  Stir in nuts.  Pour into pans.  Bake 8" loaves about 1 hour, 9" loaf about 1 1/4 hours or until wooden pick inserted in center comes out clean.  Cool 5 minutes.  Loosen sides of loaves from pans; remove from pans. Cool completely before slicing.  Wrap tightly and store at room temperature up to 4 days, or refrigerate up to 10 days.
+  Place over rack in lowest position.  Heat oven to 350Â°.  Grease bottoms only of 2 loaf pans: 8 1/2" x 4 1/2" x 2 1/2", or one loaf pan 9" x 5" x 3".  Mix sugar and margarine in large bowl. Stir in eggs until well blended.  Add bananas, buttermilk, and vanilla.  Beat until smooth.  Stir in remaining ingredients except nuts just until moistened.  Stir in nuts.  Pour into pans.  Bake 8" loaves about 1 hour, 9" loaf about 1 1/4 hours or until wooden pick inserted in center comes out clean.  Cool 5 minutes.  Loosen sides of loaves from pans; remove from pans. Cool completely before slicing.  Wrap tightly and store at room temperature up to 4 days, or refrigerate up to 10 days.
 [Comments.00000000]
   If using self-rising flour, omit baking soda and salt.  Each loaf contains 24 slices.
   -1
@@ -346,7 +346,7 @@ TIMESTAMP = 1029198468
   12 ounces beer
   3/4 stick of butter, melted
 [Instructions.00000000]
-  Mix together and pour into greased loaf pan.  Bake at 350° for 40 minutes.  Take out and pour 3/4 stick melted butter on top and put back in oven for 10 minutes.
+  Mix together and pour into greased loaf pan.  Bake at 350Â° for 40 minutes.  Take out and pour 3/4 stick melted butter on top and put back in oven for 10 minutes.
 
 @
 NAME = Best Ever Corn Bread
@@ -368,7 +368,7 @@ TIMESTAMP = 1029198468
   1 cup flour
   1 cup yellow corn meal
 [Instructions.00000000]
-  Cream together butter and sugar.  Add egg and beat well.  Stir together sour cream, salt, baking soda; blend into butter mixture.  Add flour and corn meal.  Stir well.  Spread mixture into greased 8" square baking pan.  Bake in preheated 400° oven for 20 minutes or until wooden pick comes out clean.
+  Cream together butter and sugar.  Add egg and beat well.  Stir together sour cream, salt, baking soda; blend into butter mixture.  Add flour and corn meal.  Stir well.  Spread mixture into greased 8" square baking pan.  Bake in preheated 400Â° oven for 20 minutes or until wooden pick comes out clean.
 
 @
 NAME = Buttermilk Scones
@@ -426,7 +426,7 @@ TIMESTAMP = 1029198468
   1 teaspoon freshly grated orange peel (optional)
   1 Tablespoon butter, at room temperature
 [Instructions.00000000]
-  Heat oven to 375°.  Measure buttermilk in a 2-cup glass measure;  beat in egg with a fork.
+  Heat oven to 375Â°.  Measure buttermilk in a 2-cup glass measure;  beat in egg with a fork.
   Put flour, baking powder, baking soda, and salt into a large bowl.  Stir to mix well.  Add the 8 Tablespoons butter and cut in with a pastry blender or rub in with your fingers, until the mixture looks like fine granules.
   Add cranberries, sugar, and orange peel;  toss lightly to distribute evenly.  Add buttermilk mixture.  Stir with a fork until a soft dough forms.
   Turn out dough onto a lightly floured board and give 5 to 6 kneads, just until well mixed.  Form dough into a ball; cut into 8 wedges.  Form each wedge into a ball and place on an ungreased cookie sheet.
@@ -455,7 +455,7 @@ TIMESTAMP = 1029198468
   1/3 cup chopped nuts (any kind)
   1/4 cup firmly packed brown sugar
 [Instructions.00000000]
-  Preheat oven to 375°.  In a large bowl, combine the flour, granulated sugar, baking powder, 1/2 teaspoon of the cinnamon, and salt.  In another bowl, beat the egg with milk, then stir in the apple and melted butter; add all at once to flour mixture and stir until just moistened (batter will be very stiff).  Spoon batter into a greased muffin tin(s), filling each cup about 2/3 full.  In a small bowl, combine nuts, brown sugar, and remaining 1/2 teaspoon cinnamon;  sprinkle mixture over muffin tops.  Bake for 15 to 20 minutes or until wooden toothpick inserted in center of muffin comes out clean.  Remove from pan immediately and serve warm.
+  Preheat oven to 375Â°.  In a large bowl, combine the flour, granulated sugar, baking powder, 1/2 teaspoon of the cinnamon, and salt.  In another bowl, beat the egg with milk, then stir in the apple and melted butter; add all at once to flour mixture and stir until just moistened (batter will be very stiff).  Spoon batter into a greased muffin tin(s), filling each cup about 2/3 full.  In a small bowl, combine nuts, brown sugar, and remaining 1/2 teaspoon cinnamon;  sprinkle mixture over muffin tops.  Bake for 15 to 20 minutes or until wooden toothpick inserted in center of muffin comes out clean.  Remove from pan immediately and serve warm.
 [Comments.00000000]
   Gma's favorite apple muffin
   -1
@@ -473,8 +473,8 @@ PREP = 45
 SERVES =
 TIMESTAMP = 1029198468
 [Instructions.00000000]
-  Preheat oven on bake to 425°.  Split loaf French bread in half.  Spread butter (or margarine if desired) liberally on the faces of the loaves.  Sprinkle the buttered faces with garlic salt to taste (i.e., to your  level of garlic tolerance).  Break the slices of American cheese into sections about 1/3 inch wide and lay them out on the faces of the loaf with about 1/3" between pieces of cheese.  Sprinkle the Mozzarella on top the American cheese slices.  Again, there is no guide to how much or little cheese.  Just remember that too much cheese will make it difficult to melt the cheese and keep the bread shell soft enough to eat.
-  Sprinkle the Parmesan cheese on the Mozzarella to taste.  Sprinkle oregano and thyme spices on the cheese to taste. You can also substitute Italian Spice.  Add an additional sprinkling of garlic salt if you haven't poisoned yourself yet.  Sprinkle parsley flakes on the bread for a touch of additional color.  Bake at 425° until the cheese is fully melted, or just a few VERY small spots of browned cheese are appearing on the edges of the bread.  Cut into strips and serve hot.
+  Preheat oven on bake to 425Â°.  Split loaf French bread in half.  Spread butter (or margarine if desired) liberally on the faces of the loaves.  Sprinkle the buttered faces with garlic salt to taste (i.e., to your  level of garlic tolerance).  Break the slices of American cheese into sections about 1/3 inch wide and lay them out on the faces of the loaf with about 1/3" between pieces of cheese.  Sprinkle the Mozzarella on top the American cheese slices.  Again, there is no guide to how much or little cheese.  Just remember that too much cheese will make it difficult to melt the cheese and keep the bread shell soft enough to eat.
+  Sprinkle the Parmesan cheese on the Mozzarella to taste.  Sprinkle oregano and thyme spices on the cheese to taste. You can also substitute Italian Spice.  Add an additional sprinkling of garlic salt if you haven't poisoned yourself yet.  Sprinkle parsley flakes on the bread for a touch of additional color.  Bake at 425Â° until the cheese is fully melted, or just a few VERY small spots of browned cheese are appearing on the edges of the bread.  Cut into strips and serve hot.
 [Comments.00000000]
   If Matt or Shawn is heading toward the serving plate, GET OUT OF THE WAY!  You can use almost any type of bread that toasts well, ranging from steak rolls to loaves of French bread.  In addition, lots of different cheeses and seasonings can be used.
   -1
@@ -529,7 +529,7 @@ TIMESTAMP = 1029198468
   3/4 cup fresh blueberries
   3/4 cup hulled, coarsely chopped strawberries.
 [Instructions.00000000]
-  Preheat oven to 400°.  Grease a 12 count muffin pan.  In a large bowl, combine flour, sugar, baking powder, and salt.  Mix until thoroughly blended.  Cut in butter until mixture resembles fine bread crumbs.  In a small bowl, beat eggs, milk, and vanilla.  Stir into flour mixture until just moistened.  Gently fold in berries.  Spoon batter into prepared pans.  Bake until golden brown, 23 to 25 minutes.  Cool pan on a wire rack for 5 minutes, then remove muffins and cool on rack.  Serve warm or at room temperature with whipped butter and blueberry and strawberry preserves.
+  Preheat oven to 400Â°.  Grease a 12 count muffin pan.  In a large bowl, combine flour, sugar, baking powder, and salt.  Mix until thoroughly blended.  Cut in butter until mixture resembles fine bread crumbs.  In a small bowl, beat eggs, milk, and vanilla.  Stir into flour mixture until just moistened.  Gently fold in berries.  Spoon batter into prepared pans.  Bake until golden brown, 23 to 25 minutes.  Cool pan on a wire rack for 5 minutes, then remove muffins and cool on rack.  Serve warm or at room temperature with whipped butter and blueberry and strawberry preserves.
 
 @
 NAME = Peggy's Cheese Scones
@@ -553,7 +553,7 @@ TIMESTAMP = 1029198468
   1 large egg
   1/2 cup milk (half n' half is better)
 [Instructions.00000000]
-  Heat oven to 400°.  Put flour, cream of tartar, baking soda, dry mustard, and salt into a large bowl; mix well.
+  Heat oven to 400Â°.  Put flour, cream of tartar, baking soda, dry mustard, and salt into a large bowl; mix well.
   Add butter and cut in with a pastry blender or rub in with your fingers, until mixture looks like fine granulates.  Add cheeses and toss to mix.
   Break egg into milk and beat with a fork to blend well.  Pour this over flour mixture and stir with a fork until a dough forms.
   Turn out dough onto a lightly floured board and give 10 to 12 kneads.  Cut dough in half.  Knead each half briefly into a ball, turn smooth side up, and pat or roll into a 6" circle.  Cut each circle into 6 wedges.  Place on an ungreased cookie sheet.
@@ -593,7 +593,7 @@ TIMESTAMP = 1029198468
   1/2 cup orange juice
   3/4 cup powdered sugar
 [Instructions.00000000]
-  Mix all of bread ingredients together.  Bake in 2 greased and floured loaf pans at 325° for 1 hour or when a toothpick comes out clean.
+  Mix all of bread ingredients together.  Bake in 2 greased and floured loaf pans at 325Â° for 1 hour or when a toothpick comes out clean.
   Combine glaze ingredients and mix well.  Pierce top of bread with a fork and spread glaze on.
 
 @
@@ -617,7 +617,7 @@ TIMESTAMP = 1029198468
   3 teaspoon baking soda
   1 cup chopped nuts
 [Instructions.00000000]
-  Combine all ingredients and mix.  Divide into 2 pans.  Bake at 350° for 1 hour.  Let cool 20 minutes before removing from pan.
+  Combine all ingredients and mix.  Divide into 2 pans.  Bake at 350Â° for 1 hour.  Let cool 20 minutes before removing from pan.
 [Comments.00000000]
   Although the Mattingly's don't make this anymore (Sher introduced us to pumpkin bread about 30 years ago), this remains one of Matt's all-time favorites.
   -1
@@ -647,7 +647,7 @@ TIMESTAMP = 1029198468
   3/4 cup buttermilk or plain yogurt
   1 Additional sugar for sprinkling
 [Instructions.00000000]
-  Heat oven to 375°.  Put flour, baking powder, baking soda, nutmeg, and salt into a large bowl; stir to mix well.  Add butter and cut in with a pastry blender or rub in with your fingers, until the mixture looks like fine granules.  Add raisins and sugar;  toss to distribute evenly.
+  Heat oven to 375Â°.  Put flour, baking powder, baking soda, nutmeg, and salt into a large bowl; stir to mix well.  Add butter and cut in with a pastry blender or rub in with your fingers, until the mixture looks like fine granules.  Add raisins and sugar;  toss to distribute evenly.
   Add egg yolk to buttermilk in a measuring cup and whisk with a fork to blend.  Pour over the flour mixture and stir wit a fork until a soft dough forms.
   Turn out dough onto a lightly floured surface and give 10 to 12 kneads.  Cut dough in half.  Knead each half briefly into a ball;  turn smooth side up and pat into a 6" circle.  Cut into 6 wedges, but do not separate wedges.
   In a small bowl, beat the egg white with a fork until just broken up.  Brush the top of each scone with egg white and sprinkle lightly with sugar.  With a pancake turner, carefully transfer the two cut circles to an ungreased cookie sheet.  IF necessary reshape circles so that the 6 wedges in each are touching.  This will keep the raisins from burning
@@ -681,7 +681,7 @@ TIMESTAMP = 1029198468
 [Instructions.00000000]
   If the vinegar/milk mixture is to be used, prepare it first and set aside.  Measure flour into a 1 gallon mixing bowl or clean dish pan.  Add salt, soda, and sugar to the flour and mix well or sift together.  Stir in raisin bran and continue mixing.  With a spoon make a well in the center of the dry ingredients.  Beat the eggs with a fork only until the white and yolk are evenly blended.  Combine egg, milk, and oil.  Beat well with a fork.  Add liquid mixture to dry ingredients and stir with a long-handle spoon only until dry ingredients are moistened (mixture will be lumpy).
   Store in the refrigerator in tightly covered container until needed for up to six weeks.
-  To bake, heat oven to 425° for approximately 15 to 20 minutes or until golden brown.
+  To bake, heat oven to 425Â° for approximately 15 to 20 minutes or until golden brown.
   Optional seasoning:  1 to 2 cups nuts and/or 1 Tablespoon cinnamon;  1 teaspoon nutmeg and 1 teaspoon mace;  1 cup halved cranberries and 1 cup nuts;  2 cups halved cranberries.
 [Comments.00000000]
   Calories: 119; Dietary fiber, 1 g; Cholesterol, 15.4 g; Unsaturated fat 2.75 g; Total fat 3.63 g; Sodium, 135 mg.
@@ -709,8 +709,8 @@ TIMESTAMP = 1029198468
   1 egg
   1 cup sour milk or buttermilk
 [Instructions.00000000]
-  Preheat oven to 400° (moderately hot).  Sift first 5 dry ingredients together.  Separately combine last 3 wet ingredients.  Mix together with pastry blender or blending fork using a "cutting-in" motion at first to divide shortening into small pieces (about 8 to 10 strokes).  Then stir in circular motion with blender just until flour is moistened and ingredients blended.  The batter will look lumpy.  Fill greased muffin cups 2/3 full.
-  Bake 20 to 25 minutes at 400° until golden brown.  Serve hot with butter and jam, or any desired spread.
+  Preheat oven to 400Â° (moderately hot).  Sift first 5 dry ingredients together.  Separately combine last 3 wet ingredients.  Mix together with pastry blender or blending fork using a "cutting-in" motion at first to divide shortening into small pieces (about 8 to 10 strokes).  Then stir in circular motion with blender just until flour is moistened and ingredients blended.  The batter will look lumpy.  Fill greased muffin cups 2/3 full.
+  Bake 20 to 25 minutes at 400Â° until golden brown.  Serve hot with butter and jam, or any desired spread.
 
 @
 NAME = Sweet Roll Dough
@@ -739,9 +739,9 @@ TIMESTAMP = 1029198468
   3 1/2 to 4 cups all-purpose flour
 [Instructions.00000000]
   Dissolve yeast in warm water in large bowl.  Stir in milk, sugar, shortening, salt, egg and 2 cups of the flour.  Beat until smooth.  Mix in enough remaining flour to make dough easy to handle.
-  Turn dough onto lightly floured surface; knead until smooth and elastic; about 5 minutes.  Place in greased bowl; turn greased side up.  Cover.  Let rise in a warm place until double.  It should be about 80° such as an oven with just the light on.  Dough is ready if an indentation remains when touched.
+  Turn dough onto lightly floured surface; knead until smooth and elastic; about 5 minutes.  Place in greased bowl; turn greased side up.  Cover.  Let rise in a warm place until double.  It should be about 80Â° such as an oven with just the light on.  Dough is ready if an indentation remains when touched.
   Punch down dough.  Shape, let rise again, and bake.
-  For cinnamon rolls, after the dough rises for the first time, roll into rectangle with rolling pin.  Sprinkle on brown sugar, chopped nuts, raisins, cinnamon, and melted butter.  Roll up dough the short way and cut into pieces 1" thick.  Place on cookie tray with pieces touching.  Let rise in a warm place.  Cook for 15-25 minutes (depends up thickness of pieces) at 350°.
+  For cinnamon rolls, after the dough rises for the first time, roll into rectangle with rolling pin.  Sprinkle on brown sugar, chopped nuts, raisins, cinnamon, and melted butter.  Roll up dough the short way and cut into pieces 1" thick.  Place on cookie tray with pieces touching.  Let rise in a warm place.  Cook for 15-25 minutes (depends up thickness of pieces) at 350Â°.
 [Comments.00000000]
   After kneading, dough can be covered and refrigerated in greased bowl no longer than 4 days.  Also can be refrigerated overnight after dough has been shaped before second rising.
   -1
@@ -773,7 +773,7 @@ TIMESTAMP = 1029198468
   8 ounces crushed pineapple, drained, optional (1 can)
   1 additional teaspoon cinnamon, optional
 [Instructions.00000000]
-  Mix ingredients together and pour into 2  3" x 7" pans.  Bake at 350° for 60 minutes.  Let cool for 20 minutes before taking out of pan.
+  Mix ingredients together and pour into 2  3" x 7" pans.  Bake at 350Â° for 60 minutes.  Let cool for 20 minutes before taking out of pan.
 [Comments.00000000]
   A Mattingly family favorite.
   -1
@@ -1051,7 +1051,7 @@ TIMESTAMP = 1029198468
   1/4 cup Olive oil
   Sea salt to taste
 [Instructions.00000000]
-  Break off tough ends of asparagus where they bend and break.  Layer in a casserole dish and brush generously with olive oil.  Then sprinkle with sea salt.  Bake in 500° oven for 10-12 minutes if asparagus is thin, 14-15 minutes if it's fat.
+  Break off tough ends of asparagus where they bend and break.  Layer in a casserole dish and brush generously with olive oil.  Then sprinkle with sea salt.  Bake in 500Â° oven for 10-12 minutes if asparagus is thin, 14-15 minutes if it's fat.
 
 @
 NAME = Cranberry Chutney
@@ -1104,8 +1104,8 @@ TIMESTAMP = 1029198468
   5 ounce Monterey Jack, cubed
   8 ounce sour cream
 [Instructions.00000000]
-  Heat oil in saucepan over medium heat.  Add rice and onion; sauté gently, stirring occasionally, until it begins to turn brown. Add comino, garlic powder, Knorr, pepper, and salt; stir to blend.  Add water to green chilies; raise heat to high.  Bring to boil.  Cover pan with tight-fitting lid; lower heat and cook 20 minutes or until all water is absorbed.  Remove from heat, put lid at angle to release steam and heat.  Let set about 10 minutes.
-  Add cheese and sour cream.  Stir to mix.  Put mixture into Pam-sprayed casserole dish.  Bake at 350° for 20 minutes or until cheese is melted.
+  Heat oil in saucepan over medium heat.  Add rice and onion; sautÃ© gently, stirring occasionally, until it begins to turn brown. Add comino, garlic powder, Knorr, pepper, and salt; stir to blend.  Add water to green chilies; raise heat to high.  Bring to boil.  Cover pan with tight-fitting lid; lower heat and cook 20 minutes or until all water is absorbed.  Remove from heat, put lid at angle to release steam and heat.  Let set about 10 minutes.
+  Add cheese and sour cream.  Stir to mix.  Put mixture into Pam-sprayed casserole dish.  Bake at 350Â° for 20 minutes or until cheese is melted.
 
 @
 NAME = Frosted Cauliflower with Buttered Peas
@@ -1148,7 +1148,7 @@ TIMESTAMP = 1029198468
   8 ounces of sour cream
   2 eggs
 [Instructions.00000000]
-  Melt butter or margarine and combine with muffin mix, whole and cream style corn and sour cream.  Add slightly beaten eggs.  Stir and pour into buttered casserole dish -  1 1/2 quart size.  Bake 350° for 45-50 minutes.  Test center with pick.  If it doesn't come out clean, bake another 5-7 minutes.
+  Melt butter or margarine and combine with muffin mix, whole and cream style corn and sour cream.  Add slightly beaten eggs.  Stir and pour into buttered casserole dish -  1 1/2 quart size.  Bake 350Â° for 45-50 minutes.  Test center with pick.  If it doesn't come out clean, bake another 5-7 minutes.
 
 @
 NAME = Make Ahead Mashed Potatoes
@@ -1170,8 +1170,8 @@ TIMESTAMP = 1029198468
   2 Tablespoons butter or margarine
 [Instructions.00000000]
   Cook peeled potatoes in boiling water.  Drain.  Mash until smooth.  (I like to put the potatoes through a potato ricer and then use an electric mixer.  This assures no lumps.)  Add cream cheese, sour cream, onion, salt, salt, and white pepper.  Beat until light and fluffy.  Cool.
-  Cover and place in refrigerator.  These may be used any time within two weeks.  To use, place desired amount in greased casserole, dot with butter, and bake in preheated 350° oven until heated through, about 30 minutes.  The entire recipe fills a two-quart casserole.
-  To microwave, in step 5, put potatoes in microwave safe casserole and probe to 150° using 80% power.
+  Cover and place in refrigerator.  These may be used any time within two weeks.  To use, place desired amount in greased casserole, dot with butter, and bake in preheated 350Â° oven until heated through, about 30 minutes.  The entire recipe fills a two-quart casserole.
+  To microwave, in step 5, put potatoes in microwave safe casserole and probe to 150Â° using 80% power.
 
 @
 NAME = Penne with Creamy Garlic Sauce
@@ -1213,7 +1213,7 @@ TIMESTAMP = 1029198468
   1/4 cup freshly grated Parmesan cheese
   3/4 teaspoon paprika
 [Instructions.00000000]
-  Cook unpeeled potatoes in boiling water for 15 minutes.  Drain and cool slightly.  Quarter potatoes; coat cut sides with cooking spray.  Combine bread crumbs and remaining ingredients;  dredge cut sides of potatoes in bread crumb mixture.  Arrange in a single layer on a baking sheet coated with cooking spray.  Bake at 450° for 15 minutes.
+  Cook unpeeled potatoes in boiling water for 15 minutes.  Drain and cool slightly.  Quarter potatoes; coat cut sides with cooking spray.  Combine bread crumbs and remaining ingredients;  dredge cut sides of potatoes in bread crumb mixture.  Arrange in a single layer on a baking sheet coated with cooking spray.  Bake at 450Â° for 15 minutes.
 
 @
 NAME = Savory Rice Blend
@@ -1239,7 +1239,7 @@ TIMESTAMP = 1029198468
   1 can (4 ounces) mushroom stems and pieces, drained
   1 cup dairy sour cream (optional)
 [Instructions.00000000]
-  Heat oven to 350°.  Cook and stir wild rice, celery, and onion in margarine until onion is tender.  Pour into ungreased 1 1/2 quart casserole.  Heat broth to boiling; pour over wild rice mixture.  Stir in parsley, salt, bouquet sauce, sage, basil, and mushrooms.  Cover and bake for 45 minutes.
+  Heat oven to 350Â°.  Cook and stir wild rice, celery, and onion in margarine until onion is tender.  Pour into ungreased 1 1/2 quart casserole.  Heat broth to boiling; pour over wild rice mixture.  Stir in parsley, salt, bouquet sauce, sage, basil, and mushrooms.  Cover and bake for 45 minutes.
   Stir in regular rice.  Cover and bake until all liquid is absorbed and rice is tender, 40 to 45 minutes longer.  Stir in sour cream.  (I omitted sour cream)
 
 @
@@ -1278,7 +1278,7 @@ TIMESTAMP = 1029198468
   1 dash of liquid smoke
   1 Worcestershire sauce (approximately 32 ounces)
 [Instructions.00000000]
-  Cook at 275° in foil-lined and covered pan for 4-5 hours.  Serve with favorite barbecue sauce.  Marilyn prefers Open Pit.
+  Cook at 275Â° in foil-lined and covered pan for 4-5 hours.  Serve with favorite barbecue sauce.  Marilyn prefers Open Pit.
 [Comments.00000000]
   Very good and easy
   -1
@@ -1301,10 +1301,10 @@ TIMESTAMP = 1029198468
   1/4 cup butter
   2 pounds round steak (1/4" to 1/2" thick)
   1 teaspoon salt
-  10 1/2 ounces bouillon or consommé, diluted to make 2 cups (1 can)
+  10 1/2 ounces bouillon or consommÃ©, diluted to make 2 cups (1 can)
   1 cup commercial sour cream
 [Instructions.00000000]
-  Sauté mushrooms and onion in 2 Tablespoons butter and remove from pan.  Remove fat and bone from steak.   Cut into strips 2 1/2" long and 3/4" wide.  Melt additional 2 Tablespoons butter in pan.  Toss strips of meat in flour, coating thoroughly.  Brown meat in butter.  Add salt and bouillon-water mixture.  Simmer, stirring occasionally, until meat is tender, about 11/4 hour.  Add mushrooms, onions, and sour cream.  Heat.  Serve over noodles or rice.
+  SautÃ© mushrooms and onion in 2 Tablespoons butter and remove from pan.  Remove fat and bone from steak.   Cut into strips 2 1/2" long and 3/4" wide.  Melt additional 2 Tablespoons butter in pan.  Toss strips of meat in flour, coating thoroughly.  Brown meat in butter.  Add salt and bouillon-water mixture.  Simmer, stirring occasionally, until meat is tender, about 11/4 hour.  Add mushrooms, onions, and sour cream.  Heat.  Serve over noodles or rice.
 [Comments.00000000]
   Gma's number 1 meal.
   -1
@@ -1330,7 +1330,7 @@ TIMESTAMP = 1029198468
   3 ounces chow mein noodles (1 can)
   2 cups salted cashew nuts
 [Instructions.00000000]
-  Heat oven to 325°.  Mix soup, broth, onion, celery, and chicken. Arrange alternate layer of noodles and chicken mixture in ungreased shallow pan saving some noodle for top.   Sprinkle noodles and nuts over top.  Bake 30 minutes.
+  Heat oven to 325Â°.  Mix soup, broth, onion, celery, and chicken. Arrange alternate layer of noodles and chicken mixture in ungreased shallow pan saving some noodle for top.   Sprinkle noodles and nuts over top.  Bake 30 minutes.
 [Comments.00000000]
   Good for large groups
   -1
@@ -1358,9 +1358,9 @@ TIMESTAMP = 1029198468
   2 eggs
   1 1/2 cups fine dry bread crumbs
 [Instructions.00000000]
-  Mix 6 Tablespoons margarine, the ginger, lime peel, juice, curry powder, and 1/4 teaspoon salt.  Freeze until firm.  Pound out chicken breasts, place a pat of butter in the center, and enclose as for chicken Kiev.  Use toothpicks to hold together.  Whisk eggs and 1/4 teaspoon salt in a shallow dish.  Dip each breast half in egg, then in crumbs to coat well.  Dip each breast twice.  Refrigerate for 1 hour prior to baking.  Arrange 1 inch apart on 2 greased pans.  Dot with remaining 2 Tablespoons of butter; cover with foil.  Bake in preheated 425° oven for 12 minutes.  Uncover; turn each piece and bake 15 minutes more or until crumbs are golden brown.
+  Mix 6 Tablespoons margarine, the ginger, lime peel, juice, curry powder, and 1/4 teaspoon salt.  Freeze until firm.  Pound out chicken breasts, place a pat of butter in the center, and enclose as for chicken Kiev.  Use toothpicks to hold together.  Whisk eggs and 1/4 teaspoon salt in a shallow dish.  Dip each breast half in egg, then in crumbs to coat well.  Dip each breast twice.  Refrigerate for 1 hour prior to baking.  Arrange 1 inch apart on 2 greased pans.  Dot with remaining 2 Tablespoons of butter; cover with foil.  Bake in preheated 425Â° oven for 12 minutes.  Uncover; turn each piece and bake 15 minutes more or until crumbs are golden brown.
 [Comments.00000000]
-  Marilyn's most favorite entreé.
+  Marilyn's most favorite entreÃ©.
   -1
   1029198468
   -1
@@ -1417,10 +1417,10 @@ TIMESTAMP = 1029198468
   4 cups shredded Monterey Jack cheese, divided (16 ounces)
   Commercial sour cream
   Commercial salsa
-  Jalapeño pepper slices
+  JalapeÃ±o pepper slices
 [Instructions.00000000]
   Cook ground beef in a skillet until browned, stirring to crumble meat.  Drain well.  Add taco seasoning mix, and prepare according to package directions.  Set meat mixture aside.  Unroll one can of crescent rolls into two rectangles; press long sides together to make a 13" x 18" rectangle.  Repeat process with second can of crescent rolls; set aside.  Place on rectangle of dough on an ungreased baking sheet.  Sprinkle with 2 cups cheese.  Spread ground beef mixture evenly over cheese; sprinkle with remaining 2 cups cheese.  Top with second rectangle of dough, and press all edges to seal.
-  Bake at 400° for 15 minutes or until browned.  Serve with sour cream, salsa, and jalapeño.
+  Bake at 400Â° for 15 minutes or until browned.  Serve with sour cream, salsa, and jalapeÃ±o.
 [Comments.00000000]
   Simple but impressive Mexican dish.
   -1
@@ -1521,7 +1521,7 @@ TIMESTAMP = 1029198468
   Currant sauce (see recipe)
 [Instructions.00000000]
   Currant Sauce: In a small saucepan, heat one 10 ounce jar currant jelly until melted.  Add 2 Tablespoons of sherry and 1 Tablespoon of soy sauce.  Stir and simmer 2 minutes.
-  Marinade and Pork Roast: Blend first 6 ingredients for marinade.  Place roast in clear plastic bag; set in deep bowl.  Pour marinade in bag and close.  Marinate 2 to 3 hours at room temperature or overnight in refrigerator.  Occasionally press bag against meat to distribute marinade.  Remove meat from marinade; place on rack in shallow roasting pan.  Roast, uncovered, at 325° for 2 1/2 to 3 hours or until meat thermometer registers 170°.  Baste with marinade during last hour.  Serve with currant sauce.
+  Marinade and Pork Roast: Blend first 6 ingredients for marinade.  Place roast in clear plastic bag; set in deep bowl.  Pour marinade in bag and close.  Marinate 2 to 3 hours at room temperature or overnight in refrigerator.  Occasionally press bag against meat to distribute marinade.  Remove meat from marinade; place on rack in shallow roasting pan.  Roast, uncovered, at 325Â° for 2 1/2 to 3 hours or until meat thermometer registers 170Â°.  Baste with marinade during last hour.  Serve with currant sauce.
 
 @
 NAME = Pizza
@@ -1551,9 +1551,9 @@ TIMESTAMP = 1029198468
   Pepperoni
   etc...
 [Instructions.00000000]
-  Combine all ingredients for pizza dough in large mixing bowl.  Stir 20 times with a wooden spoon.  If necessary, add more flour or water until dough is easy to handle.  Cover and let rise for 1 hour in a warm (80°) place, or refrigerate overnight.  Dough should approximately double.
+  Combine all ingredients for pizza dough in large mixing bowl.  Stir 20 times with a wooden spoon.  If necessary, add more flour or water until dough is easy to handle.  Cover and let rise for 1 hour in a warm (80Â°) place, or refrigerate overnight.  Dough should approximately double.
   Divide dough into desired sizes and flatten onto a lightly greased cookie sheet.  Dough should be about 1/4" thick.  Roll up edges.
-  Combine tomato sauce ingredients and spread evenly over dough.  Put on Mozzarella cheese and other toppings as desired.  Bake at 425° for about 15 minutes until inside of crust is no longer doughy.
+  Combine tomato sauce ingredients and spread evenly over dough.  Put on Mozzarella cheese and other toppings as desired.  Bake at 425Â° for about 15 minutes until inside of crust is no longer doughy.
 [Comments.00000000]
   Instead of the tomato sauce above, you can use store-bought sauce, the Marinara recipe on page 72, or anything else that comes to mind.  Be creative!
   -1
@@ -1585,7 +1585,7 @@ TIMESTAMP = 1029198468
   1 dash of pepper
   1/4 teaspoon dried marjoram, crushed
 [Instructions.00000000]
-  Combine ingredients for rice shell.  Press into bottom and sides of lightly buttered 10-inch pie plate or 10" x 6" x 11/2" baking dish.  Layer one 9 ounce can of tuna, drained and flaked, evenly over rice shell.  Combine ingredients for tuna covering, and pour over tuna.  Bake in a moderate over (350°) for 50 to 55 minutes, or until knife inserted just off center comes out clean.  Garnish with pimiento, if desired.
+  Combine ingredients for rice shell.  Press into bottom and sides of lightly buttered 10-inch pie plate or 10" x 6" x 11/2" baking dish.  Layer one 9 ounce can of tuna, drained and flaked, evenly over rice shell.  Combine ingredients for tuna covering, and pour over tuna.  Bake in a moderate over (350Â°) for 50 to 55 minutes, or until knife inserted just off center comes out clean.  Garnish with pimiento, if desired.
 [Comments.00000000]
   A pie without the pastry; that's Rice and Tuna Pie.  The shell is a flavorful herbed rice mixture that is pressed into a lightly buttered pie plate.
   -1
@@ -1672,7 +1672,7 @@ TIMESTAMP = 1029198468
   1 cup of water
 [Instructions.00000000]
   One step recipe: no need to cook noodles ahead.
-  Combine first 10 ingredients.  In greased 13" x 9" baking dish, layer 1/2 cup spaghetti sauce, 1/3 of noodles, 1/2 cheese mixture.  Repeat and top with 1/2 cup mozzarella cheese.  Pour water around edges.  Cover tightly with foil.  Bake at 350° for 1 hour and 15 minutes before serving.
+  Combine first 10 ingredients.  In greased 13" x 9" baking dish, layer 1/2 cup spaghetti sauce, 1/3 of noodles, 1/2 cheese mixture.  Repeat and top with 1/2 cup mozzarella cheese.  Pour water around edges.  Cover tightly with foil.  Bake at 350Â° for 1 hour and 15 minutes before serving.
 
 @
 NAME = Stromboli
@@ -1696,7 +1696,7 @@ TIMESTAMP = 1029198468
   1 teaspoon cornmeal
 [Instructions.00000000]
   Place bread dough on a lightly greased baking sheet; pat into a 15" x 10" rectangle.  Arrange ham slices lengthwise down the center; place salami on top.  Sprinkle with 1/4 teaspoon basil and 1/4 teaspoon oregano.  Arrange provolone cheese over herbs, and top with shredded mozzarella cheese; sprinkle with remaining herbs.  Moisten all edges of dough with water.  Bring each long edge of dough to center.  Press edges together securely to seal, and seal ends.
-  Brush dough with 1 Tablespoon butter.  Sprinkle with cornmeal, and carefully invert.  Brush top with remaining butter.  Bake at 375° for 20 to 22 minutes.
+  Brush dough with 1 Tablespoon butter.  Sprinkle with cornmeal, and carefully invert.  Brush top with remaining butter.  Bake at 375Â° for 20 to 22 minutes.
 [Comments.00000000]
   This is a great way to use any aging sandwich meat.  This is quick and easy to make.  You can also use homemade pizza dough (see Matt's recipe).  Great for freezing.
   -1
@@ -1721,7 +1721,7 @@ TIMESTAMP = 1029198468
   Cinnamon
   8 ounces whipping cream or heavy cream
 [Instructions.00000000]
-  Brew coffee.  Put one level teaspoon of sugar and 1/2 ounce Amaretto in an 11 ounce red wine glass.  Roll mixture around bowl of glass until well-coated.  Light sterno burner and, holding glass by stem, slowly roll over flame in order to evenly heat contents.  Tip rim of glass toward flame until it ignites.  Turn out lights for best effect!  Contents will burn best with glass at 45° angle.  When flame goes out (half of Amaretto will have evaporated), repeat process for additional glasses.  Pour in 1 1/2 ounces of Kahlua and 1 1/2 ounces of Amaretto (or to taste).
+  Brew coffee.  Put one level teaspoon of sugar and 1/2 ounce Amaretto in an 11 ounce red wine glass.  Roll mixture around bowl of glass until well-coated.  Light sterno burner and, holding glass by stem, slowly roll over flame in order to evenly heat contents.  Tip rim of glass toward flame until it ignites.  Turn out lights for best effect!  Contents will burn best with glass at 45Â° angle.  When flame goes out (half of Amaretto will have evaporated), repeat process for additional glasses.  Pour in 1 1/2 ounces of Kahlua and 1 1/2 ounces of Amaretto (or to taste).
   For two drinks, whip 4 ounces of whipping or heavy cream.  For four drinks, whip 8 ounces.  Whip until stiff adding 1/2 to one teaspoon of sugar.
   Pour hot coffee into glasses to within 3/4 inches of rim.  Stir.  Use a teaspoon to float cream on top of drinks.  Use a small bowl with warm water to lubricate spoon between scoops.  Be careful not to touch rim of glass or to overflow glass (It makes a mess if you do).  Sprinkle cinnamon over cream and, using the Kahlua cap, fill and pour one capful of Amaretto over cinnamon.  Enjoy!
 
@@ -1779,7 +1779,7 @@ TIMESTAMP = 1029198468
   1 Tablespoon amaretti biscuits, ground
   1/3 cup dark brown sugar
 [Instructions.00000000]
-  Preheat oven to 325°.  In mixer bowl, beat egg yolks and sugar.  Meanwhile, in a small saucepan, scald cream.  Gradually beat into egg mixture with vanilla.  Ladle into six 1/2-cup ramekins set in a roasting pan.  Fill pan with hot water 2/3 up sides of ramekins.  Bake 50 to 65 minutes, until a knife inserted in center comes out clean.  Remove from oven.  Sprinkle ground biscuits evenly over tops.  Sieve brown sugar and sprinkle 1 Tablespoon over each ramekin.  Cover loosely with plastic wrap and refrigerate overnight.
+  Preheat oven to 325Â°.  In mixer bowl, beat egg yolks and sugar.  Meanwhile, in a small saucepan, scald cream.  Gradually beat into egg mixture with vanilla.  Ladle into six 1/2-cup ramekins set in a roasting pan.  Fill pan with hot water 2/3 up sides of ramekins.  Bake 50 to 65 minutes, until a knife inserted in center comes out clean.  Remove from oven.  Sprinkle ground biscuits evenly over tops.  Sieve brown sugar and sprinkle 1 Tablespoon over each ramekin.  Cover loosely with plastic wrap and refrigerate overnight.
   Preheat broiler.  Melt brown sugar under broiler, being careful not to burn.  Refrigerate uncovered 1 hour before serving.
 [Comments.00000000]
   Recommend making the day before serving.  Truly delicious.
@@ -1815,8 +1815,8 @@ TIMESTAMP = 1029198468
   1 cup flour
 [Instructions.00000000]
   Cream together sugar, butter, shortening, vanilla, and salt.  Blend in flour and mix well.  Pat into bottom and 1 1/2 inches up the sides of a lightly-greased 9" spring form pan.
-  Pare, core, and slice apples to measure 4 cups.  Turn apples into a shallow pan, cover with foil, and place in a 400° oven for 15 minutes.
-  Meanwhile, beat cheese with sugar.  Beat in egg, lemon peel, vanilla, and salt until mixture is smooth.  Turn into pastry lined pan. Top with the warm, partly cooked apple slices.  Sprinkle with cinnamon sugar and almonds.  Set pan on baking sheet.  Bake at 400° for 40 minutes or until crust is golden and apples cooked.  Cool before cutting and serve cold.
+  Pare, core, and slice apples to measure 4 cups.  Turn apples into a shallow pan, cover with foil, and place in a 400Â° oven for 15 minutes.
+  Meanwhile, beat cheese with sugar.  Beat in egg, lemon peel, vanilla, and salt until mixture is smooth.  Turn into pastry lined pan. Top with the warm, partly cooked apple slices.  Sprinkle with cinnamon sugar and almonds.  Set pan on baking sheet.  Bake at 400Â° for 40 minutes or until crust is golden and apples cooked.  Cool before cutting and serve cold.
   Cinnamon sugar:  Stir together 1/3 cup sugar and 1/2 teaspoon cinnamon.
 [Comments.00000000]
   Marilyn has been making this one for many years.
@@ -1861,7 +1861,7 @@ TIMESTAMP = 1029198468
   3/4 cup powdered sugar
   1 teaspoon vanilla
 [Instructions.00000000]
-  Mix flour, butter and cream.  Cover and refrigerate at least 1 hour.  Heat oven to 375°.  Roll 1/3 of dough at a  time 1/8 inch thick on floured cloth covered board.  (keep remaining dough in refrigerator).  Cut into 1 1/2 inch rounds.  Transfer rounds to piece of wax paper heavily covered with sugar.  Turn to coat.  Prick each round with fork 4 time.  Bake until just set but not brown (7-9 minutes).  Cool.  Put pairs together with filling.
+  Mix flour, butter and cream.  Cover and refrigerate at least 1 hour.  Heat oven to 375Â°.  Roll 1/3 of dough at a  time 1/8 inch thick on floured cloth covered board.  (keep remaining dough in refrigerator).  Cut into 1 1/2 inch rounds.  Transfer rounds to piece of wax paper heavily covered with sugar.  Turn to coat.  Prick each round with fork 4 time.  Bake until just set but not brown (7-9 minutes).  Cool.  Put pairs together with filling.
 [Comments.00000000]
   We have Matt's third grade teacher at Clinton school in Ann Arbor to thank for this terrific cookie.
   -1
@@ -1908,7 +1908,7 @@ TIMESTAMP = 1029198468
   1 teaspoon salt
 [Instructions.00000000]
   Mix shortening, sugar, eggs, and flavoring thoroughly.  Measure flour by dipping method or by sifting.  Stir flour, baking powder, and salt together; blend in.  Chill at least 1 hour.
-  Heat oven to 400° (moderately hot).  Roll dough 1/8" thick on lightly floured board.  Cut with 3" cook cutter.  Place on ungreased baking sheet.  Bake 6 to 8 minutes, or until cookies are a delicate golden color.
+  Heat oven to 400Â° (moderately hot).  Roll dough 1/8" thick on lightly floured board.  Cut with 3" cook cutter.  Place on ungreased baking sheet.  Bake 6 to 8 minutes, or until cookies are a delicate golden color.
 [Comments.00000000]
   Gma's favorite!
   -1
@@ -1945,7 +1945,7 @@ TIMESTAMP = 1029198468
   1 Pinch of salt
   Cream
 [Instructions.00000000]
-  Mix all cookie ingredients.  Drop by heaping teaspoonfuls onto baking sheet.  Bake at 400° for 11-14 minutes.  Combine all frosting ingredients, adding enough cream to make the mixture of spreading consistency.  Spread on warm cookies.
+  Mix all cookie ingredients.  Drop by heaping teaspoonfuls onto baking sheet.  Bake at 400Â° for 11-14 minutes.  Combine all frosting ingredients, adding enough cream to make the mixture of spreading consistency.  Spread on warm cookies.
 
 @
 NAME = Fruit Pizza
@@ -1966,7 +1966,7 @@ TIMESTAMP = 1029198468
   1/4 cup orange marmalade
   1 Tablespoon water
 [Instructions.00000000]
-  Cut cookie dough into 1/8" slices with a sharp knife.  Arrange slices, slightly overlapping, in an aluminum pizza tin.  (Alternatively, just press dough into pan).  Bake at 375° for 10 minutes or until golden brown.  Cool in pan or over rack.
+  Cut cookie dough into 1/8" slices with a sharp knife.  Arrange slices, slightly overlapping, in an aluminum pizza tin.  (Alternatively, just press dough into pan).  Bake at 375Â° for 10 minutes or until golden brown.  Cool in pan or over rack.
   Combine cream cheese, sugar, and vanilla.  Beat until blended.  Wait for cookie to cool, then spread mixture over crust.  Arrange fruit over cheese mixture.  Heat marmalade and water in small saucepan just until warm.  Brush over fruit.  Refrigerate until ready to serve.
 [Comments.00000000]
   A simple dish that will impress any guest.
@@ -2016,7 +2016,7 @@ TIMESTAMP = 1029198468
   Cinnamon
   Walnuts
 [Instructions.00000000]
-  Make cinnamon sugar mix with walnuts and/or raisins.  Cream butter and cream cheese.  Add flour and sugar gradually.  Dough will be stiff.  Chill 2 hours.  Separate into 6 balls.  Roll into circle.  Sprinkle with cinnamon sugar mix.  Cut into pie shape.  Roll from wide end.  Bake 325° for 20 minutes.
+  Make cinnamon sugar mix with walnuts and/or raisins.  Cream butter and cream cheese.  Add flour and sugar gradually.  Dough will be stiff.  Chill 2 hours.  Separate into 6 balls.  Roll into circle.  Sprinkle with cinnamon sugar mix.  Cut into pie shape.  Roll from wide end.  Bake 325Â° for 20 minutes.
 [Comments.00000000]
   Another family Christmas tradition
   -1
@@ -2044,7 +2044,7 @@ TIMESTAMP = 1029198468
   6 unit Heath bars, frozen and broken into small pieces (or 10 2" long bars)
   1/2 cup nuts, chopped
 [Instructions.00000000]
-  Cream shortening, add sugar and cream very well.  Add vanilla.  Sift dry ingredients to add to creamed mixture.  Add nuts, then fold into Heath bars.  Do not over mix at this stage.  Make into 4 rolls as you would for a refrigerator cookie.  Chill for 2 hours.  Slice and bake at 375° for 10-12 minutes.
+  Cream shortening, add sugar and cream very well.  Add vanilla.  Sift dry ingredients to add to creamed mixture.  Add nuts, then fold into Heath bars.  Do not over mix at this stage.  Make into 4 rolls as you would for a refrigerator cookie.  Chill for 2 hours.  Slice and bake at 375Â° for 10-12 minutes.
 
 @
 NAME = Homemade Oreos
@@ -2066,7 +2066,7 @@ TIMESTAMP = 1029198468
   1/2 teaspoon vanilla
   1 egg white
 [Instructions.00000000]
-  Mix ingredients.  Form 1" balls.  Cook on an ungreased cookie sheet for 12 minutes at 350°.  Allow to cool.  Spread filling between two cookies.
+  Mix ingredients.  Form 1" balls.  Cook on an ungreased cookie sheet for 12 minutes at 350Â°.  Allow to cool.  Spread filling between two cookies.
 
 @
 NAME = Marbled Brownie Fudge Pie
@@ -2104,8 +2104,8 @@ TIMESTAMP = 1029198468
   1 teaspoon vanilla extract
   3/4 cup pecans, toasted
 [Instructions.00000000]
-  Toast pecans about 10 minutes at 300°.  Stir and then toast an additional 5 minutes until fragrant.
-  In a mixing bowl, beat cream cheese with butter; add sugar, eggs (one at a time), flour and vanilla.  Beat until smooth and set aside.  For crust, cream butter and sugar.  Beat in eggs (one at a time), cocoa, flour, vanilla, and salt.  Lightly grease two 9" pie pans. Spread 1/4 of batter in bottom of each pan.  Pour half of filling into each pan, spreading almost to edges.  Dollop remaining batter over filling; swirl with knife to "marble".  Bake at 335° (yes, 335° is correct) for 25-35 minutes of until toothpick inserted in middle comes out clean.  Cool on racks for at least 15 minutes.  For frosting, combine sugar and cocoa in a saucepan.  Add butter, milk, corn syrup, and salt.  Bring to a boil, stirring frequently.  Boil vigorously 3 minutes, stirring occasionally.  Remove from heat.  Beat in confectioners' sugar and vanilla.  Stir in nuts.  Cool 20 minutes.  Pour into warm pies, spreading to cover.  Serve warm.  This can be done by putting into a 200° oven at time entree is served, or turn off already warm oven.  If pie is at room temperature, put it in for 10 minutes at 200°.  If it is cold, cook for 15 minutes.
+  Toast pecans about 10 minutes at 300Â°.  Stir and then toast an additional 5 minutes until fragrant.
+  In a mixing bowl, beat cream cheese with butter; add sugar, eggs (one at a time), flour and vanilla.  Beat until smooth and set aside.  For crust, cream butter and sugar.  Beat in eggs (one at a time), cocoa, flour, vanilla, and salt.  Lightly grease two 9" pie pans. Spread 1/4 of batter in bottom of each pan.  Pour half of filling into each pan, spreading almost to edges.  Dollop remaining batter over filling; swirl with knife to "marble".  Bake at 335Â° (yes, 335Â° is correct) for 25-35 minutes of until toothpick inserted in middle comes out clean.  Cool on racks for at least 15 minutes.  For frosting, combine sugar and cocoa in a saucepan.  Add butter, milk, corn syrup, and salt.  Bring to a boil, stirring frequently.  Boil vigorously 3 minutes, stirring occasionally.  Remove from heat.  Beat in confectioners' sugar and vanilla.  Stir in nuts.  Cool 20 minutes.  Pour into warm pies, spreading to cover.  Serve warm.  This can be done by putting into a 200Â° oven at time entree is served, or turn off already warm oven.  If pie is at room temperature, put it in for 10 minutes at 200Â°.  If it is cold, cook for 15 minutes.
 [Comments.00000000]
   Comes from a friend in Texas who owns a Bed and Breakfast.  It is delicious with any meal, be it Mexican or otherwise.  It also freezes well.
   -1
@@ -2179,7 +2179,7 @@ TIMESTAMP = 1029198468
   1 bag flake coconut
   1 can sweetened, condensed milk
 [Instructions.00000000]
-  Combine crackers, butter, and sugar.  Press into a 9" x 13" pan.  Bake for 10 minutes at 350°.  Mix together coconut and condensed milk.  Spread on top of crust.  Bake for 15 minutes at 350°.  To make frosting, melt chips and peanut butter together.  Frost bars.
+  Combine crackers, butter, and sugar.  Press into a 9" x 13" pan.  Bake for 10 minutes at 350Â°.  Mix together coconut and condensed milk.  Spread on top of crust.  Bake for 15 minutes at 350Â°.  To make frosting, melt chips and peanut butter together.  Frost bars.
 
 @
 NAME = "New" Toll House Cookies
@@ -2205,7 +2205,7 @@ TIMESTAMP = 1029198468
   2 cups oatmeal (quick or regular uncooked)
   1 teaspoon vanilla
 [Instructions.00000000]
-  Sift flour then measure and sift with soda and salt.  Cream shortening until soft and add sugar gradually.  Cream until light and fluffy. Add eggs one at a time, beating after each addition.  Add hot water to creamed mixture.  Then to the sifted dry ingredients, add nut meats, chocolate, and oatmeal and mix thoroughly.  Add vanilla and blend well.  Drop by half teaspoons on greased cookie sheet.  Bake 375° for 8 minutes.
+  Sift flour then measure and sift with soda and salt.  Cream shortening until soft and add sugar gradually.  Cream until light and fluffy. Add eggs one at a time, beating after each addition.  Add hot water to creamed mixture.  Then to the sifted dry ingredients, add nut meats, chocolate, and oatmeal and mix thoroughly.  Add vanilla and blend well.  Drop by half teaspoons on greased cookie sheet.  Bake 375Â° for 8 minutes.
 [Comments.00000000]
   Gma's grandmother's recipe
   -1
@@ -2259,7 +2259,7 @@ TIMESTAMP = 1029198468
   2 cups oatmeal
   3/4 cups nuts (optional)
 [Instructions.00000000]
-  Combine raisins and eggs and let soak for 1 hour.  Combine all ingredients.  Form into balls and pat down.  Bake at 350° for 8 to 12 minutes.
+  Combine raisins and eggs and let soak for 1 hour.  Combine all ingredients.  Form into balls and pat down.  Bake at 350Â° for 8 to 12 minutes.
   Optionally:  While warm, frost with glaze: powdered sugar, vanilla, and water.
 [Comments.00000000]
   Gpa's favorite
@@ -2314,7 +2314,7 @@ TIMESTAMP = 1029198468
   1 cup evaporated milk
   2 eggs
 [Instructions.00000000]
-  Line 9-inch pie plate with pastry.  In bowl, combine sugar, salt, and spices.  Stir in pumpkin and honey.  In saucepan, heat milk; add with eggs to pumpkin mixture;  blend thoroughly.  Pour into pastry-lined pie plate.  Bake at 425° for 10 minutes.  Reduce temperature to 350°.  Bake 35 minutes more.
+  Line 9-inch pie plate with pastry.  In bowl, combine sugar, salt, and spices.  Stir in pumpkin and honey.  In saucepan, heat milk; add with eggs to pumpkin mixture;  blend thoroughly.  Pour into pastry-lined pie plate.  Bake at 425Â° for 10 minutes.  Reduce temperature to 350Â°.  Bake 35 minutes more.
 [Comments.00000000]
   Ask Diana what happens when you cook this recipe for over 3 hours...
   -1
@@ -2350,7 +2350,7 @@ TIMESTAMP = 1029198468
   1 cup butter
   1 teaspoon vanilla
 [Instructions.00000000]
-  Cream sugar, short, eggs.  Make a paste with coca and food coloring, and add to creamed mixture.  Beat well, mix salt and vanilla with buttermilk.  Add alternately with flour to creamed mixture and beat.  Mix soda and vinegar and fold into the mixture.  Do not beat. Grease and flour pans.  Bake in two 9 " layer pans for 30 minutes at 350°.
+  Cream sugar, short, eggs.  Make a paste with coca and food coloring, and add to creamed mixture.  Beat well, mix salt and vanilla with buttermilk.  Add alternately with flour to creamed mixture and beat.  Mix soda and vinegar and fold into the mixture.  Do not beat. Grease and flour pans.  Bake in two 9 " layer pans for 30 minutes at 350Â°.
   For icing, cook flour and mild until thick, stirring constantly.  Let cool.  Cream together sugar, butter, and vanilla.  Add to flour mixture.  Beat until consistency to spread.  When finished, looks like whipped cheese.
   Spread frosting between cake layers and over cake.
 
@@ -2372,7 +2372,7 @@ TIMESTAMP = 1029198468
   1/4 teaspoon salt
   3/4 cup finely chopped nuts
 [Instructions.00000000]
-  Mix butter, sugar, and vanilla thoroughly.  Measure flour by dip-level-pour method or by sifting.  Blend flour and salt; stir in.  Mix in nuts. Chill. Heat oven to 400° (moderate hot).  Roll into 1" balls.  Place on ungreased baking sheet.  Bake 10 to 12 minutes.  While still warm, roll in confectioners' sugar.  Cool.  Roll in sugar again.
+  Mix butter, sugar, and vanilla thoroughly.  Measure flour by dip-level-pour method or by sifting.  Blend flour and salt; stir in.  Mix in nuts. Chill. Heat oven to 400Â° (moderate hot).  Roll into 1" balls.  Place on ungreased baking sheet.  Bake 10 to 12 minutes.  While still warm, roll in confectioners' sugar.  Cool.  Roll in sugar again.
 [Comments.00000000]
   Another family Christmas cookie
   -1
@@ -2404,7 +2404,7 @@ TIMESTAMP = 1029198468
   3/4 cup raisins
   1/2 cup chopped walnuts
 [Instructions.00000000]
-  In mixer bowl, cream together sugar and Crisco.  Add egg; beat well.  Stir in water.  Combine flour, instant coffee, soda, salt, and spices;  add to creamed mixture.  Stir in raisins and nuts.  Drop from teaspoon 2 inches apart on greased cookie sheet.  Bake at 375° for 10 minutes.
+  In mixer bowl, cream together sugar and Crisco.  Add egg; beat well.  Stir in water.  Combine flour, instant coffee, soda, salt, and spices;  add to creamed mixture.  Stir in raisins and nuts.  Drop from teaspoon 2 inches apart on greased cookie sheet.  Bake at 375Â° for 10 minutes.
 
 @
 NAME = Turtle Pie
