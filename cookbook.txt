@@ -18,7 +18,13 @@ TIMESTAMP = 1029198468
   1 teaspoon soda
   1 teaspoon baking powder
 [Instructions.00000000]
-  Beat egg yolks until light and lemon colored.  Add sugar, salt, and buttermilk; mix well.  Sift together flour, soda, and baking powder; add to egg mixture.  Beat egg whites until stiff.  Fold into batter.  Place a small amount of shortening in each cup of ebleskiver pan, and fill 2/3 full with batter.  Cook over medium heat until bubbly.  Turn carefully with fork and finish baking on other side.  Turn each ebleskiver several times during baking to ensure thorough baking.  If desired, a very thin slice of raw apple can be pressed into batter in each cup before turning.  Serve with butter and syrup, jam, brown sugar, or sprinkle lightly with confectioners' sugar.
+  Beat egg yolks until light and lemon colored.
+  Add sugar, salt, and buttermilk; mix well.
+  Sift together flour, soda, and baking powder; add to egg mixture.
+  Beat egg whites until stiff.  Fold into batter.
+  Place a small amount of shortening in each cup of ebleskiver pan, and fill 2/3 full with batter.
+  Cook over medium heat until bubbly.  Turn carefully with fork and finish baking on other side.  Turn each ebleskiver several times during baking to ensure thorough baking.  If desired, a very thin slice of raw apple can be pressed into batter in each cup before turning.
+  Serve with butter and syrup, jam, brown sugar, or sprinkle lightly with confectioners' sugar.
 [Comments.00000000]
   Requires an ebleskiver pan.
   -1
@@ -33,7 +39,7 @@ DESCRIPTION = Cream cheese, lemon, and yellow cake coffee cake
 DIFFICULTY = Medium
 FILENAME = 00000001.html
 PREP = 75
-SERVES =  6
+SERVES = 6
 TIMESTAMP = 1029198468
 [Ingredients.Cake]
   1 package yellow cake mix, divided
@@ -57,7 +63,7 @@ TIMESTAMP = 1029198468
 [Instructions.00000000]
   Grease a 9" x 13" baking pan.  Preheat to 350°.
   In a large mixing bowl, combine 1 1/2 cups yellow cake mix with yeast, flour, eggs, and water.  Beat 2 minutes at medium speed.  Spread thick batter in greased baking pan.
-  Blend together the ingredients for the cheese filling:  cream cheese, eggs, sugar, flour, and lemon juice.  Drop spoonfuls of cheese filling on top of the batter in the pan and spread to cover.
+  Blend together the ingredients for the cheese filling: cream cheese, eggs, sugar, flour, and lemon juice.  Drop spoonfuls of cheese filling on top of the batter in the pan and spread to cover.
   Make topping by adding the 6 Tablespoons of margarine or butter to remaining yellow cake mix.  Mix until crumbly and sprinkle over cheese filling.
   Bake 40-45 minutes.  For glaze mix confectioners' sugar with corn syrup and water.  Drizzle over baked cooled cake.
 [Comments.00000000]
@@ -115,7 +121,13 @@ TIMESTAMP = 1029198468
   12 slices bacon cooked and crumbled
   1 cup shredded cheddar cheese
 [Instructions.00000000]
-  In medium bowl, beat eggs.  Stir in milk, salt, and sugar.  In large skillet over medium heat, melt butter and pour in egg mixture.  Cook stirring occasionally until eggs are set but still moist.  Remove from heat to cool.  Stir in sour cream.  Spread evenly into buttered 2 quart shallow baking dish 12" x 7".  Top with bacon and cheese.  Cover with aluminum foil and refrigerate overnight.  Preheat oven to 300°.  Uncover and bake for 15-20 minutes or until hot and cheese has melted.  Refrigerate leftovers.
+  In medium bowl, beat eggs.
+  Stir in milk, salt, and sugar.
+  In large skillet over medium heat, melt butter and pour in egg mixture.  Cook stirring occasionally until eggs are set but still moist.  Remove from heat to cool.
+  Stir in sour cream.  Spread evenly into buttered 2 quart shallow baking dish 12" x 7".  Top with bacon and cheese.
+  Cover with aluminum foil and refrigerate overnight.
+  Preheat oven to 300°.
+  Uncover and bake for 15-20 minutes or until hot and cheese has melted.  Refrigerate leftovers.
 
 @
 NAME = Yum Yum Cake
@@ -143,7 +155,15 @@ TIMESTAMP = 1029198468
   1 teaspoon cinnamon
   1 cup walnuts
 [Instructions.00000000]
-  Cream butter until soft.  Mix in sugar and cream.  Add eggs and beat well.  Mix together flour, soda, baking powder, salt.  Add dry ingredients alternately with sour cream beginning and ending with flour mixture.  Stir in vanilla.  Pour half of batter into lightly greased tube pan.  Mix together ingredients for cinnamon-nut topping, and sprinkle half on top of batter.  Pour remaining batter into pan and sprinkle on remaining nut mixture.  Bake 325° for 40 minutes.
+  Cream butter until soft.  Mix in sugar and cream.  Add eggs and beat well.
+  Mix together flour, soda, baking powder, salt.
+  Add dry ingredients alternately with sour cream beginning and ending with flour mixture.
+  Stir in vanilla.
+  Pour half of batter into lightly greased tube pan.
+  Mix together ingredients for cinnamon-nut topping, and sprinkle half on top of batter.
+  Pour remaining batter into pan.
+  Sprinkle on remaining nut mixture.
+  Bake 325° for 40 minutes.
 [Comments.00000000]
   What would Christmas morning be without this coffee cake?  Sher started us on this recipe about 25 years ago.
   -1
@@ -173,8 +193,11 @@ TIMESTAMP = 1029198468
   1/2 cup sugar
   2 Tablespoon apple jelly
 [Instructions.00000000]
-  Spray tortillas with butter flavored cooking spray.  Sprinkle with cinnamon sugar mix.  Cut each tortilla into wedges and bake 5-7 min at 475°.
-  Peel, core and chop apples.  Hull strawberries, hull and peel kiwi.  Slice strawberries and chop kiwis.  Combine prepared fruit with brown sugar, 1/2 cup sugar or to taste, and jelly.  Add additional orange juice if necessary.  You can save a great deal of time by putting everything in a food processor.  You want a nice chunky salsa, not fruit juice.  Serve with cinnamon chips.
+  Spray tortillas with butter flavored cooking spray.  Sprinkle with cinnamon sugar mix.
+  Cut each tortilla into wedges and bake 5-7 min at 475°.
+  Peel, core and chop apples.  Hull strawberries, hull and peel kiwi.  Slice strawberries and chop kiwis.
+  Combine prepared fruit with brown sugar, 1/2 cup sugar or to taste, and jelly.  Add additional orange juice if necessary.  You can save a great deal of time by putting everything in a food processor.  You want a nice chunky salsa, not fruit juice.
+  Serve with cinnamon chips.
 [Comments.00000000]
   Gma, Gpa, Sher, and Sue were out visiting Gary and Gretchen last April, and we picked this recipe up at the Omaha Home Show.
   -1
@@ -205,7 +228,11 @@ TIMESTAMP = 1029198468
   2 Tablespoons chopped red pepper
   1 Tablespoon chopped pitted ripe olives
 [Instructions.00000000]
-  Bring chicken, water and taco seasoning mix to boil in large skillet; reduce heat.  Cover; simmer 25 minutes.  Cool slightly; shred chicken.  Place Neufchatel cheese, lime juice, and milk in food processor or blender container and process until well blended.  When ready to serve, spread Neufchatel cheese mixture onto center of large serving plate; surround with chicken.  To with remaining ingredients.  Serve with tortilla chips.
+  Bring chicken, water and taco seasoning mix to boil in large skillet; reduce heat.  Cover; simmer 25 minutes.
+  Cool slightly; shred chicken.
+  Place Neufchatel cheese, lime juice, and milk in food processor or blender container and process until well blended.
+  When ready to serve, spread Neufchatel cheese mixture onto center of large serving plate; surround with chicken.  Top with remaining ingredients.
+  Serve with tortilla chips.
 [Comments.00000000]
   Highly recommended.
   -1
@@ -245,7 +272,11 @@ TIMESTAMP = 1029198468
   1 bunch of green onions, chopped
   0 To taste, Cheddar cheese, shredded (or Co-jack)
 [Instructions.00000000]
-  Spread the softened cream cheese in a 9" round pie plate or similar dish.  Then spread chili over this layer.  Next sprinkle on chopped onions, then shredded cheddar.  Bake at 350° for 20 minutes.  Serve with tortilla chips.
+  Spread the softened cream cheese in a 9" round pie plate or similar dish.
+  Then spread chili over this layer.
+  Next sprinkle on chopped onions, then shredded cheddar.
+  Bake at 350° for 20 minutes.
+  Serve with tortilla chips.
 
 @
 NAME = Reuben Appetizers
@@ -264,7 +295,10 @@ TIMESTAMP = 1029198468
   2 cups sharp cheddar, grated
   4 slices Swiss cheese
 [Instructions.00000000]
-  Mix all except Swiss cheese in bowl and then place in 8" square pan.  Top with sliced Swiss.  Bake at 350° for 20-23 minutes.  Serve with mini rye bread.
+  Mix all ingredients except Swiss cheese in bowl and then place in 8" square pan.
+  Top with sliced Swiss.
+  Bake at 350° for 20-23 minutes.
+  Serve with mini rye bread.
 
 @
 NAME = Spinach Bites with Lemon Mayonnaise
@@ -292,8 +326,13 @@ TIMESTAMP = 1029198468
   1 teaspoon instant minced onion
   1 Dash of ground nutmeg
 [Instructions.00000000]
-  Lightly grease baking sheets.  In a small bowl, mix spinach, stuffing mix, cheese, eggs, butter, or margarine, onion, and nutmeg until well blended.  Shape into balls using 1 teaspoon of the mixture for each ball; place on baking sheets.  Cover and refrigerate at least 4 hours or freeze until ready to bake.
-  Preheat oven to 350°.  Bake spinach bites for 10 to 15 minutes on greased sheet, or until bottoms are starting to brown.  In a small bowl, mix mayonnaise, lemon juice, sugar, mustard, and hot pepper sauce; blend until smooth.  Stir in sour cream.
+  Lightly grease baking sheets.
+  In a small bowl, mix spinach, stuffing mix, cheese, eggs, butter, or margarine, onion, and nutmeg until well blended.
+  Shape into balls using 1 teaspoon of the mixture for each ball; place on baking sheets.
+  Cover and refrigerate at least 4 hours or freeze until ready to bake.
+  Preheat oven to 350°.
+  Bake spinach bites for 10 to 15 minutes on greased sheet, or until bottoms are starting to brown.
+  In a small bowl, mix mayonnaise, lemon juice, sugar, mustard, and hot pepper sauce; blend until smooth.  Stir in sour cream.
   To serve, spear warm spinach bites with wooden picks and dip in lemon mayonnaise.
 [Comments.00000000]
   These freeze well.  I have always frozen them before baking.
@@ -323,7 +362,17 @@ TIMESTAMP = 1029198468
   1 teaspoon salt
   1 cup chopped nuts, if desired
 [Instructions.00000000]
-  Place over rack in lowest position.  Heat oven to 350°.  Grease bottoms only of 2 loaf pans: 8 1/2" x 4 1/2" x 2 1/2", or one loaf pan 9" x 5" x 3".  Mix sugar and margarine in large bowl. Stir in eggs until well blended.  Add bananas, buttermilk, and vanilla.  Beat until smooth.  Stir in remaining ingredients except nuts just until moistened.  Stir in nuts.  Pour into pans.  Bake 8" loaves about 1 hour, 9" loaf about 1 1/4 hours or until wooden pick inserted in center comes out clean.  Cool 5 minutes.  Loosen sides of loaves from pans; remove from pans. Cool completely before slicing.  Wrap tightly and store at room temperature up to 4 days, or refrigerate up to 10 days.
+  Place over rack in lowest position.  Heat oven to 350°.
+  Grease bottoms only of 2 loaf pans: 8 1/2" x 4 1/2" x 2 1/2", or one loaf pan 9" x 5" x 3".
+  Mix sugar and margarine in large bowl. Stir in eggs until well blended.
+  Add bananas, buttermilk, and vanilla.  Beat until smooth.
+  Stir in remaining ingredients except nuts just until moistened.
+  Stir in nuts.
+  Pour into pans.
+  Bake 8" loaves about 1 hour, 9" loaf about 1 1/4 hours or until wooden pick inserted in center comes out clean.
+  Cool 5 minutes.
+  Loosen sides of loaves from pans; remove from pans. Cool completely before slicing.
+  Wrap tightly and store at room temperature up to 4 days, or refrigerate up to 10 days.
 [Comments.00000000]
   If using self-rising flour, omit baking soda and salt.  Each loaf contains 24 slices.
   -1
@@ -346,7 +395,9 @@ TIMESTAMP = 1029198468
   12 ounces beer
   3/4 stick of butter, melted
 [Instructions.00000000]
-  Mix together and pour into greased loaf pan.  Bake at 350° for 40 minutes.  Take out and pour 3/4 stick melted butter on top and put back in oven for 10 minutes.
+  Mix together and pour into greased loaf pan.
+  Bake at 350° for 40 minutes.
+  Take out and pour 3/4 stick melted butter on top and put back in oven for 10 minutes.
 
 @
 NAME = Best Ever Corn Bread
@@ -368,7 +419,12 @@ TIMESTAMP = 1029198468
   1 cup flour
   1 cup yellow corn meal
 [Instructions.00000000]
-  Cream together butter and sugar.  Add egg and beat well.  Stir together sour cream, salt, baking soda; blend into butter mixture.  Add flour and corn meal.  Stir well.  Spread mixture into greased 8" square baking pan.  Bake in preheated 400° oven for 20 minutes or until wooden pick comes out clean.
+  Cream together butter and sugar.
+  Add egg and beat well.
+  Stir together sour cream, salt, baking soda; blend into butter mixture.
+  Add flour and corn meal.  Stir well.
+  Spread mixture into greased 8" square baking pan.
+  Bake in preheated 400° oven for 20 minutes or until wooden pick comes out clean.
 
 @
 NAME = Buttermilk Scones
@@ -393,8 +449,14 @@ TIMESTAMP = 1029198468
   1 1/2 teaspoons vanilla extract
   2/3 cup currants or raisins (optional)
 [Instructions.00000000]
-  In a large bowl, stir together the flour, sugar, baking powder, baking soda, and salt.  Cut the butter into 1/2" cubes and distribute them over the flour mixture.  With a pastry blender or two knives used scissors fashion, cut in the butter until the mixture resembles coarse crumbs.  In a small bowl, stir together the buttermilk, egg, and vanilla.  Add the buttermilk mixture to the flour mixture and stir to combine.  Stir in the currants, if desired.
-  With lightly floured hands, pat the dough into an 8" diameter circle on an ungreased baking sheet.  With a serrated knife, cut into 8 wedges.  Bake for 18 to 20 minutes, or until the top is lightly browned and a cake tester or toothpick inserted into the center of a scone comes out clean.
+  In a large bowl, stir together the flour, sugar, baking powder, baking soda, and salt.
+  Cut the butter into 1/2" cubes and distribute them over the flour mixture.
+  With a pastry blender or two knives used scissors fashion, cut in the butter until the mixture resembles coarse crumbs.
+  In a small bowl, stir together the buttermilk, egg, and vanilla.
+  Add the buttermilk mixture to the flour mixture and stir to combine.  Stir in the currants, if desired.
+  With lightly floured hands, pat the dough into an 8" diameter circle on an ungreased baking sheet.
+  With a serrated knife, cut into 8 wedges.
+  Bake for 18 to 20 minutes, or until the top is lightly browned and a cake tester or toothpick inserted into the center of a scone comes out clean.
   Remove the baking sheet to a wire rack and cool for 5 minutes.
   Using a spatula, transfer the scones to the wire rack to cool.  Recut into wedges, if necessary.  Serve warm or cool and store in an airtight container.
 [Comments.00000000]
@@ -426,11 +488,17 @@ TIMESTAMP = 1029198468
   1 teaspoon freshly grated orange peel (optional)
   1 Tablespoon butter, at room temperature
 [Instructions.00000000]
-  Heat oven to 375°.  Measure buttermilk in a 2-cup glass measure;  beat in egg with a fork.
-  Put flour, baking powder, baking soda, and salt into a large bowl.  Stir to mix well.  Add the 8 Tablespoons butter and cut in with a pastry blender or rub in with your fingers, until the mixture looks like fine granules.
-  Add cranberries, sugar, and orange peel;  toss lightly to distribute evenly.  Add buttermilk mixture.  Stir with a fork until a soft dough forms.
-  Turn out dough onto a lightly floured board and give 5 to 6 kneads, just until well mixed.  Form dough into a ball; cut into 8 wedges.  Form each wedge into a ball and place on an ungreased cookie sheet.
-  Bake 20 to 25 minutes, or until medium brown.  Remove to a wire rack.  Brush with the 1 Tablespoon soft butter.  Let cool, uncovered, for at least 1 hour before serving.
+  Preheat oven to 375°.
+  Measure buttermilk in a 2-cup glass measure;  beat in egg with a fork.
+  Put flour, baking powder, baking soda, and salt into a large bowl.  Stir to mix well.
+  Add the 8 Tablespoons butter and cut in with a pastry blender or rub in with your fingers, until the mixture looks like fine granules.
+  Add cranberries, sugar, and orange peel;  toss lightly to distribute evenly.
+  Add buttermilk mixture.  Stir with a fork until a soft dough forms.
+  Turn out dough onto a lightly floured board and give 5 to 6 kneads, just until well mixed.
+  Form dough into a ball; cut into 8 wedges.  Form each wedge into a ball and place on an ungreased cookie sheet.
+  Bake 20 to 25 minutes, or until medium brown.
+  Remove to a wire rack.  Brush with the 1 Tablespoon soft butter.
+  Let cool, uncovered, for at least 1 hour before serving.
 
 @
 NAME = Fresh Apple Cinnamon Muffins
@@ -455,7 +523,12 @@ TIMESTAMP = 1029198468
   1/3 cup chopped nuts (any kind)
   1/4 cup firmly packed brown sugar
 [Instructions.00000000]
-  Preheat oven to 375°.  In a large bowl, combine the flour, granulated sugar, baking powder, 1/2 teaspoon of the cinnamon, and salt.  In another bowl, beat the egg with milk, then stir in the apple and melted butter; add all at once to flour mixture and stir until just moistened (batter will be very stiff).  Spoon batter into a greased muffin tin(s), filling each cup about 2/3 full.  In a small bowl, combine nuts, brown sugar, and remaining 1/2 teaspoon cinnamon;  sprinkle mixture over muffin tops.  Bake for 15 to 20 minutes or until wooden toothpick inserted in center of muffin comes out clean.  Remove from pan immediately and serve warm.
+  Preheat oven to 375°.
+  In a large bowl, combine the flour, granulated sugar, baking powder, 1/2 teaspoon of the cinnamon, and salt.
+  In another bowl, beat the egg with milk, then stir in the apple and melted butter; add all at once to flour mixture and stir until just moistened (batter will be very stiff).
+  Spoon batter into a greased muffin tin(s), filling each cup about 2/3 full.
+  In a small bowl, combine nuts, brown sugar, and remaining 1/2 teaspoon cinnamon;  sprinkle mixture over muffin tops.
+  Bake for 15 to 20 minutes or until wooden toothpick inserted in center of muffin comes out clean.  Remove from pan immediately and serve warm.
 [Comments.00000000]
   Gma's favorite apple muffin
   -1
@@ -473,8 +546,17 @@ PREP = 45
 SERVES =
 TIMESTAMP = 1029198468
 [Instructions.00000000]
-  Preheat oven on bake to 425°.  Split loaf French bread in half.  Spread butter (or margarine if desired) liberally on the faces of the loaves.  Sprinkle the buttered faces with garlic salt to taste (i.e., to your  level of garlic tolerance).  Break the slices of American cheese into sections about 1/3 inch wide and lay them out on the faces of the loaf with about 1/3" between pieces of cheese.  Sprinkle the Mozzarella on top the American cheese slices.  Again, there is no guide to how much or little cheese.  Just remember that too much cheese will make it difficult to melt the cheese and keep the bread shell soft enough to eat.
-  Sprinkle the Parmesan cheese on the Mozzarella to taste.  Sprinkle oregano and thyme spices on the cheese to taste. You can also substitute Italian Spice.  Add an additional sprinkling of garlic salt if you haven't poisoned yourself yet.  Sprinkle parsley flakes on the bread for a touch of additional color.  Bake at 425° until the cheese is fully melted, or just a few VERY small spots of browned cheese are appearing on the edges of the bread.  Cut into strips and serve hot.
+  Preheat oven on bake to 425°.
+  Split loaf French bread in half.
+  Spread butter (or margarine if desired) liberally on the faces of the loaves.
+  Sprinkle the buttered faces with garlic salt to taste (i.e., to your level of garlic tolerance).
+  Break the slices of American cheese into sections about 1/3 inch wide and lay them out on the faces of the loaf with about 1/3" between pieces of cheese.
+  Sprinkle the Mozzarella on top the American cheese slices.  Again, there is no guide to how much or little cheese.  Just remember that too much cheese will make it difficult to melt the cheese and keep the bread shell soft enough to eat.
+  Sprinkle the Parmesan cheese on the Mozzarella to taste.
+  Sprinkle oregano and thyme spices on the cheese to taste. You can also substitute Italian Spice.  Add an additional sprinkling of garlic salt if you haven't poisoned yourself yet.
+  Sprinkle parsley flakes on the bread for a touch of additional color.
+  Bake at 425° until the cheese is fully melted, or just a few VERY small spots of browned cheese are appearing on the edges of the bread.
+  Cut into strips and serve hot.
 [Comments.00000000]
   If Matt or Shawn is heading toward the serving plate, GET OUT OF THE WAY!  You can use almost any type of bread that toasts well, ranging from steak rolls to loaves of French bread.  In addition, lots of different cheeses and seasonings can be used.
   -1
@@ -529,7 +611,16 @@ TIMESTAMP = 1029198468
   3/4 cup fresh blueberries
   3/4 cup hulled, coarsely chopped strawberries.
 [Instructions.00000000]
-  Preheat oven to 400°.  Grease a 12 count muffin pan.  In a large bowl, combine flour, sugar, baking powder, and salt.  Mix until thoroughly blended.  Cut in butter until mixture resembles fine bread crumbs.  In a small bowl, beat eggs, milk, and vanilla.  Stir into flour mixture until just moistened.  Gently fold in berries.  Spoon batter into prepared pans.  Bake until golden brown, 23 to 25 minutes.  Cool pan on a wire rack for 5 minutes, then remove muffins and cool on rack.  Serve warm or at room temperature with whipped butter and blueberry and strawberry preserves.
+  Preheat oven to 400°.
+  Grease a 12 count muffin pan.
+  In a large bowl, combine flour, sugar, baking powder, and salt.  Mix until thoroughly blended.
+  Cut in butter until mixture resembles fine bread crumbs.
+  In a small bowl, beat eggs, milk, and vanilla.  Stir into flour mixture until just moistened.
+  Gently fold in berries.
+  Spoon batter into prepared pans.
+  Bake until golden brown, 23 to 25 minutes.
+  Cool pan on a wire rack for 5 minutes, then remove muffins and cool on rack.
+  Serve warm or at room temperature with whipped butter and blueberry and strawberry preserves.
 
 @
 NAME = Peggy's Cheese Scones
@@ -553,7 +644,8 @@ TIMESTAMP = 1029198468
   1 large egg
   1/2 cup milk (half n' half is better)
 [Instructions.00000000]
-  Heat oven to 400°.  Put flour, cream of tartar, baking soda, dry mustard, and salt into a large bowl; mix well.
+  Preheat oven to 400°.
+  Put flour, cream of tartar, baking soda, dry mustard, and salt into a large bowl; mix well.
   Add butter and cut in with a pastry blender or rub in with your fingers, until mixture looks like fine granulates.  Add cheeses and toss to mix.
   Break egg into milk and beat with a fork to blend well.  Pour this over flour mixture and stir with a fork until a dough forms.
   Turn out dough onto a lightly floured board and give 10 to 12 kneads.  Cut dough in half.  Knead each half briefly into a ball, turn smooth side up, and pat or roll into a 6" circle.  Cut each circle into 6 wedges.  Place on an ungreased cookie sheet.
@@ -593,7 +685,8 @@ TIMESTAMP = 1029198468
   1/2 cup orange juice
   3/4 cup powdered sugar
 [Instructions.00000000]
-  Mix all of bread ingredients together.  Bake in 2 greased and floured loaf pans at 325° for 1 hour or when a toothpick comes out clean.
+  Mix all of bread ingredients together.
+  Bake in 2 greased and floured loaf pans at 325° for 1 hour or when a toothpick comes out clean.
   Combine glaze ingredients and mix well.  Pierce top of bread with a fork and spread glaze on.
 
 @
@@ -617,7 +710,10 @@ TIMESTAMP = 1029198468
   3 teaspoon baking soda
   1 cup chopped nuts
 [Instructions.00000000]
-  Combine all ingredients and mix.  Divide into 2 pans.  Bake at 350° for 1 hour.  Let cool 20 minutes before removing from pan.
+  Combine all ingredients and mix.
+  Divide into 2 pans.
+  Bake at 350° for 1 hour.
+  Let cool 20 minutes before removing from pan.
 [Comments.00000000]
   Although the Mattingly's don't make this anymore (Sher introduced us to pumpkin bread about 30 years ago), this remains one of Matt's all-time favorites.
   -1
@@ -647,10 +743,16 @@ TIMESTAMP = 1029198468
   3/4 cup buttermilk or plain yogurt
   1 Additional sugar for sprinkling
 [Instructions.00000000]
-  Heat oven to 375°.  Put flour, baking powder, baking soda, nutmeg, and salt into a large bowl; stir to mix well.  Add butter and cut in with a pastry blender or rub in with your fingers, until the mixture looks like fine granules.  Add raisins and sugar;  toss to distribute evenly.
-  Add egg yolk to buttermilk in a measuring cup and whisk with a fork to blend.  Pour over the flour mixture and stir wit a fork until a soft dough forms.
-  Turn out dough onto a lightly floured surface and give 10 to 12 kneads.  Cut dough in half.  Knead each half briefly into a ball;  turn smooth side up and pat into a 6" circle.  Cut into 6 wedges, but do not separate wedges.
-  In a small bowl, beat the egg white with a fork until just broken up.  Brush the top of each scone with egg white and sprinkle lightly with sugar.  With a pancake turner, carefully transfer the two cut circles to an ungreased cookie sheet.  IF necessary reshape circles so that the 6 wedges in each are touching.  This will keep the raisins from burning
+  Preheat oven to 375°.
+  Put flour, baking powder, baking soda, nutmeg, and salt into a large bowl; stir to mix well.
+  Add butter and cut in with a pastry blender or rub in with your fingers, until the mixture looks like fine granules.
+  Add raisins and sugar;  toss to distribute evenly.
+  Add egg yolk to buttermilk in a measuring cup and whisk with a fork to blend.
+  Pour over the flour mixture and stir wit a fork until a soft dough forms.
+  Turn out dough onto a lightly floured surface and give 10 to 12 kneads.
+  Cut dough in half.  Knead each half briefly into a ball; turn smooth side up and pat into a 6" circle.  Cut into 6 wedges, but do not separate wedges.
+  In a small bowl, beat the egg white with a fork until just broken up.  Brush the top of each scone with egg white and sprinkle lightly with sugar.
+  With a pancake turner, carefully transfer the two cut circles to an ungreased cookie sheet.  IF necessary reshape circles so that the 6 wedges in each are touching.  This will keep the raisins from burning
   Bake 18 to 22 minutes, until medium brown.  Cool on a wire rack; after 5 minutes pull the wedges apart and cover loosely with a dish towel
   Whole-Wheat-Raisin Scone Variation:  Replace 1 cup all-purpose flour with 1 cup whole-wheat flour, and add 1/2 cup miller's bran to the flour mixture.  Omit nutmeg.
 [Comments.00000000]
@@ -2031,7 +2133,6 @@ DESCRIPTION = Make those Heath bars into cookies
 DIFFICULTY = Medium
 FILENAME = 0000004d.html
 PREP = 30
-COOL = 120
 SERVES =
 TIMESTAMP = 1029198468
 [Ingredients.00000000]
@@ -2427,4 +2528,10 @@ TIMESTAMP = 1029198468
   3 pints vanilla and chocolate swirl ice cream
   Toasted pecan halves
 [Instructions.00000000]
-  Fill pie crust with ice cream and press toasted pecan halves over the top.  Freeze.  Combine butter, cream, sugar, and brown sugar in saucepan.  Bring to a boil and cook for 5 minutes, stirring constantly.  Remove from heat and add vanilla.  Cut pie into 8 pieces.  Pour caramel sauce over each piece.  Serve with sauce hot or cold.
+  Fill pie crust with ice cream and press toasted pecan halves over the top.  Freeze.
+  Combine butter, cream, sugar, and brown sugar in saucepan.
+  Bring to a boil and cook for 5 minutes, stirring constantly.
+  Remove from heat and add vanilla.
+  Cut pie into 8 pieces.  Pour caramel sauce over each piece.
+  Serve with sauce hot or cold.
+

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>{{ recipe.name }}</title>
+<script type="application/ld+json">
+{{ json_ld }}
+</script>
+</head>
+
+<body>
+
+<h1>{{ recipe.name }}</h1>
+
+<table>
+    <tr>
+      <td>Submitted by</td>
+      <td>{{ recipe.author }}</td>
+    </tr>
+    <tr>
+      <td>Preparation Time</td>
+      <td>{{ recipe.totalTime }}</td>
+    </tr>
+    <tr>
+      <td>Difficulty</td>
+      <td>{{ recipe.educationalLevel }}</td>
+    </tr>
+    <tr>
+      <td>Yields</td>
+      <td>{{ recipe.recipeYield }})</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>{{ recipe.description }}</td>
+    </tr>
+</table>
+
+<h2>Ingredients</h2>
+{{ recipe.recipeIngredient }}
+
+<h2>Instructions</h2>
+{{ recipe.recipeInstructions }}
+    
+</body>
+
+</html>
