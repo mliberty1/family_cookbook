@@ -1,0 +1,191 @@
+/* Print Styles for Family Cookbook - Optimized for Single Page */
+
+@media print {
+    /* Reset for print */
+    * {
+        background: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    @page {
+        margin: 0.5in 0.5in 0.5in 0.5in;
+        size: letter;
+    }
+
+    body {
+        font-size: 10pt;
+        line-height: 1.3;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Hide navigation for print */
+    .breadcrumb {
+        display: none;
+    }
+
+    /* Recipe title - compact */
+    .recipe h1 {
+        font-size: 16pt;
+        margin-bottom: 6pt;
+        page-break-after: avoid;
+        font-weight: bold;
+    }
+
+    /* Recipe metadata - very compact */
+    .recipe-meta {
+        border: 1px solid #000;
+        padding: 4pt;
+        margin-bottom: 8pt;
+        page-break-inside: avoid;
+        font-size: 9pt;
+    }
+
+    .recipe-meta table {
+        margin-bottom: 0;
+    }
+
+    .recipe-meta table th {
+        font-weight: bold;
+        width: 100pt;
+    }
+
+    .recipe-meta table th,
+    .recipe-meta table td {
+        padding: 1pt 4pt;
+        line-height: 1.2;
+    }
+
+    .description {
+        margin: 2pt 0 0 0;
+        padding-top: 2pt;
+        font-size: 9pt;
+    }
+
+    /* Section headings - compact */
+    h2 {
+        font-size: 13pt;
+        margin-top: 8pt;
+        margin-bottom: 4pt;
+        border-bottom: 1.5pt solid #000;
+        padding-bottom: 1pt;
+        page-break-after: avoid;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 11pt;
+        margin-top: 6pt;
+        margin-bottom: 2pt;
+        page-break-after: avoid;
+        font-weight: bold;
+    }
+
+    /* Ingredients - very compact */
+    .ingredients {
+        margin-bottom: 8pt;
+    }
+
+    .ingredients ul {
+        margin-left: 0;
+        margin-top: 2pt;
+        margin-bottom: 4pt;
+        padding-left: 16pt;
+    }
+
+    .ingredients li {
+        padding-left: 0;
+        margin-bottom: 1pt;
+        line-height: 1.25;
+    }
+
+    .ingredients li:before {
+        content: "• ";
+        position: static;
+    }
+
+    /* Instructions - compact */
+    .instructions {
+        margin-bottom: 6pt;
+    }
+
+    .instructions ol {
+        margin-left: 0;
+        margin-top: 2pt;
+        padding-left: 20pt;
+        counter-reset: step-counter;
+        list-style: decimal;
+    }
+
+    .instructions li {
+        padding-left: 4pt;
+        margin-bottom: 3pt;
+        page-break-inside: avoid;
+        line-height: 1.3;
+    }
+
+    .instructions li:before {
+        display: none;
+    }
+
+    /* Notes - compact */
+    .notes {
+        border: 1px solid #000;
+        padding: 4pt;
+        margin-top: 6pt;
+        page-break-inside: avoid;
+        font-size: 9pt;
+    }
+
+    .notes h3 {
+        margin-top: 0;
+        margin-bottom: 2pt;
+        font-size: 10pt;
+    }
+
+    .notes ul {
+        margin: 0;
+        padding-left: 16pt;
+    }
+
+    .notes li {
+        margin-bottom: 1pt;
+        line-height: 1.25;
+    }
+
+    /* Prevent breaks in awkward places */
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+    }
+
+    ul, ol {
+        page-break-before: avoid;
+    }
+
+    /* Sections should try to stay together */
+    .ingredients,
+    .instructions {
+        page-break-inside: avoid;
+    }
+
+    /* But allow breaks if necessary to fit on page */
+    @media print and (max-height: 10in) {
+        .ingredients,
+        .instructions {
+            page-break-inside: auto;
+        }
+    }
+
+    /* Index page - hide when printing individual recipes */
+    .recipe-index {
+        display: none;
+    }
+
+    /* Links - show URLs */
+    a[href]:after {
+        content: none;
+    }
+}

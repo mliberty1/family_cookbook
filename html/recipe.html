@@ -3,7 +3,10 @@
 
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ recipe.name }}</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="print.css" media="print">
 <script type="application/ld+json">
 {{ json_ld }}
 </script>
@@ -11,37 +14,90 @@
 
 <body>
 
-<h1>{{ recipe.name }}</h1>
+<nav class="breadcrumb">
+    <a href="index.html">← Back to Recipe Index</a>
+</nav>
 
-<table>
-    <tr>
-      <td>Submitted by</td>
-      <td>{{ recipe.author }}</td>
-    </tr>
-    <tr>
-      <td>Preparation Time</td>
-      <td>{{ recipe.totalTime }}</td>
-    </tr>
-    <tr>
-      <td>Difficulty</td>
-      <td>{{ recipe.educationalLevel }}</td>
-    </tr>
-    <tr>
-      <td>Yields</td>
-      <td>{{ recipe.recipeYield }})</td>
-    </tr>
-    <tr>
-      <td>Description</td>
-      <td>{{ recipe.description }}</td>
-    </tr>
-</table>
+<article class="recipe">
+    <h1>{{ recipe.name }}</h1>
 
-<h2>Ingredients</h2>
-{{ recipe.recipeIngredient }}
+    <div class="recipe-meta">
+        <table>
+            <tr>
+                <th>Submitted by</th>
+                <td>{{ recipe.author }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ recipe.recipeCategory }}</td>
+            </tr>
+            <tr>
+                <th>Preparation Time</th>
+                <td>{{ recipe.totalTime | format_duration }}</td>
+            </tr>
+            <tr>
+                <th>Difficulty</th>
+                <td>{{ recipe.educationalLevel }}</td>
+            </tr>
+            <tr>
+                <th>Yields</th>
+                <td>{{ recipe.recipeYield }}</td>
+            </tr>
+        </table>
 
-<h2>Instructions</h2>
-{{ recipe.recipeInstructions }}
-    
+        {% if recipe.description %}
+        <p class="description">{{ recipe.description }}</p>
+        {% endif %}
+    </div>
+
+    <section class="ingredients">
+        <h2>Ingredients</h2>
+        {% set current_group = [] %}
+        {% for ingredient in recipe.recipeIngredient %}
+            {% if ingredient.startswith('## ') %}
+                {% if current_group %}
+                    </ul>
+                {% endif %}
+                <h3>{{ ingredient[3:] }}</h3>
+                <ul>
+                {% set _ = current_group.append(1) %}
+            {% else %}
+                {% if not current_group %}
+                    <ul>
+                    {% set _ = current_group.append(1) %}
+                {% endif %}
+                <li>{{ ingredient }}</li>
+            {% endif %}
+        {% endfor %}
+        {% if current_group %}
+            </ul>
+        {% endif %}
+    </section>
+
+    <section class="instructions">
+        <h2>Instructions</h2>
+        <ol>
+        {% for instruction in recipe.recipeInstructions %}
+            {% if not instruction.startswith('\ud83d\udec8') %}
+                <li>{{ instruction }}</li>
+            {% endif %}
+        {% endfor %}
+        </ol>
+
+        {% set notes = recipe.recipeInstructions | selectattr('0', 'equalto', '\ud83d\udec8') | list %}
+        {% if notes %}
+        <div class="notes">
+            <h3>\ud83d\udec8 Notes</h3>
+            <ul>
+            {% for note in notes %}
+                <li>{{ note[2:] }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </section>
+</article>
+
 </body>
 
 </html>
