@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Recipes - Family Cookbook</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="recipe-index">
+
+<nav class="breadcrumb">
+    <a href="index.html">← Back to Index</a>
+</nav>
+
+<h1>Search & Browse Recipes</h1>
+
+<div class="search-container">
+    <input type="text" id="search-input" placeholder="Search by recipe name, ingredient, or description..." autofocus>
+    <div class="search-stats">
+        <span id="result-count">Loading...</span>
+    </div>
+</div>
+
+<div id="search-results"></div>
+
+<script>
+// Recipe data will be injected here during build
+const RECIPES_DATA = {{ recipes_json }};
+</script>
+
+<script>
+// Load recipes and implement search
+(function() {
+    const allRecipes = RECIPES_DATA;
+
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    const resultCount = document.getElementById('result-count');
+
+    // Initialize with all recipes
+    displayResults(allRecipes);
+    resultCount.textContent = `Showing all ${allRecipes.length} recipes`;
+
+    // Real-time search
+    searchInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase().trim();
+
+        if (query === '') {
+            displayResults(allRecipes);
+            resultCount.textContent = `Showing all ${allRecipes.length} recipes`;
+            return;
+        }
+
+        // Filter recipes by query
+        const filtered = allRecipes.filter(recipe => {
+            // Search in recipe name
+            if (recipe.name.toLowerCase().includes(query)) return true;
+
+            // Search in description
+            if (recipe.description && recipe.description.toLowerCase().includes(query)) return true;
+
+            // Search in category
+            if (recipe.recipeCategory && recipe.recipeCategory.toLowerCase().includes(query)) return true;
+
+            // Search in ingredients (partial match)
+            if (recipe.recipeIngredient && recipe.recipeIngredient.some(ing =>
+                ing.toLowerCase().includes(query)
+            )) return true;
+
+            // Search in author
+            if (recipe.author && recipe.author.toLowerCase().includes(query)) return true;
+
+            return false;
+        });
+
+        displayResults(filtered);
+        resultCount.textContent = `Found ${filtered.length} recipe${filtered.length !== 1 ? 's' : ''}`;
+    });
+
+    function displayResults(recipes) {
+        if (recipes.length === 0) {
+            searchResults.innerHTML = '<p class="no-results">No recipes found. Try a different search term.</p>';
+            return;
+        }
+
+        // Group by category
+        const byCategory = {};
+        recipes.forEach(recipe => {
+            const cat = recipe.recipeCategory || 'Uncategorized';
+            if (!byCategory[cat]) byCategory[cat] = [];
+            byCategory[cat].push(recipe);
+        });
+
+        // Sort categories
+        const categoryOrder = ['Breakfast', 'Appetizers', 'Salads', 'Sides', 'Entrees', 'Breads', 'Desserts', 'Beverages'];
+        const sortedCategories = Object.keys(byCategory).sort((a, b) => {
+            const aIndex = categoryOrder.indexOf(a);
+            const bIndex = categoryOrder.indexOf(b);
+            if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
+            if (aIndex !== -1) return -1;
+            if (bIndex !== -1) return 1;
+            return a.localeCompare(b);
+        });
+
+        let html = '';
+        sortedCategories.forEach(category => {
+            const categoryRecipes = byCategory[category].sort((a, b) =>
+                a.name.localeCompare(b.name)
+            );
+
+            html += `<section class="category-section">
+                <h2>${category} (${categoryRecipes.length})</h2>
+                <div class="recipe-grid">`;
+
+            categoryRecipes.forEach(recipe => {
+                html += `<a href="${recipe.filename}" class="recipe-card">
+                    <h3>${highlightMatch(recipe.name, searchInput.value)}</h3>
+                    <div class="author">by ${recipe.author}</div>`;
+
+                if (recipe.description) {
+                    html += `<div class="description">${highlightMatch(recipe.description, searchInput.value)}</div>`;
+                }
+
+                html += `<div class="meta">
+                        <span>${recipe.recipeCategory}</span>
+                    </div>
+                </a>`;
+            });
+
+            html += `</div></section>`;
+        });
+
+        searchResults.innerHTML = html;
+    }
+
+    function highlightMatch(text, query) {
+        if (!query || !text) return text;
+
+        const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
+        return text.replace(regex, '<mark>$1</mark>');
+    }
+
+    function escapeRegex(str) {
+        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+})();
+</script>
+
+</body>
+
+</html>

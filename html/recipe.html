@@ -10,6 +10,7 @@
 <script type="application/ld+json">
 {{ json_ld }}
 </script>
+<script src="recipe-scaler.js"></script>
 </head>
 
 <body>
@@ -33,7 +34,7 @@
             </tr>
             <tr>
                 <th>Preparation Time</th>
-                <td>{{ recipe.totalTime | format_duration }}</td>
+                <td id="prep-time">{{ recipe.totalTime | format_duration }}</td>
             </tr>
             <tr>
                 <th>Difficulty</th>
@@ -41,7 +42,25 @@
             </tr>
             <tr>
                 <th>Yields</th>
-                <td>{{ recipe.recipeYield }}</td>
+                <td>
+                    <span id="original-yield">{{ recipe.recipeYield }}</span>
+                    <span id="scaled-yield" style="display:none;"></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Scale Recipe</th>
+                <td>
+                    <select id="scale-select">
+                        <option value="0.5">½x (Half)</option>
+                        <option value="1" selected>1x (Original)</option>
+                        <option value="1.5">1½x</option>
+                        <option value="2">2x (Double)</option>
+                        <option value="3">3x (Triple)</option>
+                        <option value="4">4x (Quadruple)</option>
+                        <option value="custom">Custom...</option>
+                    </select>
+                    <input type="number" id="custom-scale" min="0.1" step="0.1" value="1" style="display:none; width: 60px;" />
+                </td>
             </tr>
         </table>
 
@@ -97,6 +116,82 @@
         {% endif %}
     </section>
 </article>
+
+<script>
+// Recipe scaling functionality
+(function() {
+    const scaler = new RecipeScaler();
+    const scaleSelect = document.getElementById('scale-select');
+    const customScaleInput = document.getElementById('custom-scale');
+    const originalYield = document.getElementById('original-yield');
+    const scaledYield = document.getElementById('scaled-yield');
+    const prepTime = document.getElementById('prep-time');
+
+    let currentScale = 1;
+
+    function applyScale(multiplier) {
+        currentScale = multiplier;
+
+        // Scale ingredients
+        const ingredientItems = document.querySelectorAll('.ingredients li');
+        ingredientItems.forEach(item => {
+            if (!item.dataset.original) {
+                item.dataset.original = item.textContent;
+            }
+            item.textContent = scaler.scaleIngredient(item.dataset.original, multiplier);
+        });
+
+        // Scale yield
+        if (originalYield.textContent && originalYield.textContent !== 'TODO') {
+            const scaledYieldText = scaler.scaleYield(originalYield.textContent, multiplier);
+            if (multiplier !== 1) {
+                originalYield.style.display = 'none';
+                scaledYield.style.display = 'inline';
+                scaledYield.textContent = scaledYieldText;
+            } else {
+                originalYield.style.display = 'inline';
+                scaledYield.style.display = 'none';
+            }
+        }
+
+        // Highlight preparation time if scaled
+        if (multiplier !== 1) {
+            prepTime.style.backgroundColor = '#ffcccc';
+            prepTime.title = 'Time may need adjustment when scaling recipes';
+            if (!prepTime.querySelector('.time-warning')) {
+                const warning = document.createElement('span');
+                warning.className = 'time-warning';
+                warning.textContent = ' ⚠';
+                warning.title = 'Time may need adjustment';
+                prepTime.appendChild(warning);
+            }
+        } else {
+            prepTime.style.backgroundColor = '';
+            prepTime.title = '';
+            const warning = prepTime.querySelector('.time-warning');
+            if (warning) warning.remove();
+        }
+    }
+
+    scaleSelect.addEventListener('change', function() {
+        if (this.value === 'custom') {
+            customScaleInput.style.display = 'inline';
+            customScaleInput.focus();
+            applyScale(parseFloat(customScaleInput.value));
+        } else {
+            customScaleInput.style.display = 'none';
+            applyScale(parseFloat(this.value));
+        }
+    });
+
+    customScaleInput.addEventListener('input', function() {
+        const value = parseFloat(this.value);
+        if (!isNaN(value) && value > 0) {
+            applyScale(value);
+        }
+    });
+})();
+</script>
 
 </body>
 

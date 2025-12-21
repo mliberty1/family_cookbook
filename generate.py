@@ -70,7 +70,8 @@ def _generate():
 
     # Load templates
     recipe_template = env.get_template('recipe.html')
-    index_template = env.get_template('index.html')
+    index_accordion_template = env.get_template('index_accordion.html')
+    search_template = env.get_template('search.html')
 
     # Copy CSS files
     shutil.copy(
@@ -80,6 +81,12 @@ def _generate():
     shutil.copy(
         os.path.join(_TEMPLATE_DIR, 'print.css'),
         os.path.join(_HTML, 'print.css')
+    )
+
+    # Copy JavaScript files
+    shutil.copy(
+        os.path.join(_TEMPLATE_DIR, 'recipe-scaler.js'),
+        os.path.join(_HTML, 'recipe-scaler.js')
     )
 
     # Generate individual recipe pages
@@ -128,8 +135,8 @@ def _generate():
                 key=lambda r: r['name']
             )
 
-    # Generate index page
-    index_content = index_template.render(
+    # Generate accordion index page
+    index_content = index_accordion_template.render(
         recipe_count=len(recipes),
         recipes_by_category=sorted_categories
     )
@@ -137,7 +144,16 @@ def _generate():
     with open(os.path.join(_HTML, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(index_content)
 
-    print(f"\nGenerated index.html with {len(recipes)} recipes across {len(sorted_categories)} categories")
+    print(f"\nGenerated index.html (accordion) with {len(recipes)} recipes across {len(sorted_categories)} categories")
+
+    # Generate search/browse page with embedded recipe data
+    search_content = search_template.render(
+        recipes_json=json.dumps(recipes_with_filenames)
+    )
+    with open(os.path.join(_HTML, 'search.html'), 'w', encoding='utf-8') as f:
+        f.write(search_content)
+
+    print(f"Generated search.html (search & browse)")
     print(f"Output directory: {_HTML}")
 
 
