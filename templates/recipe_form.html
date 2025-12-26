@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}{% if recipe %}Edit{% else %}New{% endif %} Recipe - Family Cookbook{% endblock %}
+
+{% block content %}
+<h1>{% if recipe %}Edit{% else %}Create New{% endif %} Recipe</h1>
+
+<form method="post" class="recipe-form">
+    <div class="form-section">
+        <h2>Basic Information</h2>
+
+        <div class="form-group">
+            <label for="name">Recipe Name: *</label>
+            <input type="text" id="name" name="name" value="{{ recipe.name if recipe else '' }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" value="{{ recipe.author if recipe else '' }}" placeholder="Who created this recipe?">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="2" placeholder="Brief description of the recipe">{{ recipe.description if recipe else '' }}</textarea>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select id="category" name="category">
+                    {% for cat in categories %}
+                        <option value="{{ cat }}" {% if recipe and recipe.recipe_category == cat %}selected{% endif %}>{{ cat }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty" name="difficulty">
+                    <option value="Easy" {% if recipe and recipe.educational_level == 'Easy' %}selected{% endif %}>Easy</option>
+                    <option value="Medium" {% if recipe and recipe.educational_level == 'Medium' %}selected{% endif %}>Medium</option>
+                    <option value="Hard" {% if recipe and recipe.educational_level == 'Hard' %}selected{% endif %}>Hard</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="total_time">Total Time (e.g., PT30M for 30 min, PT1H30M for 1h 30m):</label>
+                <input type="text" id="total_time" name="total_time" value="{{ recipe.total_time if recipe else '' }}" placeholder="PT30M">
+            </div>
+
+            <div class="form-group">
+                <label for="recipe_yield">Yield (servings):</label>
+                <input type="text" id="recipe_yield" name="recipe_yield" value="{{ recipe.recipe_yield if recipe else '' }}" placeholder="4 servings">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h2>Ingredients</h2>
+        <p class="form-help">
+            Enter one ingredient per line. Use "## Section Name" to create ingredient groups (e.g., "## Cake", "## Frosting").
+        </p>
+        <div class="form-group">
+            <textarea id="ingredients" name="ingredients" rows="15" required placeholder="1 cup flour&#10;2 eggs&#10;## Frosting&#10;1 cup butter&#10;2 cups sugar">{{ ingredients_text if ingredients_text else '' }}</textarea>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h2>Instructions</h2>
+        <p class="form-help">
+            Enter one instruction per line. Start a line with "🛈 " (info symbol) to create a note instead of a numbered step.
+        </p>
+        <div class="form-group">
+            <textarea id="instructions" name="instructions" rows="15" required placeholder="Preheat oven to 350°F.&#10;Mix flour and eggs.&#10;🛈 This recipe freezes well.">{{ instructions_text if instructions_text else '' }}</textarea>
+        </div>
+    </div>
+
+    {% if recipe %}
+        <div class="form-section">
+            <h2>Change Description</h2>
+            <div class="form-group">
+                <label for="change_description">What did you change? (optional)</label>
+                <input type="text" id="change_description" name="change_description" placeholder="e.g., Fixed typo in step 3, Updated ingredient quantities">
+                <small>This helps track what changed between versions.</small>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">{% if recipe %}Update Recipe{% else %}Create Recipe{% endif %}</button>
+        <a href="{{ url_for('recipe_detail', slug=recipe.slug) if recipe else url_for('index') }}" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+
+<div class="form-tips">
+    <h3>Formatting Tips</h3>
+    <ul>
+        <li><strong>Ingredient Sections:</strong> Start a line with "## " to create a section header (e.g., "## Cake")</li>
+        <li><strong>Instruction Notes:</strong> Start a line with "🛈 " to create an info note (won't be numbered)</li>
+        <li><strong>Time Format:</strong> Use ISO 8601 duration format: PT30M (30 min), PT1H (1 hour), PT1H30M (1.5 hours)</li>
+    </ul>
+</div>
+{% endblock %}

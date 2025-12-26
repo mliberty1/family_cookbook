@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}{{ recipe.name }} - Family Cookbook{% endblock %}
+
+{% block content %}
+<div class="recipe-header">
+    <h1>{{ recipe.name }}</h1>
+    <p class="recipe-author">by {{ recipe.author }}</p>
+
+    <div class="recipe-actions no-print">
+        {% if session.user_id %}
+            <a href="{{ url_for('recipe_edit', slug=recipe.slug) }}" class="btn btn-primary">Edit Recipe</a>
+        {% endif %}
+        <a href="{{ url_for('recipe_history', slug=recipe.slug) }}" class="btn btn-secondary">View History</a>
+        <button onclick="window.print()" class="btn btn-secondary">Print</button>
+    </div>
+</div>
+
+<div class="recipe-info">
+    <div class="info-item">
+        <strong>Category:</strong> {{ recipe.recipe_category }}
+    </div>
+    <div class="info-item">
+        <strong>Difficulty:</strong> {{ recipe.educational_level }}
+    </div>
+    <div class="info-item">
+        <strong>Time:</strong> {{ recipe.total_time|format_duration }}
+    </div>
+    <div class="info-item">
+        <strong>Yield:</strong> {{ recipe.recipe_yield }}
+    </div>
+</div>
+
+{% if recipe.description %}
+    <div class="recipe-description">
+        <p>{{ recipe.description }}</p>
+    </div>
+{% endif %}
+
+<div class="recipe-content">
+    <div class="recipe-ingredients">
+        <h2>Ingredients</h2>
+        <div class="ingredient-scaler no-print">
+            <label for="scale-factor">Scale recipe:</label>
+            <button onclick="scaleRecipe(0.5)">1/2x</button>
+            <button onclick="scaleRecipe(1)">1x</button>
+            <button onclick="scaleRecipe(2)">2x</button>
+            <button onclick="scaleRecipe(3)">3x</button>
+        </div>
+
+        {% set current_section = None %}
+        {% for ingredient in ingredients %}
+            {% if ingredient.is_section_header %}
+                {% if current_section is not none %}
+                    </ul>
+                {% endif %}
+                <h3 class="ingredient-section">{{ ingredient.section_name }}</h3>
+                <ul class="ingredient-list" data-scalable>
+                {% set current_section = ingredient.section_name %}
+            {% else %}
+                {% if current_section is none %}
+                    <ul class="ingredient-list" data-scalable>
+                    {% set current_section = "default" %}
+                {% endif %}
+                <li>{{ ingredient.ingredient_text }}</li>
+            {% endif %}
+        {% endfor %}
+        {% if current_section is not none %}
+            </ul>
+        {% endif %}
+
+        {% if not ingredients %}
+            <p class="empty-state">No ingredients listed.</p>
+        {% endif %}
+    </div>
+
+    <div class="recipe-instructions">
+        <h2>Instructions</h2>
+        <ol class="instruction-list">
+            {% for instruction in instructions %}
+                {% if not instruction.is_note %}
+                    <li>{{ instruction.instruction_text }}</li>
+                {% endif %}
+            {% endfor %}
+        </ol>
+
+        {% set notes = instructions|selectattr('is_note')|list %}
+        {% if notes %}
+            <div class="recipe-notes">
+                <h3>Notes</h3>
+                {% for note in notes %}
+                    <p class="note-item">{{ note.instruction_text|replace('🛈 ', '') }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if not instructions %}
+            <p class="empty-state">No instructions provided.</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="recipe-metadata no-print">
+    <p><small>Created: {{ recipe.date_created }} | Last modified: {{ recipe.date_modified }}</small></p>
+    {% if recipe.version_number %}
+        <p><small>Version {{ recipe.version_number }}</small></p>
+    {% endif %}
+</div>
+{% endblock %}

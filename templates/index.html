@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Browse Recipes - Family Cookbook{% endblock %}
+
+{% block content %}
+<h1>Family Recipes</h1>
+
+<div class="recipe-categories">
+    {% for category, recipes in by_category.items() %}
+        <div class="category-section">
+            <h2 class="category-title">{{ category }} ({{ recipes|length }})</h2>
+            <div class="recipe-grid">
+                {% for recipe in recipes %}
+                    <div class="recipe-card">
+                        <a href="{{ url_for('recipe_detail', slug=recipe.slug) }}">
+                            <h3>{{ recipe.name }}</h3>
+                            <p class="recipe-author">by {{ recipe.author }}</p>
+                            <p class="recipe-description">{{ recipe.description }}</p>
+                            <div class="recipe-meta">
+                                <span class="recipe-time">{{ recipe.total_time|format_duration }}</span>
+                                <span class="recipe-difficulty">{{ recipe.educational_level }}</span>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% if not by_category %}
+    <p class="empty-state">No recipes found. {% if session.user_id %}<a href="{{ url_for('recipe_new') }}">Add the first recipe!</a>{% endif %}</p>
+{% endif %}
+{% endblock %}

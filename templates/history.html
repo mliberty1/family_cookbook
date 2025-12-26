@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}History: {{ recipe_name }} - Family Cookbook{% endblock %}
+
+{% block content %}
+<div class="history-header">
+    <h1>Version History: {{ recipe_name }}</h1>
+    <a href="{{ url_for('recipe_detail', slug=slug) }}" class="btn btn-secondary">Back to Current Version</a>
+</div>
+
+<div class="version-timeline">
+    {% for version in versions %}
+        <div class="version-item {% if loop.first %}version-current{% endif %}">
+            <div class="version-header">
+                <h3>
+                    Version {{ version.version_number }}
+                    {% if loop.first %}
+                        <span class="badge badge-current">Current</span>
+                    {% endif %}
+                </h3>
+                <div class="version-meta">
+                    <span class="version-date">{{ version.version_created_at }}</span>
+                    {% if version.edited_by_user_name %}
+                        <span class="version-author">by {{ version.edited_by_user_name }}</span>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="version-body">
+                <p class="version-name"><strong>{{ version.name }}</strong></p>
+                {% if version.description %}
+                    <p class="version-description">{{ version.description }}</p>
+                {% endif %}
+
+                {% if version.change_description %}
+                    <p class="version-changes">
+                        <strong>Changes:</strong> {{ version.change_description }}
+                    </p>
+                {% endif %}
+
+                <div class="version-info">
+                    <span class="info-badge">{{ version.recipe_category }}</span>
+                    <span class="info-badge">{{ version.author }}</span>
+                </div>
+            </div>
+
+            <div class="version-actions">
+                <a href="{{ url_for('recipe_detail', slug=slug, v=version.version_number) }}" class="btn btn-small">View This Version</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% if not versions %}
+    <p class="empty-state">No version history available.</p>
+{% endif %}
+{% endblock %}
