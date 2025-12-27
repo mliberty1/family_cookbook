@@ -13,13 +13,13 @@
 @page :left {
     @bottom-left {
         content: counter(page);
-        font-family: Georgia, serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         font-size: 9pt;
         padding-top: 0.3in;
     }
     @bottom-center {
         content: string(section-name);
-        font-family: Georgia, serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         font-size: 9pt;
         font-style: italic;
         padding-top: 0.3in;
@@ -29,13 +29,13 @@
 @page :right {
     @bottom-right {
         content: counter(page);
-        font-family: Georgia, serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         font-size: 9pt;
         padding-top: 0.3in;
     }
     @bottom-center {
         content: string(section-name);
-        font-family: Georgia, serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         font-size: 9pt;
         font-style: italic;
         padding-top: 0.3in;
@@ -132,8 +132,9 @@
 }
 
 .toc-page h1 {
-    font-family: Georgia, serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: 32pt;
+    font-weight: bold;
     margin-bottom: 24pt;
     border-bottom: 3pt solid #2c3e50;
     padding-bottom: 8pt;
@@ -145,8 +146,9 @@
 }
 
 .toc-section h2 {
-    font-family: Georgia, serif;
-    font-size: 18pt;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16pt;
+    font-weight: bold;
     color: #3498db;
     margin-bottom: 8pt;
 }
@@ -158,8 +160,8 @@
 }
 
 .toc-section li {
-    font-family: Georgia, serif;
-    font-size: 11pt;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 10pt;
     line-height: 1.6;
     margin-bottom: 6pt;
 }
@@ -223,8 +225,8 @@
 }
 
 .section-content h1 {
-    font-family: Georgia, serif;
-    font-size: 42pt;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 36pt;
     font-weight: bold;
     color: #3498db;
     border-bottom: 4pt solid #3498db;
@@ -239,15 +241,16 @@
 }
 
 .recipe-page .recipe-header h1 {
-    font-family: Georgia, serif;
-    font-size: 24pt;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 20pt;
+    font-weight: bold;
     margin-bottom: 6pt;
     color: #2c3e50;
 }
 
 .recipe-page .recipe-author {
-    font-family: Georgia, serif;
-    font-size: 12pt;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 11pt;
     font-style: italic;
     color: #7f8c8d;
     margin-bottom: 12pt;
@@ -255,11 +258,77 @@
 
 /* Override print.css for PDF-specific adjustments */
 body {
-    font-family: Georgia, serif;
-    font-size: 11pt;
-    line-height: 1.4;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.3;
     color: #000;
 }
 
-/* Ensure recipe content uses the existing print.css styles */
-/* The @import at the top handles this */
+/* Recipe content styling - matches print.css but outside @media print */
+/* Instructions with blue circles */
+.instruction-list {
+    counter-reset: step-counter;
+    list-style: none !important;
+    margin-left: 0 !important;
+    margin-top: 2pt;
+    margin-bottom: 4pt;
+    padding-left: 0 !important;
+}
+
+.instruction-list li {
+    counter-increment: step-counter;
+    padding-left: 28pt !important;
+    margin-left: 0 !important;
+    margin-top: 7pt;
+    margin-bottom: 7pt;
+    page-break-inside: avoid;
+    line-height: 1.3;
+    position: relative !important;
+}
+
+.instruction-list li:before {
+    content: counter(step-counter) !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    background: #3498db !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: white !important;
+    font-weight: bold !important;
+    width: 18pt !important;
+    height: 18pt !important;
+    border-radius: 9pt !important;
+    display: block !important;
+    font-size: 10pt !important;
+    text-align: center !important;
+    line-height: 18pt !important;
+}
+
+/* Ingredients with blue bullets */
+.ingredient-list {
+    list-style: none !important;
+    margin-left: 0 !important;
+    margin-top: 2pt;
+    margin-bottom: 4pt;
+    padding-left: 0 !important;
+}
+
+.ingredient-list li {
+    padding-left: 12pt !important;
+    margin-left: 0 !important;
+    margin-bottom: 0;
+    line-height: 1;
+    position: relative !important;
+}
+
+.ingredient-list li:before {
+    content: "▪" !important;
+    color: #3498db !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    font-weight: bold !important;
+    position: absolute !important;
+    left: 0 !important;
+    display: inline !important;
+}
