@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}{{ user.name }} - Admin - Family Cookbook{% endblock %}
+
+{% block content %}
+<div class="admin-header">
+    <h1>User: {{ user.name }}</h1>
+    <a href="{{ url_for('admin_users') }}" class="btn btn-secondary">Back to Users</a>
+</div>
+
+<div class="user-detail">
+    <div class="detail-section">
+        <h2>User Information</h2>
+        <table class="detail-table">
+            <tr>
+                <th>Name:</th>
+                <td>{{ user.name }}</td>
+            </tr>
+            <tr>
+                <th>Email:</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Status:</th>
+                <td>
+                    <span class="badge {% if user.is_active %}badge-success{% else %}badge-inactive{% endif %}">
+                        {{ 'Active' if user.is_active else 'Inactive' }}
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th>Admin:</th>
+                <td>{{ 'Yes' if user.is_admin else 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Created:</th>
+                <td>{{ user.created_at }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="detail-section">
+        <h2>Magic Login Link</h2>
+        <p>Share this link with the user to allow them to login:</p>
+        <div class="login-link-box">
+            <input type="text" id="login-link" value="{{ login_url }}" readonly onclick="this.select()">
+            <button onclick="copyLoginLink()" class="btn btn-secondary">Copy Link</button>
+        </div>
+        <small>This link will automatically log them in without needing a password.</small>
+    </div>
+
+    <div class="detail-section">
+        <h2>Actions</h2>
+        <div class="action-buttons">
+            {% if user.id != session.user_id %}
+                <form method="post" action="{{ url_for('admin_user_toggle_active', user_id=user.id) }}" style="display: inline;">
+                    <button type="submit" class="btn {% if user.is_active %}btn-warning{% else %}btn-success{% endif %}">
+                        {{ 'Deactivate' if user.is_active else 'Activate' }} User
+                    </button>
+                </form>
+
+                <form method="post" action="{{ url_for('admin_user_toggle_admin', user_id=user.id) }}" style="display: inline;">
+                    <button type="submit" class="btn btn-secondary">
+                        {{ 'Revoke' if user.is_admin else 'Grant' }} Admin Permissions
+                    </button>
+                </form>
+            {% else %}
+                <p class="info-message">You cannot modify your own account status or permissions.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+function copyLoginLink() {
+    const input = document.getElementById('login-link');
+    input.select();
+    document.execCommand('copy');
+    alert('Login link copied to clipboard!');
+}
+</script>
+{% endblock %}

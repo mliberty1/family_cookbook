@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Users - Admin - Family Cookbook{% endblock %}
+
+{% block content %}
+<div class="admin-header">
+    <h1>Manage Users</h1>
+    <a href="{{ url_for('admin_user_add') }}" class="btn btn-primary">Add New User</a>
+</div>
+
+<table class="admin-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Admin</th>
+            <th>Status</th>
+            <th>Created</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+            <tr class="{% if not user.is_active %}inactive-row{% endif %}">
+                <td>
+                    <strong>{{ user.name }}</strong>
+                    {% if user.id == session.user_id %}
+                        <span class="badge badge-info">You</span>
+                    {% endif %}
+                </td>
+                <td>{{ user.email }}</td>
+                <td>{{ 'Yes' if user.is_admin else 'No' }}</td>
+                <td>
+                    <span class="badge {% if user.is_active %}badge-success{% else %}badge-inactive{% endif %}">
+                        {{ 'Active' if user.is_active else 'Inactive' }}
+                    </span>
+                </td>
+                <td>{{ user.created_at[:10] if user.created_at else 'N/A' }}</td>
+                <td>
+                    <a href="{{ url_for('admin_user_detail', user_id=user.id) }}" class="btn btn-small">View/Edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% if not users %}
+    <p class="empty-state">No users found.</p>
+{% endif %}
+{% endblock %}

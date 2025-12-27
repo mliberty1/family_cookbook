@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Panel - Family Cookbook{% endblock %}
+
+{% block content %}
+<h1>Admin Panel</h1>
+
+<div class="admin-dashboard">
+    <div class="admin-stats">
+        <div class="stat-card">
+            <h3>Total Users</h3>
+            <p class="stat-number">{{ user_count }}</p>
+        </div>
+        <div class="stat-card">
+            <h3>Active Users</h3>
+            <p class="stat-number">{{ active_count }}</p>
+        </div>
+        <div class="stat-card">
+            <h3>Administrators</h3>
+            <p class="stat-number">{{ admin_count }}</p>
+        </div>
+    </div>
+
+    <div class="admin-actions">
+        <h2>Quick Actions</h2>
+        <div class="action-buttons">
+            <a href="{{ url_for('admin_user_add') }}" class="btn btn-primary">Add New User</a>
+            <a href="{{ url_for('admin_users') }}" class="btn btn-secondary">Manage Users</a>
+            <a href="{{ url_for('admin_email_users') }}" class="btn btn-secondary">Email Users</a>
+            <a href="{{ url_for('admin_backup_database') }}" class="btn btn-secondary">Backup Database</a>
+        </div>
+    </div>
+
+    <div class="admin-recent-users">
+        <h2>Recent Users</h2>
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Admin</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users[:10] %}
+                    <tr>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ 'Yes' if user.is_admin else 'No' }}</td>
+                        <td>
+                            <span class="badge {% if user.is_active %}badge-success{% else %}badge-inactive{% endif %}">
+                                {{ 'Active' if user.is_active else 'Inactive' }}
+                            </span>
+                        </td>
+                        <td>
+                            <a href="{{ url_for('admin_user_detail', user_id=user.id) }}" class="btn btn-small">View</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

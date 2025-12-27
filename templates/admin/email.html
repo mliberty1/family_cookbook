@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Email Users - Admin - Family Cookbook{% endblock %}
+
+{% block content %}
+<div class="admin-header">
+    <h1>Email Users</h1>
+    <a href="{{ url_for('admin_panel') }}" class="btn btn-secondary">Back to Admin</a>
+</div>
+
+<form method="post" class="admin-form email-form">
+    <div class="form-section">
+        <h2>Select Recipients</h2>
+        <div class="user-selection">
+            <label class="user-checkbox">
+                <input type="checkbox" id="select-all" onclick="toggleAllUsers(this)">
+                <strong>Select All Active Users</strong>
+            </label>
+
+            {% for user in users %}
+                {% if user.is_active %}
+                    <label class="user-checkbox">
+                        <input type="checkbox" name="user_ids" value="{{ user.id }}" class="user-checkbox-item">
+                        {{ user.name }} ({{ user.email }})
+                        {% if user.is_admin %}<span class="badge badge-info">Admin</span>{% endif %}
+                    </label>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        {% if not users or not users|selectattr('is_active')|list %}
+            <p class="info-message">No active users available to email.</p>
+        {% endif %}
+    </div>
+
+    <div class="form-section">
+        <h2>Compose Email</h2>
+
+        <div class="form-group">
+            <label for="subject">Subject: *</label>
+            <input type="text" id="subject" name="subject" required value="Welcome to Family Cookbook">
+        </div>
+
+        <div class="form-group">
+            <label for="body">Email Body: *</label>
+            <textarea id="body" name="body" rows="12" required>Hello {{ display_name }},
+
+You've been invited to access the Family Cookbook!
+
+Click here to login:
+{{ login_url }}
+
+This link is unique to you and will log you in automatically.
+
+Enjoy the recipes!</textarea>
+            <small>This field supports Jinja2 template variables:</small>
+            <ul class="template-help">
+                <li><code>{{ "{{ login_url }}" }}</code> - User's unique magic login link</li>
+                <li><code>{{ "{{ display_name }}" }}</code> - User's name</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Send Emails</button>
+        <a href="{{ url_for('admin_panel') }}" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+
+<div class="form-tips">
+    <h3>Email Sending Tips</h3>
+    <ul>
+        <li>Emails are sent via Mailgun - ensure environment variables are configured</li>
+        <li>Each user receives a personalized email with their unique login link</li>
+        <li>Failed sends will be reported after submission</li>
+        <li>Test with a single user first before sending to everyone</li>
+    </ul>
+</div>
+
+<script>
+function toggleAllUsers(checkbox) {
+    const userCheckboxes = document.querySelectorAll('.user-checkbox-item');
+    userCheckboxes.forEach(cb => {
+        cb.checked = checkbox.checked;
+    });
+}
+
+// Update "select all" checkbox state when individual checkboxes change
+document.addEventListener('DOMContentLoaded', function() {
+    const selectAll = document.getElementById('select-all');
+    const userCheckboxes = document.querySelectorAll('.user-checkbox-item');
+
+    userCheckboxes.forEach(cb => {
+        cb.addEventListener('change', function() {
+            const allChecked = Array.from(userCheckboxes).every(checkbox => checkbox.checked);
+            const noneChecked = Array.from(userCheckboxes).every(checkbox => !checkbox.checked);
+
+            if (allChecked) {
+                selectAll.checked = true;
+                selectAll.indeterminate = false;
+            } else if (noneChecked) {
+                selectAll.checked = false;
+                selectAll.indeterminate = false;
+            } else {
+                selectAll.indeterminate = true;
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

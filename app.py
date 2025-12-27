@@ -12,12 +12,17 @@ import sqlite3
 import json
 import re
 import uuid
+import os
 from datetime import datetime
 from functools import wraps
 
+import requests
+from jinja2 import Template
+from email_validator import validate_email, EmailNotValidError
+
 from flask import (
     Flask, render_template, request, redirect, url_for,
-    session, g, flash, jsonify
+    session, g, flash, jsonify, send_file
 )
 
 
@@ -179,6 +184,82 @@ def validate_token(token):
     return user
 
 
+def admin_required(f):
+    """Decorator to require admin permissions for a route."""
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user_id' not in session:
+            return redirect(url_for('login', next=request.url))
+
+        user = query_db('SELECT is_admin FROM users WHERE id = ?', [session['user_id']], one=True)
+        if not user or not user['is_admin']:
+            flash('You do not have permission to access this page.', 'error')
+            return redirect(url_for('index'))
+
+        return f(*args, **kwargs)
+    return decorated_function
+
+
+def sanitize_name(name):
+    """Sanitize name to prevent email header injection."""
+    if not name:
+        return ""
+    # Remove newlines and other control characters
+    return re.sub(r'[\r\n\t]', '', name)
+
+
+def send_user_email(user, base_url, subject, body_template):
+    """Send email to a user using Mailgun API.
+
+    Args:
+        user: User dict with 'name', 'email', and 'auth_token' keys
+        base_url: Base URL for the application
+        subject: Email subject line
+        body_template: Email body as Jinja2 template string.
+                      Supports {{ login_url }} and {{ display_name }} variables.
+
+    Returns:
+        requests.Response object
+    """
+    api_key = os.environ.get('MAILGUN_API_KEY')
+    if not api_key:
+        raise ValueError('MAILGUN_API_KEY environment variable not set')
+
+    mailgun_domain = os.environ.get('MAILGUN_DOMAIN')
+    if not mailgun_domain:
+        raise ValueError('MAILGUN_DOMAIN environment variable not set')
+
+    email_from = os.environ.get('EMAIL_FROM')
+    if not email_from:
+        raise ValueError('EMAIL_FROM environment variable not set')
+
+    # Sanitize names to prevent email header injection
+    display_name = sanitize_name(user.get('name', user.get('display_name', '')))
+    user_name = sanitize_name(user['name'])
+
+    login_url = f"{base_url}/login?token={user['auth_token']}"
+
+    # Render body template with Jinja2
+    template = Template(body_template)
+    email_body = template.render(
+        login_url=login_url,
+        display_name=display_name
+    )
+
+    response = requests.post(
+        f"https://api.mailgun.net/v3/{mailgun_domain}/messages",
+        auth=("api", api_key),
+        data={
+            "from": email_from,
+            "to": f"{user_name} <{user['email']}>",
+            "subject": subject,
+            "text": email_body
+        }
+    )
+
+    return response
+
+
 # =============================================================================
 # Routes - Public
 # =============================================================================
@@ -210,7 +291,7 @@ def recipe_detail(slug):
     if version:
         # Get specific version
         recipe = query_db('''
-            SELECT rv.*, r.slug
+            SELECT rv.*, rv.id AS version_id, r.slug, r.id AS recipe_id
             FROM recipe_versions rv
             JOIN recipes r ON rv.recipe_id = r.id
             WHERE r.slug = ? AND rv.version_number = ?
@@ -313,6 +394,7 @@ def login():
             session['user_id'] = user['id']
             session['user_name'] = user['name']
             session['auth_token'] = token
+            session['is_admin'] = bool(user['is_admin'])
 
             next_page = request.args.get('next')
             return redirect(next_page or url_for('index'))
@@ -327,6 +409,7 @@ def login():
             session['user_id'] = user['id']
             session['user_name'] = user['name']
             session['auth_token'] = token
+            session['is_admin'] = bool(user['is_admin'])
             flash(f'Welcome, {user["name"]}!', 'success')
             return redirect(url_for('index'))
 
@@ -629,6 +712,270 @@ def recipe_history(slug):
                          recipe_name=recipe_name,
                          slug=slug,
                          versions=versions)
+
+
+# =============================================================================
+# Routes - Admin Panel
+# =============================================================================
+
+@app.route('/admin')
+@admin_required
+def admin_panel():
+    """Admin panel home."""
+    users = query_db('SELECT * FROM users ORDER BY created_at DESC')
+    user_count = len(users)
+    active_count = len([u for u in users if u['is_active']])
+    admin_count = len([u for u in users if u['is_admin']])
+
+    return render_template('admin/index.html',
+                         users=users,
+                         user_count=user_count,
+                         active_count=active_count,
+                         admin_count=admin_count)
+
+
+@app.route('/admin/users')
+@admin_required
+def admin_users():
+    """Manage users."""
+    users = query_db('SELECT * FROM users ORDER BY created_at DESC')
+    return render_template('admin/users.html', users=users)
+
+
+@app.route('/admin/user/add', methods=['GET', 'POST'])
+@admin_required
+def admin_user_add():
+    """Add a new user."""
+    if request.method == 'POST':
+        try:
+            name = request.form.get('name', '').strip()
+            email = request.form.get('email', '').strip()
+            is_admin = request.form.get('is_admin') == 'on'
+
+            # Validate
+            if not name:
+                flash('Name is required', 'error')
+                return redirect(url_for('admin_user_add'))
+
+            if not email:
+                flash('Email is required', 'error')
+                return redirect(url_for('admin_user_add'))
+
+            # Validate email format
+            try:
+                validate_email(email)
+            except EmailNotValidError as e:
+                flash(f'Invalid email address: {str(e)}', 'error')
+                return redirect(url_for('admin_user_add'))
+
+            # Check if email already exists
+            existing = query_db('SELECT id FROM users WHERE email = ?', [email], one=True)
+            if existing:
+                flash('A user with this email already exists', 'error')
+                return redirect(url_for('admin_user_add'))
+
+            # Generate token
+            auth_token = str(uuid.uuid4())
+
+            # Insert user
+            user_id = execute_db('''
+                INSERT INTO users (name, email, auth_token, is_admin, is_active, created_at)
+                VALUES (?, ?, ?, ?, ?, ?)
+            ''', [name, email, auth_token, is_admin, 1, datetime.now()])
+
+            flash(f'User "{name}" created successfully!', 'success')
+            return redirect(url_for('admin_user_detail', user_id=user_id))
+
+        except Exception as e:
+            flash(f'Error creating user: {str(e)}', 'error')
+            return redirect(url_for('admin_user_add'))
+
+    return render_template('admin/user_form.html', user=None)
+
+
+@app.route('/admin/user/<int:user_id>')
+@admin_required
+def admin_user_detail(user_id):
+    """View user details."""
+    user = query_db('SELECT * FROM users WHERE id = ?', [user_id], one=True)
+
+    if not user:
+        flash('User not found', 'error')
+        return redirect(url_for('admin_users'))
+
+    # Get base URL for login link
+    base_url = request.url_root.rstrip('/')
+    login_url = f"{base_url}/login?token={user['auth_token']}"
+
+    return render_template('admin/user_detail.html', user=user, login_url=login_url)
+
+
+@app.route('/admin/user/<int:user_id>/toggle-active', methods=['POST'])
+@admin_required
+def admin_user_toggle_active(user_id):
+    """Toggle user active status."""
+    user = query_db('SELECT * FROM users WHERE id = ?', [user_id], one=True)
+
+    if not user:
+        flash('User not found', 'error')
+        return redirect(url_for('admin_users'))
+
+    # Don't allow disabling yourself
+    if user_id == session['user_id']:
+        flash('You cannot deactivate your own account', 'error')
+        return redirect(url_for('admin_user_detail', user_id=user_id))
+
+    new_status = not user['is_active']
+    execute_db('UPDATE users SET is_active = ? WHERE id = ?', [new_status, user_id])
+
+    status_text = 'activated' if new_status else 'deactivated'
+    flash(f'User "{user["name"]}" {status_text}', 'success')
+    return redirect(url_for('admin_user_detail', user_id=user_id))
+
+
+@app.route('/admin/user/<int:user_id>/toggle-admin', methods=['POST'])
+@admin_required
+def admin_user_toggle_admin(user_id):
+    """Toggle user admin status."""
+    user = query_db('SELECT * FROM users WHERE id = ?', [user_id], one=True)
+
+    if not user:
+        flash('User not found', 'error')
+        return redirect(url_for('admin_users'))
+
+    # Don't allow removing your own admin permissions
+    if user_id == session['user_id']:
+        flash('You cannot remove your own admin permissions', 'error')
+        return redirect(url_for('admin_user_detail', user_id=user_id))
+
+    new_status = not user['is_admin']
+    execute_db('UPDATE users SET is_admin = ? WHERE id = ?', [new_status, user_id])
+
+    status_text = 'granted' if new_status else 'revoked'
+    flash(f'Admin permissions {status_text} for "{user["name"]}"', 'success')
+    return redirect(url_for('admin_user_detail', user_id=user_id))
+
+
+@app.route('/admin/email', methods=['GET', 'POST'])
+@admin_required
+def admin_email_users():
+    """Send emails to users."""
+    users = query_db('SELECT * FROM users WHERE is_active = 1 ORDER BY name')
+
+    if request.method == 'POST':
+        try:
+            subject = request.form.get('subject', '').strip()
+            body_template = request.form.get('body', '').strip()
+            target_users = request.form.getlist('users')
+
+            # Validate
+            if not subject:
+                flash('Subject is required', 'error')
+                return redirect(url_for('admin_email_users'))
+
+            if not body_template:
+                flash('Email body is required', 'error')
+                return redirect(url_for('admin_email_users'))
+
+            if not target_users:
+                flash('Please select at least one user', 'error')
+                return redirect(url_for('admin_email_users'))
+
+            # Get base URL
+            base_url = request.url_root.rstrip('/')
+
+            # Send emails
+            success_count = 0
+            error_count = 0
+            errors = []
+
+            for user_id in target_users:
+                user = query_db('SELECT * FROM users WHERE id = ?', [int(user_id)], one=True)
+                if not user or not user['is_active']:
+                    continue
+
+                if not user['email']:
+                    errors.append(f"{user['name']}: No email address")
+                    error_count += 1
+                    continue
+
+                try:
+                    response = send_user_email(user, base_url, subject, body_template)
+                    if response.status_code == 200:
+                        success_count += 1
+                    else:
+                        errors.append(f"{user['name']}: {response.text}")
+                        error_count += 1
+                except Exception as e:
+                    errors.append(f"{user['name']}: {str(e)}")
+                    error_count += 1
+
+            # Show results
+            if success_count > 0:
+                flash(f'Successfully sent {success_count} email(s)', 'success')
+
+            if error_count > 0:
+                flash(f'Failed to send {error_count} email(s)', 'error')
+                for error in errors[:5]:  # Show first 5 errors
+                    flash(f'  • {error}', 'error')
+
+            return redirect(url_for('admin_email_users'))
+
+        except Exception as e:
+            flash(f'Error sending emails: {str(e)}', 'error')
+            return redirect(url_for('admin_email_users'))
+
+    # Default email template
+    default_template = """Hello {{ display_name }},
+
+You've been invited to access the Family Cookbook!
+
+Click here to login:
+{{ login_url }}
+
+This link is unique to you and will log you in automatically.
+
+Enjoy the recipes!
+"""
+
+    return render_template('admin/email.html',
+                         users=users,
+                         default_template=default_template)
+
+
+@app.route('/admin/backup')
+@admin_required
+def admin_backup_database():
+    """Download database backup as SQL export."""
+    try:
+        # Generate filename with timestamp
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        download_name = f'family_cookbook_backup_{timestamp}.sql'
+
+        # Create SQL dump
+        conn = sqlite3.connect(app.config['DATABASE'])
+
+        # Generate SQL dump
+        sql_dump = '\n'.join(conn.iterdump())
+
+        conn.close()
+
+        # Create temporary file with SQL dump
+        import tempfile
+        temp_file = tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.sql', encoding='utf-8')
+        temp_file.write(sql_dump)
+        temp_file.close()
+
+        # Send the SQL file and delete after sending
+        return send_file(
+            temp_file.name,
+            as_attachment=True,
+            download_name=download_name,
+            mimetype='text/plain'
+        )
+    except Exception as e:
+        flash(f'Error creating backup: {str(e)}', 'error')
+        return redirect(url_for('admin_panel'))
 
 
 # =============================================================================

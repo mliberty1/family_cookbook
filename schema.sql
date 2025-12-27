@@ -18,6 +18,7 @@ CREATE TABLE users (
     name TEXT NOT NULL,                    -- Display name (e.g., "Diana Liberty")
     email TEXT UNIQUE NOT NULL,            -- For sending auth links
     auth_token TEXT UNIQUE NOT NULL,       -- UUID for URL-based auth
+    is_admin BOOLEAN DEFAULT 0,            -- Admin permissions
     is_active BOOLEAN DEFAULT 1,           -- Soft delete for users
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -193,6 +194,9 @@ SELECT
     rv.total_time,
     rv.recipe_yield,
     rv.creative_work_status,
+    rv.date_created,
+    rv.date_modified,
+    rv.date_published,
     rv.jsonld_data,
     rv.created_at AS version_created_at,
     rv.created_by_user_id AS version_created_by_user_id,

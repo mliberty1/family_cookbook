@@ -27,7 +27,7 @@
         <strong>Time:</strong> {{ recipe.total_time|format_duration }}
     </div>
     <div class="info-item">
-        <strong>Yield:</strong> {{ recipe.recipe_yield }}
+        <strong>Yield:</strong> <span data-yield>{{ recipe.recipe_yield }}</span>
     </div>
 </div>
 
@@ -48,24 +48,24 @@
             <button onclick="scaleRecipe(3)">3x</button>
         </div>
 
-        {% set current_section = None %}
+        {% set ns = namespace(current_section=None) %}
         {% for ingredient in ingredients %}
             {% if ingredient.is_section_header %}
-                {% if current_section is not none %}
+                {% if ns.current_section is not none %}
                     </ul>
                 {% endif %}
                 <h3 class="ingredient-section">{{ ingredient.section_name }}</h3>
                 <ul class="ingredient-list" data-scalable>
-                {% set current_section = ingredient.section_name %}
+                {% set ns.current_section = ingredient.section_name %}
             {% else %}
-                {% if current_section is none %}
+                {% if ns.current_section is none %}
                     <ul class="ingredient-list" data-scalable>
-                    {% set current_section = "default" %}
+                    {% set ns.current_section = "default" %}
                 {% endif %}
                 <li>{{ ingredient.ingredient_text }}</li>
             {% endif %}
         {% endfor %}
-        {% if current_section is not none %}
+        {% if ns.current_section is not none %}
             </ul>
         {% endif %}
 

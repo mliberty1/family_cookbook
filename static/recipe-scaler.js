@@ -172,3 +172,42 @@ class RecipeScaler {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = RecipeScaler;
 }
+
+// Global instance for browser use
+const scaler = new RecipeScaler();
+
+/**
+ * Scale all ingredients on the page
+ * Called by buttons in the recipe page
+ */
+function scaleRecipe(multiplier) {
+    const ingredientLists = document.querySelectorAll('[data-scalable]');
+
+    ingredientLists.forEach(list => {
+        const items = list.querySelectorAll('li');
+
+        items.forEach(item => {
+            // Store original text on first scale
+            if (!item.dataset.original) {
+                item.dataset.original = item.textContent;
+            }
+
+            // Scale from original text
+            const original = item.dataset.original;
+            const scaled = scaler.scaleIngredient(original, multiplier);
+            item.textContent = scaled;
+        });
+    });
+
+    // Scale yield if present
+    const yieldElement = document.querySelector('[data-yield]');
+    if (yieldElement) {
+        if (!yieldElement.dataset.original) {
+            yieldElement.dataset.original = yieldElement.textContent;
+        }
+
+        const original = yieldElement.dataset.original;
+        const scaled = scaler.scaleYield(original, multiplier);
+        yieldElement.textContent = scaled;
+    }
+}

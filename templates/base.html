@@ -17,6 +17,9 @@
                 <li><a href="{{ url_for('search') }}">Search</a></li>
                 {% if session.user_id %}
                     <li><a href="{{ url_for('recipe_new') }}">New Recipe</a></li>
+                    {% if session.is_admin %}
+                        <li><a href="{{ url_for('admin_panel') }}">Admin</a></li>
+                    {% endif %}
                     <li><span class="nav-user">Welcome, {{ session.user_name }}!</span></li>
                     <li><a href="{{ url_for('logout') }}">Logout</a></li>
                 {% else %}

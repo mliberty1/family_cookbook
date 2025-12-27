@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Add User - Admin - Family Cookbook{% endblock %}
+
+{% block content %}
+<h1>Add New User</h1>
+
+<form method="post" class="admin-form">
+    <div class="form-section">
+        <h2>User Information</h2>
+
+        <div class="form-group">
+            <label for="name">Name: *</label>
+            <input type="text" id="name" name="name" required autofocus>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email: *</label>
+            <input type="email" id="email" name="email" required>
+            <small>User will receive login link at this email address</small>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input type="checkbox" name="is_admin" id="is_admin">
+                Grant admin permissions
+            </label>
+            <small>Admins can manage users and send emails</small>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Create User</button>
+        <a href="{{ url_for('admin_users') }}" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+
+<div class="form-tips">
+    <h3>What Happens Next</h3>
+    <ul>
+        <li>A unique authentication token will be generated</li>
+        <li>You'll see a magic login link you can send to the user</li>
+        <li>Or you can use the Email Users feature to send them an invite</li>
+    </ul>
+</div>
+{% endblock %}
