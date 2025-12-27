@@ -883,7 +883,7 @@ def admin_email_users():
         try:
             subject = request.form.get('subject', '').strip()
             body_template = request.form.get('body', '').strip()
-            target_users = request.form.getlist('users')
+            target_users = request.form.getlist('user_ids')
 
             # Validate
             if not subject:

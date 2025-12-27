@@ -43,7 +43,7 @@
 
         <div class="form-group">
             <label for="body">Email Body: *</label>
-            <textarea id="body" name="body" rows="12" required>Hello {{ display_name }},
+            <textarea id="body" name="body" rows="12" required>{% raw %}Hello {{ display_name }},
 
 You've been invited to access the Family Cookbook!
 
@@ -52,7 +52,7 @@ Click here to login:
 
 This link is unique to you and will log you in automatically.
 
-Enjoy the recipes!</textarea>
+Enjoy the recipes!{% endraw %}</textarea>
             <small>This field supports Jinja2 template variables:</small>
             <ul class="template-help">
                 <li><code>{{ "{{ login_url }}" }}</code> - User's unique magic login link</li>
