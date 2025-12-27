@@ -240,6 +240,9 @@ def send_user_email(user, base_url, subject, body_template):
     if not email_from:
         raise ValueError('EMAIL_FROM environment variable not set')
 
+    # Optional: Reply-To header (e.g., your personal email)
+    reply_to = os.environ.get('REPLY_TO')
+
     # Sanitize names to prevent email header injection
     display_name = sanitize_name(user.get('name', user.get('display_name', '')))
     user_name = sanitize_name(user['name'])
@@ -253,15 +256,22 @@ def send_user_email(user, base_url, subject, body_template):
         display_name=display_name
     )
 
+    # Build email data
+    email_data = {
+        "from": email_from,
+        "to": f"{user_name} <{user['email']}>",
+        "subject": subject,
+        "text": email_body
+    }
+
+    # Add Reply-To header if configured
+    if reply_to:
+        email_data["h:Reply-To"] = reply_to
+
     response = requests.post(
         f"https://api.mailgun.net/v3/{mailgun_domain}/messages",
         auth=("api", api_key),
-        data={
-            "from": email_from,
-            "to": f"{user_name} <{user['email']}>",
-            "subject": subject,
-            "text": email_body
-        }
+        data=email_data
     )
 
     return response

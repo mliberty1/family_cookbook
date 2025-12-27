@@ -42,6 +42,7 @@
 MAILGUN_API_KEY=<your-api-key>
 MAILGUN_DOMAIN=mg.yourdomain.com
 EMAIL_FROM="Family Cookbook <postmaster@mg.yourdomain.com>"
+REPLY_TO=your-personal@email.com  # Optional: where replies go
 ```
 
 **Features:**

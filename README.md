@@ -96,6 +96,7 @@ DATABASE_URL=sqlite:///var/data/cookbook.db
 MAILGUN_API_KEY=<your-mailgun-api-key>
 MAILGUN_DOMAIN=<your-mailgun-domain>
 EMAIL_FROM="Family Cookbook <noreply@yourdomain.com>"
+REPLY_TO=<your-personal-email@example.com>  # Optional: where replies go
 ```
 
 ## Project Structure
