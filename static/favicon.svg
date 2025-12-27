@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Cookbook with spoon -->
+
+  <!-- Book cover -->
+  <rect x="12" y="8" width="40" height="48" rx="2" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+
+  <!-- Book pages -->
+  <rect x="14" y="10" width="36" height="44" fill="#FFF8DC"/>
+
+  <!-- Book spine highlight -->
+  <rect x="12" y="8" width="6" height="48" rx="2" fill="#654321"/>
+
+  <!-- Recipe lines -->
+  <line x1="20" y1="20" x2="44" y2="20" stroke="#8B4513" stroke-width="1.5" opacity="0.6"/>
+  <line x1="20" y1="26" x2="44" y2="26" stroke="#8B4513" stroke-width="1.5" opacity="0.6"/>
+  <line x1="20" y1="32" x2="40" y2="32" stroke="#8B4513" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Spoon -->
+  <ellipse cx="32" cy="44" rx="4" ry="5" fill="#C0C0C0" stroke="#A9A9A9" stroke-width="1"/>
+  <rect x="31" y="40" width="2" height="12" fill="#C0C0C0" stroke="#A9A9A9" stroke-width="1"/>
+</svg>

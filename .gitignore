@@ -14,4 +14,7 @@ __pycache__
 
 # Temporary scripts
 check_admin.py
+generate_favicon.py
+generate_favicon_simple.py
+DATABASE_AUDIT.md
 
