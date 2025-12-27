@@ -359,9 +359,22 @@ def generate_cookbook_pdf():
                                    cookbook_data=cookbook_data,
                                    iso_date=iso_date)
 
+    # Read CSS file contents (pdf.css imports print.css, so load both)
+    print_css_path = os.path.join(app.root_path, 'static', 'print.css')
+    pdf_css_path = os.path.join(app.root_path, 'static', 'pdf.css')
+
+    with open(print_css_path, 'r', encoding='utf-8') as f:
+        print_css_content = f.read()
+
+    with open(pdf_css_path, 'r', encoding='utf-8') as f:
+        pdf_css_content = f.read()
+
+    # Remove @import statement from pdf.css since we're loading print.css separately
+    pdf_css_content = pdf_css_content.replace("@import url('print.css');", '')
+
     # Convert to PDF with custom CSS
     pdf_bytes = HTML(string=html_string).write_pdf(
-        stylesheets=[CSS(filename='static/pdf.css')]
+        stylesheets=[CSS(string=print_css_content), CSS(string=pdf_css_content)]
     )
 
     return pdf_bytes
