@@ -46,6 +46,33 @@ else:
 # Database Helpers
 # =============================================================================
 
+def init_db():
+    """Initialize database from schema.sql if needed."""
+    db = sqlite3.connect(app.config['DATABASE'])
+
+    # Check if database is initialized by checking for users table
+    cursor = db.cursor()
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='users'")
+    if cursor.fetchone() is None:
+        # Database not initialized, run schema.sql
+        print("Initializing database from schema.sql...")
+        schema_path = os.path.join(os.path.dirname(__file__), 'schema.sql')
+
+        if os.path.exists(schema_path):
+            with open(schema_path, 'r', encoding='utf-8') as f:
+                schema = f.read()
+            db.executescript(schema)
+            db.commit()
+            print("Database initialized successfully!")
+        else:
+            print(f"Warning: schema.sql not found at {schema_path}")
+
+    db.close()
+
+
+# Initialize database on startup
+init_db()
+
 def get_db():
     """Get database connection for the current request."""
     if 'db' not in g:
