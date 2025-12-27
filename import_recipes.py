@@ -156,13 +156,8 @@ def import_recipes(db_path='cookbook.db', jsonld_path='cookbook.jsonld'):
                     ) VALUES (?, ?, ?, ?)
                 """, (version_id, idx, instruction_text, is_note))
 
-            # Update full-text search
-            search_text = f"{name} {recipe_data.get('author', '')} {recipe_data.get('description', '')} {' '.join(ingredients)} {' '.join(instructions)}"
-
-            cursor.execute("""
-                INSERT INTO recipe_search (recipe_id, search_text)
-                VALUES (?, ?)
-            """, (recipe_id, search_text))
+            # Note: Full-text search is automatically populated by FTS5 triggers
+            # No manual insertion needed
 
             imported += 1
 
