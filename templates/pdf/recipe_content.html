@@ -1,4 +1,4 @@
-<section class="recipe-page section-{{ recipe.recipe_category|lower|replace(' ', '-') }}">
+<section id="recipe-{{ recipe.slug }}" class="recipe-page section-{{ recipe.recipe_category|lower|replace(' ', '-') }}">
     <div class="recipe-header">
         <h1>{{ recipe.name }}</h1>
         <p class="recipe-author">by {{ recipe.author }}</p>

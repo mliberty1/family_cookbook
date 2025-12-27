@@ -160,14 +160,50 @@
 .toc-section li {
     font-family: Georgia, serif;
     font-size: 11pt;
-    line-height: 1.4;
-    margin-bottom: 4pt;
+    line-height: 1.6;
+    margin-bottom: 6pt;
 }
 
-.toc-section li:before {
-    content: "• ";
+/* TOC links with page numbers */
+.toc-link {
+    display: block;
+    text-decoration: none;
+    color: #2c3e50;
+    overflow: hidden;
+    position: relative;
+}
+
+.toc-link:hover {
     color: #3498db;
+}
+
+.toc-link .recipe-name {
+    background: white !important;
+    padding-right: 4pt;
+    position: relative;
+    z-index: 1;
+}
+
+/* Dotted leader line */
+.toc-link::before {
+    content: "" !important;
+    position: absolute;
+    bottom: 0.3em;
+    width: 100%;
+    border-bottom: 1pt dotted #bdc3c7;
+    z-index: 0;
+}
+
+/* Page number using target-counter */
+.toc-link::after {
+    content: target-counter(attr(href), page) !important;
+    float: right;
+    background: white !important;
+    padding-left: 4pt;
     font-weight: bold;
+    color: #3498db !important;
+    position: relative;
+    z-index: 1;
 }
 
 /* Section Divider Styling */

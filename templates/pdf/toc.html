@@ -6,7 +6,11 @@
             <h2>{{ category }}</h2>
             <ul>
                 {% for recipe_data in recipes %}
-                    <li>{{ recipe_data.recipe.name }}</li>
+                    <li>
+                        <a href="#recipe-{{ recipe_data.recipe.slug }}" class="toc-link">
+                            <span class="recipe-name">{{ recipe_data.recipe.name }}</span>
+                        </a>
+                    </li>
                 {% endfor %}
             </ul>
         </div>
