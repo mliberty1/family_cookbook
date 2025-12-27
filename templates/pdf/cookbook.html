@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Family Cookbook</title>
+</head>
+<body>
+    {# Title Page #}
+    {% include 'pdf/title_page.html' %}
+
+    {# Dedication Page #}
+    {% include 'pdf/dedication.html' %}
+
+    {# Table of Contents #}
+    {% include 'pdf/toc.html' %}
+
+    {# Sections and Recipes #}
+    {% for category, recipes in cookbook_data.items() %}
+        {# Section Divider #}
+        {% include 'pdf/section_divider.html' %}
+
+        {# All Recipes in this Section #}
+        {% for recipe_data in recipes %}
+            {% set recipe = recipe_data.recipe %}
+            {% set ingredients = recipe_data.ingredients %}
+            {% set instructions = recipe_data.instructions %}
+            {% include 'pdf/recipe_content.html' %}
+        {% endfor %}
+    {% endfor %}
+</body>
+</html>

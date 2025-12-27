@@ -2,7 +2,7 @@ services:
   - type: web
     name: family-cookbook
     runtime: python
-    buildCommand: "pip install -r requirements.txt"
+    buildCommand: "apt-get update && apt-get install -y libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 shared-mime-info && pip install -r requirements.txt"
     startCommand: "gunicorn app:app"
     envVars:
       - key: SECRET_KEY

@@ -1,0 +1,229 @@
+/* PDF Cookbook Styles - For WeasyPrint PDF Generation */
+
+/* Import existing print styles for recipe content */
+@import url('print.css');
+
+/* Page setup - Letter size with margins */
+@page {
+    size: letter;
+    margin: 0.75in 0.75in 1in 0.75in; /* Extra bottom margin for footer */
+}
+
+/* Default footer with page numbers on outside edge and section name in center */
+@page :left {
+    @bottom-left {
+        content: counter(page);
+        font-family: Georgia, serif;
+        font-size: 9pt;
+        padding-top: 0.3in;
+    }
+    @bottom-center {
+        content: string(section-name);
+        font-family: Georgia, serif;
+        font-size: 9pt;
+        font-style: italic;
+        padding-top: 0.3in;
+    }
+}
+
+@page :right {
+    @bottom-right {
+        content: counter(page);
+        font-family: Georgia, serif;
+        font-size: 9pt;
+        padding-top: 0.3in;
+    }
+    @bottom-center {
+        content: string(section-name);
+        font-family: Georgia, serif;
+        font-size: 9pt;
+        font-style: italic;
+        padding-top: 0.3in;
+    }
+}
+
+/* Suppress footers on front matter pages */
+@page title-page {
+    @bottom-left { content: none; }
+    @bottom-right { content: none; }
+    @bottom-center { content: none; }
+}
+
+@page dedication-page {
+    @bottom-left { content: none; }
+    @bottom-right { content: none; }
+    @bottom-center { content: none; }
+}
+
+@page toc-page {
+    @bottom-left { content: none; }
+    @bottom-right { content: none; }
+    @bottom-center { content: none; }
+}
+
+/* Named pages for each section to display section name in footer */
+@page appetizers { @bottom-center { content: "Appetizers"; } }
+@page beverages { @bottom-center { content: "Beverages"; } }
+@page breads { @bottom-center { content: "Breads"; } }
+@page breakfast { @bottom-center { content: "Breakfast"; } }
+@page desserts { @bottom-center { content: "Desserts"; } }
+@page entrees { @bottom-center { content: "Entrees"; } }
+@page salads { @bottom-center { content: "Salads"; } }
+@page sides { @bottom-center { content: "Sides"; } }
+
+/* Apply named pages to sections */
+.section-appetizers { page: appetizers; }
+.section-beverages { page: beverages; }
+.section-breads { page: breads; }
+.section-breakfast { page: breakfast; }
+.section-desserts { page: desserts; }
+.section-entrees { page: entrees; }
+.section-salads { page: salads; }
+.section-sides { page: sides; }
+
+/* Title Page Styling */
+.title-page {
+    page: title-page;
+    page-break-after: always;
+    height: 9in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.title-content h1 {
+    font-family: Georgia, serif;
+    font-size: 48pt;
+    font-weight: bold;
+    margin-bottom: 24pt;
+    color: #2c3e50;
+}
+
+.title-content .date {
+    font-family: Georgia, serif;
+    font-size: 18pt;
+    color: #7f8c8d;
+}
+
+/* Dedication Page Styling */
+.dedication-page {
+    page: dedication-page;
+    page-break-after: always;
+    height: 9in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.dedication-content p {
+    font-family: Georgia, serif;
+    font-size: 20pt;
+    font-style: italic;
+    line-height: 1.6;
+    color: #34495e;
+}
+
+/* Table of Contents Styling */
+.toc-page {
+    page: toc-page;
+    page-break-after: always;
+}
+
+.toc-page h1 {
+    font-family: Georgia, serif;
+    font-size: 32pt;
+    margin-bottom: 24pt;
+    border-bottom: 3pt solid #2c3e50;
+    padding-bottom: 8pt;
+}
+
+.toc-section {
+    margin-bottom: 16pt;
+    page-break-inside: avoid;
+}
+
+.toc-section h2 {
+    font-family: Georgia, serif;
+    font-size: 18pt;
+    color: #3498db;
+    margin-bottom: 8pt;
+}
+
+.toc-section ul {
+    list-style: none;
+    padding-left: 16pt;
+    margin: 0;
+}
+
+.toc-section li {
+    font-family: Georgia, serif;
+    font-size: 11pt;
+    line-height: 1.4;
+    margin-bottom: 4pt;
+}
+
+.toc-section li:before {
+    content: "• ";
+    color: #3498db;
+    font-weight: bold;
+}
+
+/* Section Divider Styling */
+.section-divider {
+    page-break-before: right; /* Force to start on right-hand (odd) page */
+    page-break-after: always;
+    height: 9in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Reset page counter on first section divider */
+.section-divider:first-of-type {
+    counter-reset: page 1;
+}
+
+.section-content h1 {
+    font-family: Georgia, serif;
+    font-size: 42pt;
+    font-weight: bold;
+    color: #3498db;
+    border-bottom: 4pt solid #3498db;
+    padding-bottom: 16pt;
+    display: inline-block;
+}
+
+/* Recipe Page Styling */
+.recipe-page {
+    page-break-before: always;
+    page-break-after: always;
+}
+
+.recipe-page .recipe-header h1 {
+    font-family: Georgia, serif;
+    font-size: 24pt;
+    margin-bottom: 6pt;
+    color: #2c3e50;
+}
+
+.recipe-page .recipe-author {
+    font-family: Georgia, serif;
+    font-size: 12pt;
+    font-style: italic;
+    color: #7f8c8d;
+    margin-bottom: 12pt;
+}
+
+/* Override print.css for PDF-specific adjustments */
+body {
+    font-family: Georgia, serif;
+    font-size: 11pt;
+    line-height: 1.4;
+    color: #000;
+}
+
+/* Ensure recipe content uses the existing print.css styles */
+/* The @import at the top handles this */

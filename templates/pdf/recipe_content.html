@@ -1,0 +1,83 @@
+<section class="recipe-page section-{{ recipe.recipe_category|lower|replace(' ', '-') }}">
+    <div class="recipe-header">
+        <h1>{{ recipe.name }}</h1>
+        <p class="recipe-author">by {{ recipe.author }}</p>
+    </div>
+
+    <div class="recipe-info">
+        <div class="info-item">
+            <strong>Category:</strong> {{ recipe.recipe_category }}
+        </div>
+        <div class="info-item">
+            <strong>Difficulty:</strong> {{ recipe.educational_level }}
+        </div>
+        <div class="info-item">
+            <strong>Time:</strong> {{ recipe.total_time|format_duration }}
+        </div>
+        <div class="info-item">
+            <strong>Yield:</strong> {{ recipe.recipe_yield }}
+        </div>
+    </div>
+
+    {% if recipe.description %}
+        <div class="recipe-description">
+            <p>{{ recipe.description }}</p>
+        </div>
+    {% endif %}
+
+    <div class="recipe-content">
+        <div class="recipe-ingredients">
+            <h2>Ingredients</h2>
+
+            {% set ns = namespace(current_section=None) %}
+            {% for ingredient in ingredients %}
+                {% if ingredient.is_section_header %}
+                    {% if ns.current_section is not none %}
+                        </ul>
+                    {% endif %}
+                    <h3 class="ingredient-section">{{ ingredient.section_name }}</h3>
+                    <ul class="ingredient-list">
+                    {% set ns.current_section = ingredient.section_name %}
+                {% else %}
+                    {% if ns.current_section is none %}
+                        <ul class="ingredient-list">
+                        {% set ns.current_section = "default" %}
+                    {% endif %}
+                    <li>{{ ingredient.ingredient_text }}</li>
+                {% endif %}
+            {% endfor %}
+            {% if ns.current_section is not none %}
+                </ul>
+            {% endif %}
+
+            {% if not ingredients %}
+                <p class="empty-state">No ingredients listed.</p>
+            {% endif %}
+        </div>
+
+        <div class="recipe-instructions">
+            <h2>Instructions</h2>
+            <ol class="instruction-list">
+                {% for instruction in instructions %}
+                    {% if not instruction.is_note %}
+                        <li>{{ instruction.instruction_text }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+
+            {% set notes = instructions|selectattr('is_note')|list %}
+            {% if notes %}
+                <div class="recipe-notes">
+                    <h3>Notes</h3>
+                    {% for note in notes %}
+                        <p class="note-item">{{ note.instruction_text|replace('🛈 ', '') }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if not instructions %}
+                <p class="empty-state">No instructions provided.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>

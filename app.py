@@ -13,12 +13,22 @@ import json
 import re
 import uuid
 import os
-from datetime import datetime
+from datetime import datetime, date
 from functools import wraps
+from io import BytesIO
 
 import requests
 from jinja2 import Template
 from email_validator import validate_email, EmailNotValidError
+
+# WeasyPrint import - may fail on Windows without GTK libraries
+try:
+    from weasyprint import HTML, CSS
+    WEASYPRINT_AVAILABLE = True
+except (ImportError, OSError) as e:
+    WEASYPRINT_AVAILABLE = False
+    print(f"Warning: WeasyPrint not available: {e}")
+    print("PDF generation will not work. Install GTK libraries or deploy to Linux.")
 
 from flask import (
     Flask, render_template, request, redirect, url_for,
@@ -278,6 +288,86 @@ def send_user_email(user, base_url, subject, body_template):
 
 
 # =============================================================================
+# PDF Generation Helpers
+# =============================================================================
+
+def get_cookbook_data():
+    """Query all current recipes grouped by category, sorted alphabetically.
+
+    Returns:
+        dict: Dictionary mapping category names to lists of recipe data dicts.
+              Each recipe data dict contains 'recipe', 'ingredients', and 'instructions' keys.
+    """
+    categories = ['Appetizers', 'Beverages', 'Breads', 'Breakfast',
+                  'Desserts', 'Entrees', 'Salads', 'Sides']
+
+    cookbook_data = {}
+
+    for category in categories:
+        # Get recipes for this category, sorted alphabetically
+        recipes = query_db('''
+            SELECT * FROM current_recipes
+            WHERE recipe_category = ?
+            ORDER BY name
+        ''', [category])
+
+        # Enrich each recipe with ingredients and instructions
+        enriched_recipes = []
+        for recipe in recipes:
+            ingredients = query_db('''
+                SELECT * FROM recipe_ingredients
+                WHERE recipe_version_id = ?
+                ORDER BY order_index
+            ''', [recipe['version_id']])
+
+            instructions = query_db('''
+                SELECT * FROM recipe_instructions
+                WHERE recipe_version_id = ?
+                ORDER BY order_index
+            ''', [recipe['version_id']])
+
+            enriched_recipes.append({
+                'recipe': recipe,
+                'ingredients': ingredients,
+                'instructions': instructions
+            })
+
+        if enriched_recipes:  # Only include categories with recipes
+            cookbook_data[category] = enriched_recipes
+
+    return cookbook_data
+
+
+def generate_cookbook_pdf():
+    """Generate complete cookbook PDF with all recipes.
+
+    Returns:
+        bytes: PDF file as bytes
+
+    Raises:
+        RuntimeError: If WeasyPrint is not available
+    """
+    if not WEASYPRINT_AVAILABLE:
+        raise RuntimeError("PDF generation not available. WeasyPrint requires GTK libraries.")
+
+    # Get all cookbook data
+    cookbook_data = get_cookbook_data()
+    iso_date = date.today().isoformat()
+
+    # Render HTML using cookbook template
+    html_string = render_template('pdf/cookbook.html',
+                                   cookbook_data=cookbook_data,
+                                   iso_date=iso_date)
+
+    # Convert to PDF with custom CSS
+    pdf_bytes = HTML(string=html_string).write_pdf(
+        stylesheets=[CSS(filename='static/pdf.css')]
+    )
+
+    return pdf_bytes
+
+
+# =============================================================================
 # Routes - Public
 # =============================================================================
 
@@ -394,6 +484,30 @@ def search():
                          query=query,
                          search_type=search_type,
                          category=category)
+
+
+@app.route('/cookbook/download-pdf')
+def download_cookbook_pdf():
+    """Generate and download complete cookbook as PDF."""
+    try:
+        # Generate PDF
+        pdf_bytes = generate_cookbook_pdf()
+
+        # Create filename with current date
+        filename = f'Family_Cookbook_{date.today().isoformat()}.pdf'
+
+        # Send PDF file
+        return send_file(
+            BytesIO(pdf_bytes),
+            mimetype='application/pdf',
+            as_attachment=True,
+            download_name=filename
+        )
+    except Exception as e:
+        # Log error and show user-friendly message
+        app.logger.error(f'PDF generation error: {str(e)}')
+        flash(f'Error generating PDF: {str(e)}', 'error')
+        return redirect(url_for('index'))
 
 
 # =============================================================================

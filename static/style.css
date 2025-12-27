@@ -767,7 +767,7 @@ body {
     content: counter(step-counter);
     position: absolute;
     left: 0;
-    top: 0.35rem;
+    top: 0;
     background-color: var(--color-accent);
     color: white;
     font-weight: bold;

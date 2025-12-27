@@ -1,0 +1,14 @@
+<section class="toc-page">
+    <h1>Table of Contents</h1>
+
+    {% for category, recipes in cookbook_data.items() %}
+        <div class="toc-section">
+            <h2>{{ category }}</h2>
+            <ul>
+                {% for recipe_data in recipes %}
+                    <li>{{ recipe_data.recipe.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+</section>

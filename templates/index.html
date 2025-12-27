@@ -5,6 +5,15 @@
 {% block content %}
 <h1>Family Recipes</h1>
 
+<div class="pdf-download-section no-print" style="margin-bottom: 2rem;">
+    <a href="{{ url_for('download_cookbook_pdf') }}" class="btn btn-primary">
+        Download Complete Cookbook PDF
+    </a>
+    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #7f8c8d;">
+        Get all recipes in a printable PDF format, perfect for two-sided printing.
+    </p>
+</div>
+
 <div class="recipe-categories">
     {% for category, recipes in by_category.items() %}
         <div class="category-accordion">
