@@ -244,7 +244,7 @@ def send_user_email(user, base_url, subject, body_template):
     reply_to = os.environ.get('REPLY_TO')
 
     # Sanitize names to prevent email header injection
-    display_name = sanitize_name(user.get('name', user.get('display_name', '')))
+    display_name = sanitize_name(user['name'])
     user_name = sanitize_name(user['name'])
 
     login_url = f"{base_url}/login?token={user['auth_token']}"
