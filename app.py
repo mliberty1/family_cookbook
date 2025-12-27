@@ -31,8 +31,15 @@ from flask import (
 # =============================================================================
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your-secret-key-change-this-in-production'
-app.config['DATABASE'] = 'cookbook.db'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'your-secret-key-change-this-in-production')
+
+# Database configuration - handle both local and production
+database_url = os.environ.get('DATABASE_URL', 'sqlite:///cookbook.db')
+if database_url.startswith('sqlite:///'):
+    # Extract path from sqlite:///path format
+    app.config['DATABASE'] = database_url.replace('sqlite:///', '')
+else:
+    app.config['DATABASE'] = 'cookbook.db'
 
 
 # =============================================================================
