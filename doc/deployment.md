@@ -6,7 +6,7 @@ After deploying to Render, you need to manually initialize the database. Follow 
 
 ---
 
-## Method 1: Using Python Script (Recommended)
+## Method 1: Using Python Scripts (Recommended)
 
 1. **Go to your Render Dashboard**
    - Navigate to your service: https://dashboard.render.com/
@@ -15,13 +15,18 @@ After deploying to Render, you need to manually initialize the database. Follow 
    - Click on your `family-cookbook` service
    - Click the **Shell** tab (or **SSH** button)
 
-3. **Run the initialization script**
+3. **Initialize the database**
    ```bash
    python init_database.py
    ```
 
-4. **Save the login URL**
-   - The script will output an admin login token
+4. **Import recipes from cookbook.jsonld**
+   ```bash
+   python import_recipes.py
+   ```
+
+5. **Save the login URL**
+   - The init script will output an admin login token
    - Copy the full URL (it will look like: `/login?token=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`)
    - Visit: `https://your-app.onrender.com/login?token=YOUR-TOKEN-HERE`
 

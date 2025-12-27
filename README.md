@@ -22,14 +22,20 @@ A Flask-based web application for managing and sharing family recipes with versi
    pip install -r requirements.txt
    ```
 
-2. **Run the application**:
+2. **Initialize database** (if not already done):
+   ```bash
+   python init_database.py
+   python import_recipes.py
+   ```
+
+3. **Run the application**:
    ```bash
    python app.py
    ```
 
-3. **Access the app**:
+4. **Access the app**:
    - Open: http://localhost:5000
-   - Login with test user: http://localhost:5000/login?token=3f4044b3-227e-4f23-8af2-106dacad4330
+   - Login with admin user (token shown in init_database.py output)
 
 ### Database
 

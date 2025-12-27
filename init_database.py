@@ -67,3 +67,5 @@ print(f"\nFull login URL will be: https://your-app.onrender.com/login?token={tok
 conn.close()
 
 print("\n=== Database initialization complete! ===")
+print("\nNext step: Import recipes from cookbook.jsonld")
+print("Run: python import_recipes.py")
