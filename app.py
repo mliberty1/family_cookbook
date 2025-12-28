@@ -54,6 +54,25 @@ else:
 
 
 # =============================================================================
+# Constants
+# =============================================================================
+
+# Recipe categories - single source of truth
+# To add a new category, simply add it to this list
+RECIPE_CATEGORIES = [
+    'Appetizers',
+    'Beverages',
+    'Breads',
+    'Breakfast',
+    'Desserts',
+    'Entrees',
+    'Salads',
+    'Sides',
+    'Soups',
+]
+
+
+# =============================================================================
 # Database Helpers
 # =============================================================================
 
@@ -299,8 +318,7 @@ def get_cookbook_data():
         dict: Dictionary mapping category names to lists of recipe data dicts.
               Each recipe data dict contains 'recipe', 'ingredients', and 'instructions' keys.
     """
-    categories = ['Appetizers', 'Beverages', 'Breads', 'Breakfast',
-                  'Desserts', 'Entrees', 'Salads', 'Sides']
+    categories = RECIPE_CATEGORIES
 
     cookbook_data = {}
 
@@ -661,7 +679,8 @@ def search():
                          recipes=recipes,
                          query=query,
                          search_type=search_type,
-                         category=category)
+                         category=category,
+                         categories=RECIPE_CATEGORIES)
 
 
 @app.route('/api/search')
@@ -870,8 +889,7 @@ def recipe_new():
             return redirect(url_for('recipe_new'))
 
     # GET request - show form
-    categories = ['Appetizers', 'Beverages', 'Breads', 'Breakfast', 'Desserts', 'Entrees', 'Salads', 'Sides']
-    return render_template('recipe_form.html', recipe=None, categories=categories)
+    return render_template('recipe_form.html', recipe=None, categories=RECIPE_CATEGORIES)
 
 
 @app.route('/recipe/<slug>/edit', methods=['GET', 'POST'])
@@ -1008,13 +1026,11 @@ def recipe_edit(slug):
     ingredients_text = '\n'.join([ing['ingredient_text'] for ing in ingredients])
     instructions_text = '\n'.join([inst['instruction_text'] for inst in instructions])
 
-    categories = ['Appetizers', 'Beverages', 'Breads', 'Breakfast', 'Desserts', 'Entrees', 'Salads', 'Sides']
-
     return render_template('recipe_form.html',
                          recipe=recipe,
                          ingredients_text=ingredients_text,
                          instructions_text=instructions_text,
-                         categories=categories)
+                         categories=RECIPE_CATEGORIES)
 
 
 @app.route('/recipe/<slug>/history')

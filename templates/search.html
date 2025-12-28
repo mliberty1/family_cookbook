@@ -25,14 +25,9 @@
             <label for="category">Category:</label>
             <select id="category" name="category">
                 <option value="">All Categories</option>
-                <option value="Appetizers" {% if category == 'Appetizers' %}selected{% endif %}>Appetizers</option>
-                <option value="Beverages" {% if category == 'Beverages' %}selected{% endif %}>Beverages</option>
-                <option value="Breads" {% if category == 'Breads' %}selected{% endif %}>Breads</option>
-                <option value="Breakfast" {% if category == 'Breakfast' %}selected{% endif %}>Breakfast</option>
-                <option value="Desserts" {% if category == 'Desserts' %}selected{% endif %}>Desserts</option>
-                <option value="Entrees" {% if category == 'Entrees' %}selected{% endif %}>Entrees</option>
-                <option value="Salads" {% if category == 'Salads' %}selected{% endif %}>Salads</option>
-                <option value="Sides" {% if category == 'Sides' %}selected{% endif %}>Sides</option>
+                {% for cat in categories %}
+                    <option value="{{ cat }}" {% if category == cat %}selected{% endif %}>{{ cat }}</option>
+                {% endfor %}
             </select>
         </div>
 
