@@ -835,6 +835,32 @@ body {
     color: var(--color-primary);
 }
 
+.form-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.form-actions button {
+    flex: 1;
+}
+
+#loading-indicator {
+    text-align: center;
+    padding: var(--spacing-md);
+    color: var(--color-text-light);
+    font-style: italic;
+}
+
+.error-message {
+    color: #dc3545;
+    padding: var(--spacing-md);
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    margin-top: var(--spacing-md);
+}
+
 /* Recipe Card Updates */
 .recipe-card a {
     text-decoration: none;

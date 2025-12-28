@@ -20,6 +20,7 @@ from io import BytesIO
 import requests
 from jinja2 import Template
 from email_validator import validate_email, EmailNotValidError
+from rapidfuzz import fuzz, process
 
 # WeasyPrint import - may fail on Windows without GTK libraries
 try:
@@ -446,15 +447,127 @@ def recipe_detail(slug):
                          instructions=instructions)
 
 
-@app.route('/search')
-def search():
-    """Search recipes."""
-    query = request.args.get('q', '')
-    search_type = request.args.get('type', 'all')
-    category = request.args.get('category', '')
+def fuzzy_search(query, search_type, category):
+    """Perform fuzzy matching search when exact search returns few results.
 
+    Args:
+        query: Search query string
+        search_type: Type of search ('all', 'ingredient', 'author')
+        category: Category filter (optional)
+
+    Returns:
+        List of recipe dictionaries matching via fuzzy search
+    """
+    # Get all recipes (or filtered by category)
+    if category:
+        all_recipes = query_db('''
+            SELECT * FROM current_recipes
+            WHERE recipe_category = ?
+        ''', [category])
+    else:
+        all_recipes = query_db('SELECT * FROM current_recipes')
+
+    if not all_recipes:
+        return []
+
+    matched_recipe_ids = set()
+
+    if search_type == 'ingredient':
+        # Fuzzy match against ingredients
+        all_ingredients = query_db('''
+            SELECT DISTINCT ri.recipe_version_id, ri.ingredient_text
+            FROM recipe_ingredients ri
+        ''')
+
+        # Build list of (recipe_version_id, ingredient_text) for matching
+        choices = [(ing['recipe_version_id'], ing['ingredient_text'])
+                   for ing in all_ingredients]
+
+        if choices:
+            # Use partial_ratio for ingredient matching
+            matches = process.extract(
+                query,
+                choices,
+                scorer=fuzz.partial_ratio,
+                limit=10,
+                score_cutoff=70
+            )
+
+            # Get recipe version IDs from matches
+            for match in matches:
+                version_id = match[2][0]  # match[2] is the original tuple
+                matched_recipe_ids.add(version_id)
+
+    elif search_type == 'author':
+        # Fuzzy match against author names
+        choices = [(r['recipe_id'], r['author']) for r in all_recipes]
+
+        matches = process.extract(
+            query,
+            choices,
+            scorer=fuzz.partial_ratio,
+            limit=10,
+            score_cutoff=70
+        )
+
+        for match in matches:
+            recipe_id = match[2][0]
+            matched_recipe_ids.add(recipe_id)
+
+    else:
+        # Fuzzy match against name and description ('all' mode)
+        # First try matching against just the name (more accurate for typos)
+        name_choices = [(r['recipe_id'], r['name']) for r in all_recipes]
+
+        name_matches = process.extract(
+            query,
+            name_choices,
+            scorer=fuzz.ratio,
+            limit=10,
+            score_cutoff=60
+        )
+
+        for match in name_matches:
+            recipe_id = match[2][0]
+            matched_recipe_ids.add(recipe_id)
+
+        # If still few results, try against description too
+        if len(matched_recipe_ids) < 5:
+            desc_choices = [(r['recipe_id'], f"{r['name']} {r['description']}")
+                           for r in all_recipes]
+
+            desc_matches = process.extract(
+                query,
+                desc_choices,
+                scorer=fuzz.token_set_ratio,
+                limit=10,
+                score_cutoff=50
+            )
+
+            for match in desc_matches:
+                recipe_id = match[2][0]
+                matched_recipe_ids.add(recipe_id)
+
+    # Return recipes that matched
+    if search_type == 'ingredient':
+        return [r for r in all_recipes if r['version_id'] in matched_recipe_ids]
+    else:
+        return [r for r in all_recipes if r['recipe_id'] in matched_recipe_ids]
+
+
+def perform_search(query, search_type, category):
+    """Execute search and return results.
+
+    Args:
+        query: Search query string
+        search_type: Type of search ('all', 'ingredient', 'author')
+        category: Category filter (optional)
+
+    Returns:
+        List of recipe dictionaries matching the search criteria
+    """
     if not query and not category:
-        return render_template('search.html', recipes=[], query='')
+        return []
 
     recipes = []
 
@@ -466,14 +579,28 @@ def search():
             ORDER BY name
         ''', [category])
     elif search_type == 'ingredient':
-        # Search by ingredient
-        recipes = query_db('''
-            SELECT DISTINCT r.*
-            FROM current_recipes r
-            JOIN recipe_ingredients ri ON r.version_id = ri.recipe_version_id
-            WHERE ri.ingredient_text LIKE ?
-            ORDER BY r.name
-        ''', [f'%{query}%'])
+        # Search by ingredient with enhanced partial matching
+        # Split query into words and match each
+        words = query.split()
+        if len(words) > 1:
+            conditions = ' AND '.join(['ri.ingredient_text LIKE ?'] * len(words))
+            params = [f'%{word}%' for word in words]
+
+            recipes = query_db(f'''
+                SELECT DISTINCT r.*
+                FROM current_recipes r
+                JOIN recipe_ingredients ri ON r.version_id = ri.recipe_version_id
+                WHERE {conditions}
+                ORDER BY r.name
+            ''', params)
+        else:
+            recipes = query_db('''
+                SELECT DISTINCT r.*
+                FROM current_recipes r
+                JOIN recipe_ingredients ri ON r.version_id = ri.recipe_version_id
+                WHERE ri.ingredient_text LIKE ?
+                ORDER BY r.name
+            ''', [f'%{query}%'])
     elif search_type == 'author':
         # Search by author
         recipes = query_db('''
@@ -482,7 +609,8 @@ def search():
             ORDER BY name
         ''', [f'%{query}%'])
     else:
-        # Full-text search
+        # Full-text search with prefix matching for partial word matches
+        # Try exact match first
         recipes = query_db('''
             SELECT * FROM current_recipes
             WHERE version_id IN (
@@ -492,11 +620,64 @@ def search():
             ORDER BY name
         ''', [query])
 
+        # If no exact results, try prefix matching (for "Buck" to match "Buckeyes")
+        if len(recipes) == 0:
+            # Add wildcard for prefix matching
+            prefix_query = f"{query}*"
+            recipes = query_db('''
+                SELECT * FROM current_recipes
+                WHERE version_id IN (
+                    SELECT rowid FROM recipe_versions_fts
+                    WHERE recipe_versions_fts MATCH ?
+                )
+                ORDER BY name
+            ''', [prefix_query])
+
+    # If few results and query is long enough, try fuzzy matching
+    if len(recipes) < 3 and query and len(query) > 2:
+        fuzzy_recipes = fuzzy_search(query, search_type, category)
+
+        # Combine and deduplicate results
+        # Use slug for deduplication (unique per recipe)
+        seen_slugs = {r['slug'] for r in recipes}
+        for fuzzy_recipe in fuzzy_recipes:
+            if fuzzy_recipe['slug'] not in seen_slugs:
+                recipes.append(fuzzy_recipe)
+                seen_slugs.add(fuzzy_recipe['slug'])
+
+    return recipes
+
+
+@app.route('/search')
+def search():
+    """Search recipes."""
+    query = request.args.get('q', '')
+    search_type = request.args.get('type', 'all')
+    category = request.args.get('category', '')
+
+    recipes = perform_search(query, search_type, category)
+
     return render_template('search.html',
                          recipes=recipes,
                          query=query,
                          search_type=search_type,
                          category=category)
+
+
+@app.route('/api/search')
+def api_search():
+    """API endpoint for AJAX search requests."""
+    query = request.args.get('q', '')
+    search_type = request.args.get('type', 'all')
+    category = request.args.get('category', '')
+
+    recipes = perform_search(query, search_type, category)
+
+    # Convert SQLite Row objects to dictionaries for JSON serialization
+    return jsonify({
+        'recipes': [dict(r) for r in recipes],
+        'count': len(recipes)
+    })
 
 
 @app.route('/cookbook/download-pdf')

@@ -5,3 +5,4 @@ requests>=2.32.5,<3
 email-validator>=2.1.0,<3
 gunicorn>=23.0.0,<24
 WeasyPrint>=67.0,<68
+rapidfuzz>=3.0.0,<4

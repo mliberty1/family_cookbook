@@ -36,43 +36,59 @@
             </select>
         </div>
 
-        <button type="submit" class="btn btn-primary">Search</button>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Search</button>
+            <button type="button" class="btn btn-secondary" onclick="clearSearch()">Clear</button>
+        </div>
     </form>
 </div>
 
-{% if query or category %}
-    <div class="search-results">
-        <h2>Search Results</h2>
-        {% if recipes %}
-            <p class="result-count">Found {{ recipes|length }} recipe(s)</p>
-            <div class="recipe-grid">
-                {% for recipe in recipes %}
-                    <div class="recipe-card">
-                        <a href="{{ url_for('recipe_detail', slug=recipe.slug) }}">
-                            <h3>{{ recipe.name }}</h3>
-                            <p class="recipe-author">by {{ recipe.author }}</p>
-                            <p class="recipe-description">{{ recipe.description }}</p>
-                            <div class="recipe-meta">
-                                <span class="recipe-category">{{ recipe.recipe_category }}</span>
-                                <span class="recipe-difficulty">{{ recipe.educational_level }}</span>
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
-        {% else %}
-            <p class="empty-state">No recipes found matching your search.</p>
-        {% endif %}
-    </div>
-{% else %}
-    <div class="search-tips">
-        <h2>Search Tips</h2>
-        <ul>
-            <li>Search by recipe name, description, or author in "All" mode</li>
-            <li>Find recipes by ingredient (e.g., "chocolate", "eggs")</li>
-            <li>Filter by category to browse specific types of recipes</li>
-            <li>Combine search terms with category filters for precise results</li>
-        </ul>
-    </div>
-{% endif %}
+<div id="loading-indicator" style="display: none;">
+    <p>Searching...</p>
+</div>
+
+<div id="results-container">
+    {% if query or category %}
+        <div class="search-results">
+            <h2>Search Results</h2>
+            {% if recipes %}
+                <p class="result-count">Found {{ recipes|length }} recipe(s)</p>
+                <div class="recipe-grid">
+                    {% for recipe in recipes %}
+                        <div class="recipe-card">
+                            <a href="{{ url_for('recipe_detail', slug=recipe.slug) }}">
+                                <h3>{{ recipe.name }}</h3>
+                                <p class="recipe-author">by {{ recipe.author }}</p>
+                                <p class="recipe-description">{{ recipe.description }}</p>
+                                <div class="recipe-meta">
+                                    <span class="recipe-category">{{ recipe.recipe_category }}</span>
+                                    <span class="recipe-difficulty">{{ recipe.educational_level }}</span>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="empty-state">No recipes found matching your search.</p>
+            {% endif %}
+        </div>
+    {% else %}
+        <div class="search-tips">
+            <h2>Search Tips</h2>
+            <ul>
+                <li>Search by recipe name, description, or author in "All" mode</li>
+                <li>Find recipes by ingredient (e.g., "chocolate", "eggs")</li>
+                <li>Filter by category to browse specific types of recipes</li>
+                <li>Combine search terms with category filters for precise results</li>
+            </ul>
+        </div>
+    {% endif %}
+</div>
+
+<script src="{{ url_for('static', filename='search.js') }}"></script>
+<script>
+function clearSearch() {
+    window.location.href = '/search';
+}
+</script>
 {% endblock %}
