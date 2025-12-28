@@ -3,7 +3,7 @@
  * Run with: node test_scaler.js
  */
 
-const RecipeScaler = require('./html/recipe-scaler.js');
+const RecipeScaler = require('./static/recipe-scaler.js');
 
 class TestRunner {
     constructor() {

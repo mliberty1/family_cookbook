@@ -1,12 +1,9 @@
-build
-dist
 __pycache__
 *.pyo
 *.pyc
 *.pyd
 .eggs/
 *.egg-info/
-
 
 # IDE
 .idea
