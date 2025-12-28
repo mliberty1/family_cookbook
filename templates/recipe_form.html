@@ -37,9 +37,9 @@
             <div class="form-group">
                 <label for="difficulty">Difficulty:</label>
                 <select id="difficulty" name="difficulty">
-                    <option value="Easy" {% if recipe and recipe.educational_level == 'Easy' %}selected{% endif %}>Easy</option>
-                    <option value="Medium" {% if recipe and recipe.educational_level == 'Medium' %}selected{% endif %}>Medium</option>
-                    <option value="Hard" {% if recipe and recipe.educational_level == 'Hard' %}selected{% endif %}>Hard</option>
+                    {% for level in difficulty_levels %}
+                        <option value="{{ level }}" {% if recipe and recipe.educational_level == level %}selected{% endif %}>{{ level }}</option>
+                    {% endfor %}
                 </select>
             </div>
         </div>

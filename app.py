@@ -71,6 +71,26 @@ RECIPE_CATEGORIES = [
     'Soups',
 ]
 
+# Difficulty levels - single source of truth
+# Note: Database values should match these (use migration script to fix legacy "Difficult")
+DIFFICULTY_LEVELS = [
+    'Easy',
+    'Medium',
+    'Hard'
+]
+
+# Search types - single source of truth
+# Each tuple is (value, display_label)
+SEARCH_TYPES = [
+    ('all', 'All (name, description, author)'),
+    ('ingredient', 'Ingredients'),
+    ('author', 'Author')
+]
+
+# Flash message categories
+FLASH_SUCCESS = 'success'
+FLASH_ERROR = 'error'
+
 
 # =============================================================================
 # Database Helpers
@@ -230,7 +250,7 @@ def admin_required(f):
 
         user = query_db('SELECT is_admin FROM users WHERE id = ?', [session['user_id']], one=True)
         if not user or not user['is_admin']:
-            flash('You do not have permission to access this page.', 'error')
+            flash('You do not have permission to access this page.', FLASH_ERROR)
             return redirect(url_for('index'))
 
         return f(*args, **kwargs)
@@ -442,7 +462,7 @@ def recipe_detail(slug):
         ''', [slug], one=True)
 
     if not recipe:
-        flash('Recipe not found', 'error')
+        flash('Recipe not found', FLASH_ERROR)
         return redirect(url_for('index'))
 
     # Get ingredients
@@ -680,7 +700,8 @@ def search():
                          query=query,
                          search_type=search_type,
                          category=category,
-                         categories=RECIPE_CATEGORIES)
+                         categories=RECIPE_CATEGORIES,
+                         search_types=SEARCH_TYPES)
 
 
 @app.route('/api/search')
@@ -719,7 +740,7 @@ def download_cookbook_pdf():
     except Exception as e:
         # Log error and show user-friendly message
         app.logger.error(f'PDF generation error: {str(e)}')
-        flash(f'Error generating PDF: {str(e)}', 'error')
+        flash(f'Error generating PDF: {str(e)}', FLASH_ERROR)
         return redirect(url_for('index'))
 
 
@@ -743,7 +764,7 @@ def login():
             next_page = request.args.get('next')
             return redirect(next_page or url_for('index'))
         else:
-            flash('Invalid token. Please check your email for the correct link.', 'error')
+            flash('Invalid token. Please check your email for the correct link.', FLASH_ERROR)
 
     # Check if token is in URL (magic link)
     token = request.args.get('token')
@@ -754,7 +775,7 @@ def login():
             session['user_name'] = user['name']
             session['auth_token'] = token
             session['is_admin'] = bool(user['is_admin'])
-            flash(f'Welcome, {user["name"]}!', 'success')
+            flash(f'Welcome, {user["name"]}!', FLASH_SUCCESS)
             return redirect(url_for('index'))
 
     return render_template('login.html')
@@ -764,7 +785,7 @@ def login():
 def logout():
     """Logout current user."""
     session.clear()
-    flash('You have been logged out.', 'success')
+    flash('You have been logged out.', FLASH_SUCCESS)
     return redirect(url_for('index'))
 
 
@@ -791,7 +812,7 @@ def recipe_new():
 
             # Validate required fields
             if not name:
-                flash('Recipe name is required', 'error')
+                flash('Recipe name is required', FLASH_ERROR)
                 return redirect(url_for('recipe_new'))
 
             # Generate slug
@@ -800,7 +821,7 @@ def recipe_new():
             # Check if slug already exists
             existing = query_db('SELECT id FROM recipes WHERE slug = ?', [slug], one=True)
             if existing:
-                flash(f'A recipe with this name already exists', 'error')
+                flash(f'A recipe with this name already exists', FLASH_ERROR)
                 return redirect(url_for('recipe_new'))
 
             # Parse ingredients and instructions
@@ -881,15 +902,18 @@ def recipe_new():
                     version_id, idx, inst['instruction_text'], inst['is_note']
                 ])
 
-            flash(f'Recipe "{name}" created successfully!', 'success')
+            flash(f'Recipe "{name}" created successfully!', FLASH_SUCCESS)
             return redirect(url_for('recipe_detail', slug=slug))
 
         except Exception as e:
-            flash(f'Error creating recipe: {str(e)}', 'error')
+            flash(f'Error creating recipe: {str(e)}', FLASH_ERROR)
             return redirect(url_for('recipe_new'))
 
     # GET request - show form
-    return render_template('recipe_form.html', recipe=None, categories=RECIPE_CATEGORIES)
+    return render_template('recipe_form.html',
+                         recipe=None,
+                         categories=RECIPE_CATEGORIES,
+                         difficulty_levels=DIFFICULTY_LEVELS)
 
 
 @app.route('/recipe/<slug>/edit', methods=['GET', 'POST'])
@@ -900,7 +924,7 @@ def recipe_edit(slug):
     recipe = query_db('SELECT * FROM current_recipes WHERE slug = ?', [slug], one=True)
 
     if not recipe:
-        flash('Recipe not found', 'error')
+        flash('Recipe not found', FLASH_ERROR)
         return redirect(url_for('index'))
 
     if request.method == 'POST':
@@ -919,7 +943,7 @@ def recipe_edit(slug):
 
             # Validate required fields
             if not name:
-                flash('Recipe name is required', 'error')
+                flash('Recipe name is required', FLASH_ERROR)
                 return redirect(url_for('recipe_edit', slug=slug))
 
             # Parse ingredients and instructions
@@ -1002,11 +1026,11 @@ def recipe_edit(slug):
                     version_id, idx, inst['instruction_text'], inst['is_note']
                 ])
 
-            flash(f'Recipe "{name}" updated successfully! (Version {next_version})', 'success')
+            flash(f'Recipe "{name}" updated successfully! (Version {next_version})', FLASH_SUCCESS)
             return redirect(url_for('recipe_detail', slug=slug))
 
         except Exception as e:
-            flash(f'Error updating recipe: {str(e)}', 'error')
+            flash(f'Error updating recipe: {str(e)}', FLASH_ERROR)
             return redirect(url_for('recipe_edit', slug=slug))
 
     # GET request - show form with current data
@@ -1030,7 +1054,8 @@ def recipe_edit(slug):
                          recipe=recipe,
                          ingredients_text=ingredients_text,
                          instructions_text=instructions_text,
-                         categories=RECIPE_CATEGORIES)
+                         categories=RECIPE_CATEGORIES,
+                         difficulty_levels=DIFFICULTY_LEVELS)
 
 
 @app.route('/recipe/<slug>/history')
@@ -1044,7 +1069,7 @@ def recipe_history(slug):
     ''', [slug])
 
     if not versions:
-        flash('Recipe not found', 'error')
+        flash('Recipe not found', FLASH_ERROR)
         return redirect(url_for('index'))
 
     recipe_name = versions[0]['name']
@@ -1095,24 +1120,24 @@ def admin_user_add():
 
             # Validate
             if not name:
-                flash('Name is required', 'error')
+                flash('Name is required', FLASH_ERROR)
                 return redirect(url_for('admin_user_add'))
 
             if not email:
-                flash('Email is required', 'error')
+                flash('Email is required', FLASH_ERROR)
                 return redirect(url_for('admin_user_add'))
 
             # Validate email format
             try:
                 validate_email(email)
             except EmailNotValidError as e:
-                flash(f'Invalid email address: {str(e)}', 'error')
+                flash(f'Invalid email address: {str(e)}', FLASH_ERROR)
                 return redirect(url_for('admin_user_add'))
 
             # Check if email already exists
             existing = query_db('SELECT id FROM users WHERE email = ?', [email], one=True)
             if existing:
-                flash('A user with this email already exists', 'error')
+                flash('A user with this email already exists', FLASH_ERROR)
                 return redirect(url_for('admin_user_add'))
 
             # Generate token
@@ -1124,11 +1149,11 @@ def admin_user_add():
                 VALUES (?, ?, ?, ?, ?, ?)
             ''', [name, email, auth_token, is_admin, 1, datetime.now()])
 
-            flash(f'User "{name}" created successfully!', 'success')
+            flash(f'User "{name}" created successfully!', FLASH_SUCCESS)
             return redirect(url_for('admin_user_detail', user_id=user_id))
 
         except Exception as e:
-            flash(f'Error creating user: {str(e)}', 'error')
+            flash(f'Error creating user: {str(e)}', FLASH_ERROR)
             return redirect(url_for('admin_user_add'))
 
     return render_template('admin/user_form.html', user=None)
@@ -1141,7 +1166,7 @@ def admin_user_detail(user_id):
     user = query_db('SELECT * FROM users WHERE id = ?', [user_id], one=True)
 
     if not user:
-        flash('User not found', 'error')
+        flash('User not found', FLASH_ERROR)
         return redirect(url_for('admin_users'))
 
     # Get base URL for login link
@@ -1158,19 +1183,19 @@ def admin_user_toggle_active(user_id):
     user = query_db('SELECT * FROM users WHERE id = ?', [user_id], one=True)
 
     if not user:
-        flash('User not found', 'error')
+        flash('User not found', FLASH_ERROR)
         return redirect(url_for('admin_users'))
 
     # Don't allow disabling yourself
     if user_id == session['user_id']:
-        flash('You cannot deactivate your own account', 'error')
+        flash('You cannot deactivate your own account', FLASH_ERROR)
         return redirect(url_for('admin_user_detail', user_id=user_id))
 
     new_status = not user['is_active']
     execute_db('UPDATE users SET is_active = ? WHERE id = ?', [new_status, user_id])
 
     status_text = 'activated' if new_status else 'deactivated'
-    flash(f'User "{user["name"]}" {status_text}', 'success')
+    flash(f'User "{user["name"]}" {status_text}', FLASH_SUCCESS)
     return redirect(url_for('admin_user_detail', user_id=user_id))
 
 
@@ -1181,19 +1206,19 @@ def admin_user_toggle_admin(user_id):
     user = query_db('SELECT * FROM users WHERE id = ?', [user_id], one=True)
 
     if not user:
-        flash('User not found', 'error')
+        flash('User not found', FLASH_ERROR)
         return redirect(url_for('admin_users'))
 
     # Don't allow removing your own admin permissions
     if user_id == session['user_id']:
-        flash('You cannot remove your own admin permissions', 'error')
+        flash('You cannot remove your own admin permissions', FLASH_ERROR)
         return redirect(url_for('admin_user_detail', user_id=user_id))
 
     new_status = not user['is_admin']
     execute_db('UPDATE users SET is_admin = ? WHERE id = ?', [new_status, user_id])
 
     status_text = 'granted' if new_status else 'revoked'
-    flash(f'Admin permissions {status_text} for "{user["name"]}"', 'success')
+    flash(f'Admin permissions {status_text} for "{user["name"]}"', FLASH_SUCCESS)
     return redirect(url_for('admin_user_detail', user_id=user_id))
 
 
@@ -1211,15 +1236,15 @@ def admin_email_users():
 
             # Validate
             if not subject:
-                flash('Subject is required', 'error')
+                flash('Subject is required', FLASH_ERROR)
                 return redirect(url_for('admin_email_users'))
 
             if not body_template:
-                flash('Email body is required', 'error')
+                flash('Email body is required', FLASH_ERROR)
                 return redirect(url_for('admin_email_users'))
 
             if not target_users:
-                flash('Please select at least one user', 'error')
+                flash('Please select at least one user', FLASH_ERROR)
                 return redirect(url_for('admin_email_users'))
 
             # Get base URL
@@ -1253,17 +1278,17 @@ def admin_email_users():
 
             # Show results
             if success_count > 0:
-                flash(f'Successfully sent {success_count} email(s)', 'success')
+                flash(f'Successfully sent {success_count} email(s)', FLASH_SUCCESS)
 
             if error_count > 0:
-                flash(f'Failed to send {error_count} email(s)', 'error')
+                flash(f'Failed to send {error_count} email(s)', FLASH_ERROR)
                 for error in errors[:5]:  # Show first 5 errors
-                    flash(f'  • {error}', 'error')
+                    flash(f'  • {error}', FLASH_ERROR)
 
             return redirect(url_for('admin_email_users'))
 
         except Exception as e:
-            flash(f'Error sending emails: {str(e)}', 'error')
+            flash(f'Error sending emails: {str(e)}', FLASH_ERROR)
             return redirect(url_for('admin_email_users'))
 
     # Default email template
@@ -1315,7 +1340,7 @@ def admin_backup_database():
             mimetype='text/plain'
         )
     except Exception as e:
-        flash(f'Error creating backup: {str(e)}', 'error')
+        flash(f'Error creating backup: {str(e)}', FLASH_ERROR)
         return redirect(url_for('admin_panel'))
 
 

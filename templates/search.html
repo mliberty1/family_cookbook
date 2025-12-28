@@ -15,9 +15,9 @@
         <div class="form-group">
             <label for="search-type">Search in:</label>
             <select id="search-type" name="type">
-                <option value="all" {% if search_type == 'all' %}selected{% endif %}>All (name, description, author)</option>
-                <option value="ingredient" {% if search_type == 'ingredient' %}selected{% endif %}>Ingredients</option>
-                <option value="author" {% if search_type == 'author' %}selected{% endif %}>Author</option>
+                {% for value, label in search_types %}
+                    <option value="{{ value }}" {% if search_type == value %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
             </select>
         </div>
 
