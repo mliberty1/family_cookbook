@@ -1,8 +1,10 @@
 # Migrating from Render to edge (Caddy)
 
-Status as of 2026-10-26: **started 2025-06-25, not finished.** The site is
-still served by Render. This document records what is already in place on
-`edge` and the remaining steps to complete the move.
+Status as of 2026-10-26: **edge is live.** `cookbook.libertyfamily.us`
+resolves to the home address, Caddy fronts `cookbook.service` on edge, and
+the first push-to-main deploy went through the webhook path and was
+confirmed by `/healthz`. Remaining: backups (step 9) and retiring Render
+(step 11). This document records the setup so it can be rebuilt.
 
 ## Target architecture
 
@@ -87,16 +89,13 @@ ssh from PowerShell; the key does not load under Git Bash. Root actions need
 - `app.py`: `GET /healthz` (reports `GIT_SHA`) and `POST /webhook/update`
   (bearer token, 404 when `DEPLOY_TOKEN` is unset).
 - `.github/workflows/deploy.yml`: push to `main` -> webhook -> poll healthz.
-  **Do not merge this to `main` until step 8 is done**; while DNS still
-  points at Render every push would fail the workflow.
+  Merged after the DNS cutover; a push before cutover would have failed
+  the workflow against Render.
 
 ## Not done
 
-- No code, venv, or database under `/var/cookbook`.
-- No `cookbook.service` systemd unit; nothing listens on 8880.
-- DNS `cookbook.libertyfamily.us` is still a CNAME to
-  `family-cookbook-rh6v.onrender.com`.
-- Render service still live.
+- Backup timer (step 9).
+- Render service still live; retire after a few quiet days (step 11).
 
 ## Remaining steps
 
@@ -286,7 +285,7 @@ curl.exe -k --resolve cookbook.libertyfamily.us:443:192.168.42.40 https://cookbo
 
 ### 8. DNS cutover
 
-Current: `cookbook.libertyfamily.us CNAME family-cookbook-rh6v.onrender.com`.
+Done 2026-10-26. Previously: `cookbook.libertyfamily.us CNAME family-cookbook-rh6v.onrender.com`.
 
 1. Do the final database copy (step 5).
 2. Change the CNAME to the DDNS hostname that `erp.jetperch.com` uses (same
@@ -358,15 +357,15 @@ After a few days of edge serving traffic without issues:
 
 ## Checklist
 
-- [ ] 1. Native deps installed
-- [ ] 2. Directories created
-- [ ] 3. Repo cloned, venv built
-- [ ] 4. `/var/cookbook/env` written (including `DEPLOY_TOKEN`)
-- [ ] 5. Trial db copy, service tested locally on 8880
-- [ ] 6. `cookbook.service` installed and enabled; restart and webhook tested on LAN
-- [ ] 7. Caddy validated and reloaded
-- [ ] 5. Final db copy
-- [ ] 8. CNAME switched, cert issued, site verified
+- [x] 1. Native deps installed
+- [x] 2. Directories created
+- [x] 3. Repo cloned, venv built
+- [x] 4. `/var/cookbook/env` written (including `DEPLOY_TOKEN`)
+- [x] 5. Trial db copy, service tested locally on 8880
+- [x] 6. `cookbook.service` installed and enabled; restart and webhook tested on LAN
+- [x] 7. Caddy validated and reloaded
+- [x] 5. Final db copy
+- [x] 8. CNAME switched, cert issued, site verified
 - [ ] 9. Backup timer
-- [ ] 10. `COOKBOOK_DEPLOY_TOKEN` secret set, workflow merged, first push-to-main deploy green
+- [x] 10. `COOKBOOK_DEPLOY_TOKEN` secret set, workflow merged, first push-to-main deploy green
 - [ ] 11. Render retired, docs updated
