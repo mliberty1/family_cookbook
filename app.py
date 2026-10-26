@@ -13,6 +13,9 @@ import json
 import re
 import uuid
 import os
+import hmac
+import signal
+import threading
 from datetime import datetime, date
 from functools import wraps
 from io import BytesIO
@@ -33,7 +36,7 @@ except (ImportError, OSError) as e:
 
 from flask import (
     Flask, render_template, request, redirect, url_for,
-    session, g, flash, jsonify, send_file
+    session, g, flash, jsonify, send_file, abort
 )
 
 
@@ -1342,6 +1345,48 @@ def admin_backup_database():
     except Exception as e:
         flash(f'Error creating backup: {str(e)}', FLASH_ERROR)
         return redirect(url_for('admin_panel'))
+
+
+# =============================================================================
+# Deployment (see doc/edge_migrate.md, step 10)
+# =============================================================================
+
+# Set by deploy/cookbook-start.sh on edge; lets the GitHub Action confirm
+# which commit is actually serving after a restart.
+GIT_SHA = os.environ.get('GIT_SHA', 'unknown')
+
+
+@app.route('/healthz')
+def healthz():
+    """Liveness check that also reports the running commit."""
+    return jsonify({'status': 'ok', 'git_sha': GIT_SHA})
+
+
+@app.route('/webhook/update', methods=['POST'])
+def webhook_update():
+    """Trigger a redeploy by shutting the server down.
+
+    On edge, systemd restarts cookbook.service and the start script pulls
+    origin/main before relaunching gunicorn, so "restart" is "deploy".
+    Requires "Authorization: Bearer <DEPLOY_TOKEN>". When DEPLOY_TOKEN is
+    unset (local dev, Render) the route does not exist.
+    """
+    token = os.environ.get('DEPLOY_TOKEN')
+    if not token:
+        abort(404)
+    scheme, _, presented = request.headers.get('Authorization', '').partition(' ')
+    if scheme.lower() != 'bearer' or not hmac.compare_digest(presented.strip(), token):
+        abort(401)
+
+    def shutdown():
+        # A gunicorn worker's parent is the gunicorn master. SIGTERM asks it
+        # to shut down gracefully once in-flight requests complete, and it
+        # exits 0, which is why the unit uses Restart=always.
+        os.kill(os.getppid(), signal.SIGTERM)
+
+    app.logger.warning('Deploy webhook accepted at %s; shutting down for restart', GIT_SHA)
+    threading.Timer(1.0, shutdown).start()
+    return jsonify({'status': 'restarting', 'git_sha': GIT_SHA}), 202
 
 
 # =============================================================================

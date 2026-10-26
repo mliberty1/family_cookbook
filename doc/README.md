@@ -4,6 +4,9 @@ Complete documentation for the Family Cookbook Flask application.
 
 ## Documentation Index
 
+### [Edge Migration](edge_migrate.md)
+Status and remaining steps for moving from Render to the edge server behind Caddy.
+
 ### [Deployment Guide](deployment.md)
 Step-by-step instructions for deploying to Render.com, including:
 - Manual database initialization methods

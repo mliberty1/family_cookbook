@@ -15,3 +15,6 @@ generate_favicon.py
 generate_favicon_simple.py
 DATABASE_AUDIT.md
 
+
+# SQLite databases (local dev copies)
+*.db

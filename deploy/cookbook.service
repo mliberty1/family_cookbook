@@ -1,0 +1,25 @@
+# /etc/systemd/system/cookbook.service
+#
+# Restart=always is required: the deploy webhook stops gunicorn with SIGTERM
+# (exit 0), which Restart=on-failure would not restart. The start limit is
+# disabled so a crash loop keeps retrying; each retry pulls origin/main, so
+# pushing a fix is enough to recover without ssh.
+
+[Unit]
+Description=Family Cookbook (Flask / gunicorn)
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+User=cookbook
+Group=cookbook
+WorkingDirectory=/var/cookbook/app
+EnvironmentFile=/var/cookbook/env
+ExecStart=/bin/bash /var/cookbook/app/deploy/cookbook-start.sh
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target
